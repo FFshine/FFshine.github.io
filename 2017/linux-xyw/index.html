@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en-US">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.0.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.0.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.0.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.0.4" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.0.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  
+  <meta name="keywords" content="折腾," />
+
+
+<meta name="description" content="对于天朝各大群体的网络环境，我不想做过多评论。我只在此记录我遇到问题的解决及方法。一般要客户端验证的校园网都与Linux无缘。就算有第三方大神开发出linux端的拨号工具，也抵挡不住多久就会因为运营商的升级而生效。比如我以前用的netkeeper的linux版openkeeper也在电信最近一次升级中失效。最近，无意中发现一种能够解决这个问题的方法，只要你手机能连WiFi，linux就一定能连。网">
+<meta name="keywords" content="折腾">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux连接校园网的暂时解决方法">
+<meta property="og:url" content="http://yoursite.com/2017/linux-xyw/index.html">
+<meta property="og:site_name" content="FFshine">
+<meta property="og:description" content="对于天朝各大群体的网络环境，我不想做过多评论。我只在此记录我遇到问题的解决及方法。一般要客户端验证的校园网都与Linux无缘。就算有第三方大神开发出linux端的拨号工具，也抵挡不住多久就会因为运营商的升级而生效。比如我以前用的netkeeper的linux版openkeeper也在电信最近一次升级中失效。最近，无意中发现一种能够解决这个问题的方法，只要你手机能连WiFi，linux就一定能连。网">
+<meta property="og:locale" content="en-US">
+<meta property="og:image" content="http://oohgvcz60.bkt.clouddn.com/Screenshot_2017-10-17-22-48-25-554_com.android.settings.png">
+<meta property="og:image" content="http://oohgvcz60.bkt.clouddn.com/S71017-22221511.jpg">
+<meta property="og:image" content="http://oohgvcz60.bkt.clouddn.com/Screenshot%20from%202017-10-17%2022-58-55.png">
+<meta property="og:updated_time" content="2018-05-07T12:16:26.948Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="linux连接校园网的暂时解决方法">
+<meta name="twitter:description" content="对于天朝各大群体的网络环境，我不想做过多评论。我只在此记录我遇到问题的解决及方法。一般要客户端验证的校园网都与Linux无缘。就算有第三方大神开发出linux端的拨号工具，也抵挡不住多久就会因为运营商的升级而生效。比如我以前用的netkeeper的linux版openkeeper也在电信最近一次升级中失效。最近，无意中发现一种能够解决这个问题的方法，只要你手机能连WiFi，linux就一定能连。网">
+<meta name="twitter:image" content="http://oohgvcz60.bkt.clouddn.com/Screenshot_2017-10-17-22-48-25-554_com.android.settings.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/linux-xyw/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+  <title>linux连接校园网的暂时解决方法 | FFshine</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="en-US">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">FFshine</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">读书 学习 生活</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+  
+
+
+
+ </div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/linux-xyw/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ffshine">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FFshine">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">linux连接校园网的暂时解决方法</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-17T23:05:09+08:00">2017-10-17</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>对于天朝各大群体的网络环境，我不想做过多评论。我只在此记录我遇到问题的解决及方法。<br>一般要客户端验证的校园网都与Linux无缘。就算有第三方大神开发出linux端的拨号工具，也抵挡不住多久就会因为运营商的升级而生效。比如我以前用的netkeeper的linux版<a href="https://github.com/purpleroc/OpenKeeper" target="_blank" rel="noopener">openkeeper</a>也在电信最近一次升级中失效。最近，无意中发现一种能够解决这个问题的方法，只要你手机能连WiFi，linux就一定能连。网上搜了一下，没有发现类似资料。大概算是本人原创吧。</p>
+<h1 id="材料"><a href="#材料" class="headerlink" title="材料:"></a>材料:</h1><ul>
+<li>安卓手机一部</li>
+<li>数据线一根</li>
+</ul>
+<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><p><ll>1. 手机连接校园网，并拨号，（按照平时用手机一样，当然流量多的可以无视)</ll></p>
+<ol start="2">
+<li>2. 用数据线连接linux</li>
+<li>3. 打开手机的USB网络共享<br>MIUI： 设置&gt;&gt;更多连接方式&gt;&gt;USB网络共享<img src="http://oohgvcz60.bkt.clouddn.com/Screenshot_2017-10-17-22-48-25-554_com.android.settings.png" alt="MIUI截图"></li>
+<li>Flyme：设置&gt;&gt;便携式热点&gt;&gt;USB网络共享<img src="http://oohgvcz60.bkt.clouddn.com/S71017-22221511.jpg" alt="USB网络共享"></li>
+<li>4. 拔网线，断WiFi，ping百度。</li>
+</ol>
+<p>这是100M电信用speedtest测出来的网速,实际体验和win下联网线没差多少。<br><img src="http://oohgvcz60.bkt.clouddn.com/Screenshot%20from%202017-10-17%2022-58-55.png" alt="wangsu"><br>测试可用的系统：Manjaro17，centos7，Ubuntu16.04，kali2017，debian8。</p>
+<p>如果不被封杀的话，这应该是目前为止最完美的解决方法了，目前一部能联网的安卓机也不难找。但缺点就是每次切换系统都要拔手机，应为如果在win10下开启USB共享，win10会卡。。卡。。卡死。。<br>不知道今晚推送的秋季更新里会不会修复这个问题。</p>
+<hr>
+<hr>
+<hr>
+<font color="red">2017-11-1更新</font>
+
+<p>现在,我发现了更加方便的方法(非原创),原理是:用一台手机通过正常的方式用拨号软件拨号,然后设置路由器上网方式为固定ip,MAC ip等改为手机信息,让电信终端以为路由器就是你已经拨号的手机.<br>但缺点就是由于ip地址冲突,手机不能上网,你只要重新连接设置好的路由器就行.<br>然后长时间在线后容易断,此时你要按照以前的连接方式重新设置路由器(连lan口,上网方式为自动获取)再重新用手机拨号上网.再接路由器wan口,固定方式上网.略为麻烦.我的推荐的解决方式 有两种.</p>
+<ol>
+<li>买一个网线分线器,两个路由器,把墙上的网线分成两根,一根按照普通方式连接(lan口),一根接wan口.你的手机按照普通方式连接lan口的路由器,拨号网.然后再设置路由器,如果断网,用手机正常拨号一次就行了.</li>
+<li>通过连接隔壁寝室的跟你同一个运营商的wifi重新拨号</li>
+</ol>
+<hr>
+<p>以前电信还有 一个叫Simple Netkeeper的方式破解,但是我们学校怎么都没用,可能是我理工自校情在此.我们学校并没有所谓的心跳包,所以还不算太坑的,所以对于有心跳包的同学,这种固定ip的方法是不适用的,除非你能够不厌其烦的十几分钟连一次.</p>
+
+      
+    </div>
+
+    
+    
+    <div>
+  
+    
+<div style="text-align:center;color: #ccc;font-size:14px;">
+------ end ------</div>
+
+  
+</div>
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/折腾/" rel="tag"># 折腾</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/manjaro-felluown/" rel="next" title="manjaro 下第三方网易云音乐feeluown安装">
+                <i class="fa fa-chevron-left"></i> manjaro 下第三方网易云音乐feeluown安装
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/linux-grub/" rel="prev" title="linux 开机出现grub rescue的恢复方法。">
+                linux 开机出现grub rescue的恢复方法。 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ffshine</p>
+              <p class="site-description motion-element" itemprop="description">个人笔记</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">categories</span>
+                  
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">tags</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#材料"><span class="nav-number">1.</span> <span class="nav-text">材料:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#步骤"><span class="nav-number">2.</span> <span class="nav-text">步骤</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ffshine</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Mist</a></div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.4"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
