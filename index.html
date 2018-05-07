@@ -344,7 +344,11 @@
       
         
           
-          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in 
+          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+Quick StartCreate a new post1$ hexo new "My New Post"
+More info: Writing
+Run server1$ hexo server
+More in
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -483,7 +487,7 @@ from The Verge
 
 New financial figures for Nest shed light on Google’s race to be the eyes and ears of the smart home
 
-Google parent company Alphabet 
+Google parent company Alphabet reported first quarter earnings for 2018 today, beating Wall Street estimates on sales and profit thanks in large part to its mammoth search advertisi
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -634,16 +638,16 @@ Google parent company Alphabet
 
       
         
-          <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><blockquote>
-<p>信号槽是 Qt 框架引以为豪的机制之一。熟练使用和理解信号槽，能够设计出解耦的非常漂亮的程序，有利于增强我们的技术设计能力。</p>
-</blockquote>
-<blockquote>
-<p>所谓信号槽，实际就是观察者模式。当某个事件发生之后，比如，按钮检测到自己被点击了一下，它就会发出一个信号（signal）。这种发出是没有目的的，类似广播。如果有对象对这个信号感兴趣，它就会使用连接（connect）函数，意思是，用自己的一个函数（成为槽（slot））来处理这个信号。也就是说，当信号发出时，被连接的槽函数会自动被回调。这就类似观察者模式：当发生了感兴趣的事件，某一个操作就会被自动触发。</p>
-</blockquote>
-<hr>
-<h2 id="信号与槽示例"><a href="#信号与槽示例" class="headerlink" title="信号与槽示例"></a>信号与槽示例</h2><p>例如一段简单的代码：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// !!! Qt 5</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QApplication&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QPushButton&gt;</span></span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span> </span>&#123;</span><br><span class="line">  <span class="function">QApplication <span class="title">app</span><span class="params">(argc, argv)</span></span>;</span><br><span class="line"> </span><br><span class="line">  <span class="function">QPushButton <span class="title">button</span><span class="params">(<span class="string">"Quit"</span>)</span></span>;</span><br><span class="line">  QObject::connect(&amp;button, &amp;QPushButton::clicked, &amp;QApplication::quit);</span><br><span class="line">  button.show();</span><br><span class="line"> </span><br><span class="line">  <span class="keyword">return</span> app.exec();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>程序中，按钮<code>button</code>在按下去的时候执行<code>QApplication</code>的<code>quit</code>函数。而实现这一切的是<code>QObject::connect</code>。Qt的信号与槽主要是围绕这个函数展开。</p>
-<p>在Qt5 中<code>QObject::connect()</code>有五个重载：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">QMetaObject::<span class="function">Connection <span class="title">connect</span><span class="params">(<span class="keyword">const</span> QObject *, <span class="keyword">const</span> <span class="keyword">char</span> *,</span></span></span><br><span class="line"><span class="function"><span class="params">                                <span class="keyword">const</span> QObject *, <span class="keyword">const</span> <span class="keyword">char</span> *,</span></span></span><br><span class="line"><span class="function"><span class="params">                                Qt::ConnectionType)</span></span>;</span><br><span class="line"> </span><br><span class="line">QMetaObject::<span class="function">Connection <span class="title">connect</span><span class="params">(<span class="keyword">const</span> QObject *, <span class="keyword">const</span> QMetaMethod &amp;,</span></span></span><br><span class="line"><span class="function"><span class="params">                                <span class="keyword">const</span> QObject *, <span class="keyword">const</span> QMetaMethod &amp;,</span></span></span><br><span class="line"><span class="function"><span class="params">                                Qt::ConnectionType)</span></span>;</span><br><span class="line"> </span><br><span class="line">QMetaObject::<span class="function">Connection <span class="title">connect</span><span class="params">(<span class="keyword">const</span> QObject *, <span class="keyword">const</span> <span class="keyword">char</span> *,</span></span></span><br><span class="line"><span class="function"><span class="params">                                <span class="keyword">const</span> <span class="keyword">char</span> *,</span></span></span><br><span class="line"><span class="function"><span class="params">                                Qt::ConnectionType)</span> <span class="keyword">const</span></span>;</span><br><span class="line"> </span><br><span class="line">QMetaObject::<span class="function">Connection <span class="title">connect</span><span class="params">(<span class="keyword">const</span> QObject *, PointerToMemberFunction,</span></span></span><br><span class="line"><span class="function"><span class="params">                                <span class="keyword">const</span> QObject *, PointerToMemberFunction,</span></span></span><br><span class="line"><span class="function"><span class="params">                                Qt::ConnectionType)</span></span></span><br><span class="line"><span class="function"> </span></span><br><span class="line">QMetaObject::Connection connect(const QObject *, PointerToMemberFunction,</span><br><span class="line">                                Functor);</span><br></pre></td></tr></table></figure></p>
+          
+          简介
+信号槽是 Qt 框架引以为豪的机制之一。熟练使用和理解信号槽，能够设计出解耦的非常漂亮的程序，有利于增强我们的技术设计能力。
+
+
+所谓信号槽，实际就是观察者模式。当某个事件发生之后，比如，按钮检测到自己被点击了一下，它就会发出一个信号（signal）。这种发出是没有目的的，类似广播。如果有对象对这个信号感兴趣，它就会使用连接（connect）函数，意思是，用自己的一个函数（成为槽（slot））来处理这个信号。也就是说，当信号发出时，被连接的槽函数会自动被回调。这就类似观察者模式：当发生了感兴趣的事件，某一个操作就会被自动触发。
+
+
+信号与槽示例例如一段简单的代码：123456789101
+          ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/signalsAndSlots/#more" rel="contents">
@@ -793,14 +797,14 @@ Google parent company Alphabet
 
       
         
-          <h2 id="安装（Linux）"><a href="#安装（Linux）" class="headerlink" title="安装（Linux）"></a>安装（Linux）</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -S git</span><br></pre></td></tr></table></figure>
-<p>安装完之后设置用户和邮箱<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">"Your Name"</span></span><br><span class="line">$ git config --global user.email <span class="string">"email@example.com"</span></span><br></pre></td></tr></table></figure></p>
-<p>以上的 <code>--global</code>指定了, 本系统所有的仓库都会使用这个配置。</p>
-<h2 id="新建一个版本库"><a href="#新建一个版本库" class="headerlink" title="新建一个版本库"></a>新建一个版本库</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir mygit</span><br><span class="line">$ <span class="built_in">cd</span> mygit</span><br><span class="line">$ git init</span><br></pre></td></tr></table></figure>
-<h2 id="添加文件"><a href="#添加文件" class="headerlink" title="添加文件"></a>添加文件</h2><p><em>假如你在本目录下添加了一个叫<code>readme.txt</code>的文件</em></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git add readme.txt</span><br><span class="line">$ git commit -m <span class="string">"add readme.txt"</span></span><br></pre></td></tr></table></figure>
-<p><code>commit -m</code>后面的参数为此次修改的提交说明.</p>
-<h2 id="提交修改后的文件"><a href="#提交修改后的文件" class="headerlink" title="提交修改后的文件"></a>提交修改后的文件</h2><h3 id="查看状态"><a href="#查看状态" class="headerlink" title="查看状态"></a>查看状态</h3><p>如果你修改了<code>redme.txt</code>运行<code>git status</code></p>
+          
+          安装（Linux）1$ sudo pacman -S git
+安装完之后设置用户和邮箱12$ git config --global user.name "Your Name"$ git config --global user.email "email@example.com"
+以上的 --global指定了, 本系统所有的仓库都会使用这个配置。
+新建一个版本库123$ mkdir mygit$ cd mygit$ git init
+添加文件假如你在本目录下添加了一个叫readme.txt的文件
+12$ git add readme.txt$ git commit -m "add readm
+          ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/git/#more" rel="contents">
@@ -950,14 +954,11 @@ Google parent company Alphabet
 
       
         
-          <h2 id="c-中的cin"><a href="#c-中的cin" class="headerlink" title="c++ 中的cin"></a>c++ 中的cin</h2><p>c++中的<code>cin</code>以空白符（空格 回车 制表）作为分隔符，以回车作为输入结束符。在平时使用中除了输入数字，否则很难避免输入的内容包含空格等特殊字符的情况。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> name1[<span class="number">20</span>];</span><br><span class="line"><span class="keyword">char</span> name2[<span class="number">20</span>];</span><br><span class="line"><span class="built_in">cin</span> &gt;&gt; name1 &gt;&gt; name2;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; name1 &lt;&lt; <span class="built_in">endl</span> &lt;&lt; name2 &lt;&lt; <span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure></p>
-<p>如果输入<code>barack obama</code>，再按回车。程序直接输出<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">barack</span><br><span class="line">obama</span><br></pre></td></tr></table></figure></p>
-<p>在此次输入中，把<code>barack</code>赋值给了<code>name1</code>，把<code>obama</code>赋值给了<code>name2</code>；（此时最后输入的回车符任保存在缓存中）。</p>
-<h2 id="cin-getline"><a href="#cin-getline" class="headerlink" title="cin.getline"></a>cin.getline</h2><p>好在c++给了一个解决这个问题的方法。在<code>cin</code>的成员函数中，有一个以回车为分隔符的函数<code>getline()</code>。</p>
-<p><code>getline()</code>因为是<code>cin</code>的成员函数。所以使用方法为<code>cin.getline()</code>。他有（一般）两个参数，第一个为接收这行字符串的数组的名称，第二个为读取的字符数。</p>
-<p><code>getline()</code>读取某行字符时，会接收最后的回车符，然后把回车符丢弃换成空字符串<code>&#39;\0&#39;</code>，所以如果<code>getline</code>的第二个参数为20，他最多能接收19个字符。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> name1[<span class="number">20</span>];</span><br><span class="line"><span class="keyword">char</span> name2[<span class="number">20</span>];</span><br><span class="line"><span class="built_in">cin</span>.getline(name1,<span class="number">20</span>);</span><br><span class="line"><span class="built_in">cin</span>.getline(name2,<span class="number">20</span>);</span><br></pre></td></tr></table></figure></p>
-<h2 id="cin-get"><a href="#cin-get" class="headerlink" title="cin.get"></a>cin.get</h2><p>与此同时，c++也给出了<code>get()</code>，与<code>getline()</code>不同的是，<code>get</code>不会接收最后的回车符（参数与<code>getline</code>一样）。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> name1[<span class="number">20</span>];</span><br><span class="line"><span class="keyword">char</span> name2[<span class="number">20</span>];</span><br><span class="line"><span class="built_in">cin</span>.get(name1,<span class="number">20</span>);</span><br><span class="line"><span class="built_in">cin</span>.get(name2,<span class="number">20</span>);</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; name1 &lt;&lt; name2;</span><br></pre></td></tr></table></figure>
+          
+          c++ 中的cinc++中的cin以空白符（空格 回车 制表）作为分隔符，以回车作为输入结束符。在平时使用中除了输入数字，否则很难避免输入的内容包含空格等特殊字符的情况。1234char name1[20];char name2[20];cin &gt;&gt; name1 &gt;&gt; name2;cout &lt;&lt; name1 &lt;&lt; endl &lt;&lt; name2 &lt;&lt; endl;
+如果输入barack obama，再按回车。程序直接输出12barackobama
+在此次输入中，把barack赋值给了name1，把obama赋值给了name2；（
+          ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/get-and-getline-in-cpp/#more" rel="contents">
@@ -1107,17 +1108,11 @@ Google parent company Alphabet
 
       
         
-          <p><strong>时间：</strong><br>1915～1917 年间<br><strong>地点：</strong><br>奥斯曼土耳其帝国<br><strong>事件定义</strong><br>针对亚美尼亚人的种族灭绝事件</p>
-<hr>
-<h2 id="百科词条"><a href="#百科词条" class="headerlink" title="百科词条"></a>百科词条</h2><p>亚美尼亚大屠杀指的是土耳其对其辖境内亚美尼亚人基督徒进行的种族屠杀。其受害者数量达到150万之众。<br>土耳其政府至今拒绝承认这是一起官方发起的有预谋的屠杀行为，但亚美尼亚、俄罗斯和多数西方国家皆认为这是一起可以和犹太人大屠杀相提并论的由一国政府蓄意进行的种族灭绝行为，一些土耳其学者（如奥尔汉·帕穆克等）也持有相同观点。目前共有阿根廷、比利时、加拿大、法国、希腊、意大利、黎巴嫩、荷兰、俄罗斯、瑞典等二十多个国家官方承认这是一场种族屠杀。欧洲议会也承认“亚美尼亚大屠杀”事件，称这宗屠杀为“违反人性的罪行”。联合国防止歧视和保护少数小组委员会也将事件定性为“种族灭绝”&lt;/h2百科词条&lt;&gt;</p>
-<hr>
-<h2 id="经过："><a href="#经过：" class="headerlink" title="经过："></a>经过：</h2><p>在奥斯曼土耳其境内，生活着一群信奉基督教的亚美尼亚人，他们在伊斯兰教的奇米制度下，享有这有限的自由。但他们只是帝国的“二等公民”，在各种地方饱受伊斯兰教徒的歧视。</p>
-<p>1839年，在英法俄的压力下，土耳其政府推行坦齐马特改革去改善少数族裔的处境，但成效不大。到了1870年代末，希腊及几个巴尔干国家已经不能忍受，先后摆脱了奥斯曼的统治。亚美尼亚人在这段时间没有积极争取独立，使他们得到了“忠心米利特”（土耳其语：millet-isadıka）的称呼。</p>
-<p>从1860年代中期至1870年代初，亚美尼亚人开始要求土耳其政府改善他们的待遇。并为此做出了巨大的努力，虽然有英法俄等基督教国家的帮助，但取得的成效几乎为零。</p>
-<p>在1877年至1878年的俄土战争结束后，亚美尼亚人开始更倾向以俄国作为他们安全的保证人。在俄国等列强的压力之下，土耳其政府在《柏林条约》承诺了。将以改革实现亚美尼亚人自治。</p>
-<p>新苏丹阿卜杜勒·哈米德二世于1876年登位。自从《柏林条约》签订后的改革期开始，哈米德二世试图搁置那些改革，声称亚美尼亚人在那些省份未占大多数，又称亚美尼亚人报告受苛待的事大多是夸大或不实。1890年，哈米德二世创建了一支准军事队伍“哈米迪耶”（Hamidiye），由库尔德族非正规人员组成，任务是“随他们想怎样的去处理亚美尼亚人”。由于奥斯曼官员蓄意在亚美尼亚人聚居市镇引发叛乱（通常是因为税收过重），例如1894年的“沙逊抵抗”（Sasun Resistance），这些部队越来越多被用作以压制及屠杀手段去对付亚美尼亚人。亚美尼亚人成功击退这些部队，于1895年提请列强关注这些越轨行为，而列强随即谴责土耳其政府。</p>
-<p>列强迫使哈米德二世于1895年10月签署新的一揽子改革，以抑制“哈米迪耶”的权力，可是与《柏林条约》规定的改革一样，从未得到落实。1895年10月1日，2000个亚美尼亚人在君士坦丁堡集会请愿，要求落实改革，遭奥斯曼警察用武力驱散。未几，君士坦丁堡发生了一些亚美尼亚人被屠杀事件，随后席卷其他亚美尼亚人聚居的比特利斯省、迪亚巴克尔省、Harput省、锡瓦斯省、特拉布宗省及凡城省。遇害的亚美尼亚人数目有不同估计，但是欧洲人对这次被称为哈米德大屠杀的暴行的文件记录把数字定于10万至30万人之间。</p>
-<p>1908年7月24日，哈米德二世被军官发动政变推翻，恢复君主立宪制，政变者来自青年土耳其人运动，欲改革帝国的施政及推行现代化以追上欧洲水平。该运动由两大类人组成：世俗主义的自由立宪主义者，及民族主义者。前者比较支持民主，愿意接纳亚美尼亚人加入他们；后者则对亚美尼亚相关议题及亚美尼亚人常找欧洲人求助的事采取较不容忍的立场。在青年土耳其人的众多派系中，有一个叫“统一与进步委员会”（Committee of Unionand Progress，简称CUP）的政治组织。该组织最初是一个由萨洛尼卡的军官组成的秘密结社，在军方内日渐壮大。</p>
+          
+          时间：1915～1917 年间地点：奥斯曼土耳其帝国事件定义针对亚美尼亚人的种族灭绝事件
+
+百科词条亚美尼亚大屠杀指的是土耳其对其辖境内亚美尼亚人基督徒进行的种族屠杀。其受害者数量达到150万之众。土耳其政府至今拒绝承认这是一起官方发起的有预谋的屠杀行为，但亚美尼亚、俄罗斯和多数西方国家皆认为这是一起可以和犹太人大屠杀相提并论的由一国政府蓄意进行的种族灭绝行为，一些土耳其学者（如奥尔汉·帕穆克等）也持有相同观点。目前共有阿根廷、比利时、加拿大、法国、希腊、意大利、黎巴嫩、荷兰、俄罗斯、瑞典等二十多个国家官方承认这是一场种族屠杀。欧洲议会也承认“亚美尼亚大屠杀”事件，称这宗屠杀为“违反人性的罪行
+          ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/yameiniys/#more" rel="contents">
@@ -1420,9 +1415,10 @@ Google parent company Alphabet
 
       
         
-          <p><strong>美人赋</strong><br><em>司马相如</em></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;司马相如，美丽闲都，游于梁王，梁王悦之。邹阳谮之于王曰：“相如美则美矣，然服色容冶，妖丽不忠，将欲媚辞取悦，游王后宫，王不察之乎？”<br>&nbsp;&nbsp;&nbsp;&nbsp;王问相如曰：“子好色乎？”相如曰：“臣不好色也。”王曰：“子不好色，何若孔墨乎？”相如曰：“古之避色，孔墨之徒，闻齐馈女而遐逝，望朝歌而回车，譬犹防火水中，避溺山隅，此乃未见其可欲，何以明不好色乎？若臣者，少长西土，鳏处独居，室宇辽廓，莫与为娱。臣之东邻，有一女子，云发丰艳，蛾眉皓齿，颜盛色茂，景曜光起。恒翘翘而西顾，欲留臣而共止。登垣而望臣，三年于兹矣，臣弃而不许。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;“窃慕大王之高义，命驾东来，途出郑卫，道由桑中。朝发溱洧，暮宿上宫。上宫闲馆，寂寞云虚，门阁昼掩，暧若神居。臣排其户而造其室，芳香芬烈，黼帐高张。有女独处，婉然在床。奇葩逸丽，淑质艳光。睹臣迁延，微笑而言曰：‘上客何国之公子！所从来无乃远乎？’遂设旨酒，进鸣琴。臣遂抚琴，为幽兰白雪之曲。女乃歌曰：‘独处室兮廓无依，思佳人兮情伤悲！有美人兮来何迟，日既暮兮华色衰，敢托身兮长自思。’玉钗挂臣冠，罗袖拂臣衣。时日西夕，玄阴晦冥，流风惨冽，素雪飘零，闲房寂谧，不闻人声。于是寝具既陈，服玩珍奇，金鉔薰香，黼帐低垂，裀褥重陈，角枕横施。女乃驰其上服，表其亵衣。皓体呈露，弱骨丰肌。时来亲臣，柔滑如脂。臣乃脉定于内，心正于怀，信誓旦旦，秉志不回。翻然高举，与彼长辞。”</p>
+          
+          美人赋司马相如
+&nbsp;&nbsp;&nbsp;&nbsp;司马相如，美丽闲都，游于梁王，梁王悦之。邹阳谮之于王曰：“相如美则美矣，然服色容冶，妖丽不忠，将欲媚辞取悦，游王后宫，王不察之乎？”&nbsp;&nbsp;&nbsp;&nbsp;王问相如曰：“子好色乎？”相如曰：“臣不好色也。”王曰：“子不好色，何若孔墨乎？”相如曰：“古之避色，孔墨之徒，闻齐馈女而遐逝，望朝歌而回车，譬犹防火水中，避溺山隅，此乃未见其可欲，何以明不好色乎？若臣者，少长西土，鳏处独居，室宇辽廓，莫与为娱。臣之东邻，有一女子，云发丰艳，蛾眉皓齿，颜盛色茂，景曜光起。恒翘翘而西顾，欲留臣而共止。登垣而望臣，三年于兹矣
+          ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/mrf/#more" rel="contents">
@@ -1577,7 +1573,12 @@ Google parent company Alphabet
 根据百度的方法
 
     grub rescue &gt;ls
-    grub rescue &gt;(hd0),(hd0,gpt5),(hd0,
+    grub rescue &gt;(hd0),(hd0,gpt5),(hd0,gpt4),(hd0,gpt3),(hd0,gpt2),(hd0,gpt1),(hd1)(....)
+
+
+我明明记得第一个硬盘只有四个分区（efi，windows保留分区，win10系统分区，manjaro系统分区），这会儿怎么出现五个，应该是微软搞的鬼。接下来弄清楚grub到底在那个分区。
+执行
+
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1728,30 +1729,17 @@ Google parent company Alphabet
 
       
         
-          <p>对于天朝各大群体的网络环境，我不想做过多评论。我只在此记录我遇到问题的解决及方法。<br>一般要客户端验证的校园网都与Linux无缘。就算有第三方大神开发出linux端的拨号工具，也抵挡不住多久就会因为运营商的升级而生效。比如我以前用的netkeeper的linux版<a href="https://github.com/purpleroc/OpenKeeper" target="_blank" rel="noopener">openkeeper</a>也在电信最近一次升级中失效。最近，无意中发现一种能够解决这个问题的方法，只要你手机能连WiFi，linux就一定能连。网上搜了一下，没有发现类似资料。大概算是本人原创吧。</p>
-<h1 id="材料"><a href="#材料" class="headerlink" title="材料:"></a>材料:</h1><ul>
-<li>安卓手机一部</li>
-<li>数据线一根</li>
-</ul>
-<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><p><ll>1. 手机连接校园网，并拨号，（按照平时用手机一样，当然流量多的可以无视)</ll></p>
-<ol start="2">
-<li>2. 用数据线连接linux</li>
-<li>3. 打开手机的USB网络共享<br>MIUI： 设置&gt;&gt;更多连接方式&gt;&gt;USB网络共享<img src="http://oohgvcz60.bkt.clouddn.com/Screenshot_2017-10-17-22-48-25-554_com.android.settings.png" alt="MIUI截图"></li>
-<li>Flyme：设置&gt;&gt;便携式热点&gt;&gt;USB网络共享<img src="http://oohgvcz60.bkt.clouddn.com/S71017-22221511.jpg" alt="USB网络共享"></li>
-<li>4. 拔网线，断WiFi，ping百度。</li>
-</ol>
-<p>这是100M电信用speedtest测出来的网速,实际体验和win下联网线没差多少。<br><img src="http://oohgvcz60.bkt.clouddn.com/Screenshot%20from%202017-10-17%2022-58-55.png" alt="wangsu"><br>测试可用的系统：Manjaro17，centos7，Ubuntu16.04，kali2017，debian8。</p>
-<p>如果不被封杀的话，这应该是目前为止最完美的解决方法了，目前一部能联网的安卓机也不难找。但缺点就是每次切换系统都要拔手机，应为如果在win10下开启USB共享，win10会卡。。卡。。卡死。。<br>不知道今晚推送的秋季更新里会不会修复这个问题。</p>
-<hr>
-<hr>
-<hr>
-<font color="red">2017-11-1更新</font>
+          
+          对于天朝各大群体的网络环境，我不想做过多评论。我只在此记录我遇到问题的解决及方法。一般要客户端验证的校园网都与Linux无缘。就算有第三方大神开发出linux端的拨号工具，也抵挡不住多久就会因为运营商的升级而生效。比如我以前用的netkeeper的linux版openkeeper也在电信最近一次升级中失效。最近，无意中发现一种能够解决这个问题的方法，只要你手机能连WiFi，linux就一定能连。网上搜了一下，没有发现类似资料。大概算是本人原创吧。
+材料:
+安卓手机一部
+数据线一根
 
-<p>现在,我发现了更加方便的方法(非原创),原理是:用一台手机通过正常的方式用拨号软件拨号,然后设置路由器上网方式为固定ip,MAC ip等改为手机信息,让电信终端以为路由器就是你已经拨号的手机.<br>但缺点就是由于ip地址冲突,手机不能上网,你只要重新连接设置好的路由器就行.<br>然后长时间在线后容易断,此时你要按照以前的连接方式重新设置路由器(连lan口,上网方式为自动获取)再重新用手机拨号上网.再接路由器wan口,固定方式上网.略为麻烦.我的推荐的解决方式 有两种.</p>
-<ol>
-<li>买一个网线分线器,两个路由器,把墙上的网线分成两根,一根按照普通方式连接(lan口),一根接wan口.你的手机按照普通方式连接lan口的路由器,拨号网.然后再设置路由器,如果断网,用手机正常拨号一次就行了.</li>
-<li>通过连接隔壁寝室的跟你同一个运营商的wifi重新拨号</li>
-</ol>
+步骤1. 手机连接校园网，并拨号，（按照平时用手机一样，当然流量多的可以无视)
+
+2. 用数据线连接linux
+
+          ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/linux-xyw/#more" rel="contents">
@@ -1846,7 +1834,7 @@ Google parent company Alphabet
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-count">13</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -1873,9 +1861,7 @@ Google parent company Alphabet
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">categories</span>
                   
                 </div>
@@ -1885,7 +1871,7 @@ Google parent company Alphabet
                 
                 
                 <div class="site-state-item site-state-tags">
-                  
+                  <a href="/tags/index.html">
                     
                     
                       
@@ -1910,9 +1896,11 @@ Google parent company Alphabet
                     
                       
                     
-                    <span class="site-state-item-count">6</span>
+                      
+                    
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">tags</span>
-                  
+                  </a>
                 </div>
               
             </nav>

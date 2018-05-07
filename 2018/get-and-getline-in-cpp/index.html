@@ -99,18 +99,18 @@
 
 
   
-  <meta name="keywords" content="c++," />
+  <meta name="keywords" content="c++,代码," />
 
 
 <meta name="description" content="c++ 中的cinc++中的cin以空白符（空格 回车 制表）作为分隔符，以回车作为输入结束符。在平时使用中除了输入数字，否则很难避免输入的内容包含空格等特殊字符的情况。1234char name1[20];char name2[20];cin &amp;gt;&amp;gt; name1 &amp;gt;&amp;gt; name2;cout &amp;lt;&amp;lt; name1 &amp;lt;&amp;lt; endl &amp;lt;&amp;lt; name">
-<meta name="keywords" content="c++">
+<meta name="keywords" content="c++,代码">
 <meta property="og:type" content="article">
 <meta property="og:title" content="c++中的get与getline">
 <meta property="og:url" content="http://yoursite.com/2018/get-and-getline-in-cpp/index.html">
 <meta property="og:site_name" content="FFshine">
 <meta property="og:description" content="c++ 中的cinc++中的cin以空白符（空格 回车 制表）作为分隔符，以回车作为输入结束符。在平时使用中除了输入数字，否则很难避免输入的内容包含空格等特殊字符的情况。1234char name1[20];char name2[20];cin &amp;gt;&amp;gt; name1 &amp;gt;&amp;gt; name2;cout &amp;lt;&amp;lt; name1 &amp;lt;&amp;lt; endl &amp;lt;&amp;lt; name">
 <meta property="og:locale" content="en-US">
-<meta property="og:updated_time" content="2018-05-07T12:30:19.162Z">
+<meta property="og:updated_time" content="2018-05-07T13:12:10.311Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="c++中的get与getline">
 <meta name="twitter:description" content="c++ 中的cinc++中的cin以空白符（空格 回车 制表）作为分隔符，以回车作为输入结束符。在平时使用中除了输入数字，否则很难避免输入的内容包含空格等特殊字符的情况。1234char name1[20];char name2[20];cin &amp;gt;&amp;gt; name1 &amp;gt;&amp;gt; name2;cout &amp;lt;&amp;lt; name1 &amp;lt;&amp;lt; endl &amp;lt;&amp;lt; name">
@@ -367,7 +367,6 @@
 <p><code>getline()</code>读取某行字符时，会接收最后的回车符，然后把回车符丢弃换成空字符串<code>&#39;\0&#39;</code>，所以如果<code>getline</code>的第二个参数为20，他最多能接收19个字符。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> name1[<span class="number">20</span>];</span><br><span class="line"><span class="keyword">char</span> name2[<span class="number">20</span>];</span><br><span class="line"><span class="built_in">cin</span>.getline(name1,<span class="number">20</span>);</span><br><span class="line"><span class="built_in">cin</span>.getline(name2,<span class="number">20</span>);</span><br></pre></td></tr></table></figure></p>
 <h2 id="cin-get"><a href="#cin-get" class="headerlink" title="cin.get"></a>cin.get</h2><p>与此同时，c++也给出了<code>get()</code>，与<code>getline()</code>不同的是，<code>get</code>不会接收最后的回车符（参数与<code>getline</code>一样）。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> name1[<span class="number">20</span>];</span><br><span class="line"><span class="keyword">char</span> name2[<span class="number">20</span>];</span><br><span class="line"><span class="built_in">cin</span>.get(name1,<span class="number">20</span>);</span><br><span class="line"><span class="built_in">cin</span>.get(name2,<span class="number">20</span>);</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; name1 &lt;&lt; name2;</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
 <p>输入<code>barack obama</code>，回车。输出的将是：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">barack obama</span><br></pre></td></tr></table></figure>
 <p>因为第一个<code>get</code>函数完成后，<code>\n</code>被留在了缓存中，当执行第二个<code>get</code>时，程序从缓存中读到了一个<code>\n</code>，所以第二个<code>get</code>没有接收到任何参数就结束了。</p>
@@ -420,6 +419,8 @@
         <div class="post-tags">
           
             <a href="/tags/c/" rel="tag"># c++</a>
+          
+            <a href="/tags/代码/" rel="tag"># 代码</a>
           
         </div>
       
@@ -518,7 +519,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-count">13</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -545,9 +546,7 @@
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">categories</span>
                   
                 </div>
@@ -557,7 +556,7 @@
                 
                 
                 <div class="site-state-item site-state-tags">
-                  
+                  <a href="/tags/index.html">
                     
                     
                       
@@ -582,9 +581,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">6</span>
+                      
+                    
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">tags</span>
-                  
+                  </a>
                 </div>
               
             </nav>
