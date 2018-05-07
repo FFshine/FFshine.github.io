@@ -791,7 +791,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git add readme.txt</span><br><span class="line">$ git commit -m <span class="string">"add readme.txt"</span></span><br></pre></td></tr></table></figure>
 <p><code>commit -m</code>后面的参数为此次修改的提交说明.</p>
 <h2 id="提交修改后的文件"><a href="#提交修改后的文件" class="headerlink" title="提交修改后的文件"></a>提交修改后的文件</h2><h3 id="查看状态"><a href="#查看状态" class="headerlink" title="查看状态"></a>查看状态</h3><p>如果你修改了<code>redme.txt</code>运行<code>git status</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line">Changes not staged <span class="keyword">for</span> commit:</span><br><span class="line">(use <span class="string">"git add &amp;lt;file&amp;gt;..."</span> to update what will be committed)</span><br><span class="line">(use <span class="string">"git checkout -- &amp;lt;file&amp;gt;..."</span> to discard changes <span class="keyword">in</span> working directory)</span><br><span class="line"></span><br><span class="line">modified:   readme.txt</span><br><span class="line"></span><br><span class="line">no changes added to commit (use <span class="string">"git add"</span> and/or <span class="string">"git commit -a"</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line">Changes not staged <span class="keyword">for</span> commit:</span><br><span class="line">&lt;!--more--&gt;</span><br><span class="line">(use <span class="string">"git add &amp;lt;file&amp;gt;..."</span> to update what will be committed)</span><br><span class="line">(use <span class="string">"git checkout -- &amp;lt;file&amp;gt;..."</span> to discard changes <span class="keyword">in</span> working directory)</span><br><span class="line"></span><br><span class="line">modified:   readme.txt</span><br><span class="line"></span><br><span class="line">no changes added to commit (use <span class="string">"git add"</span> and/or <span class="string">"git commit -a"</span>)</span><br></pre></td></tr></table></figure>
 <p>它告诉你, <code>redme.txt</code>已经被修改过了, 但是还没有准备提交的修改.</p>
 <h3 id="比较修改前和修改后的不同"><a href="#比较修改前和修改后的不同" class="headerlink" title="比较修改前和修改后的不同"></a>比较修改前和修改后的不同</h3><p>如果你已经忘记了你修改的内容, 运行<code>git diff</code>比较不同.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ git diff readme.txt</span><br><span class="line">diff --git a/readme.txt b/readme.txt</span><br><span class="line">index c4990a0..4cd0f41 100644</span><br><span class="line">--- a/readme.txt</span><br><span class="line">+++ b/readme.txt</span><br><span class="line">@@ -1,2 +1,2 @@</span><br><span class="line"> Git is a distributed version control system.</span><br><span class="line"> -Git is free software distributed ubder the GPL.</span><br><span class="line"> +Git is free software distributed ubder the f.</span><br></pre></td></tr></table></figure>
@@ -850,6 +850,7 @@ Date:   Wed Jan 31 19:25:17 2018 +0800
     d79a6a5 HEAD@{4}: commit: add distributed
     340d6f6 HEAD@{5}: commit (initial): wrote a readme file
 </pre>
+
           
         
       
@@ -993,8 +994,7 @@ Date:   Wed Jan 31 19:25:17 2018 +0800
 
       
         
-          
-            <h2 id="c-中的cin"><a href="#c-中的cin" class="headerlink" title="c++ 中的cin"></a>c++ 中的cin</h2><p>c++中的<code>cin</code>以空白符（空格 回车 制表）作为分隔符，以回车作为输入结束符。在平时使用中除了输入数字，否则很难避免输入的内容包含空格等特殊字符的情况。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> name1[<span class="number">20</span>];</span><br><span class="line"><span class="keyword">char</span> name2[<span class="number">20</span>];</span><br><span class="line"><span class="built_in">cin</span> &gt;&gt; name1 &gt;&gt; name2;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; name1 &lt;&lt; <span class="built_in">endl</span> &lt;&lt; name2 &lt;&lt; <span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure></p>
+          <h2 id="c-中的cin"><a href="#c-中的cin" class="headerlink" title="c++ 中的cin"></a>c++ 中的cin</h2><p>c++中的<code>cin</code>以空白符（空格 回车 制表）作为分隔符，以回车作为输入结束符。在平时使用中除了输入数字，否则很难避免输入的内容包含空格等特殊字符的情况。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> name1[<span class="number">20</span>];</span><br><span class="line"><span class="keyword">char</span> name2[<span class="number">20</span>];</span><br><span class="line"><span class="built_in">cin</span> &gt;&gt; name1 &gt;&gt; name2;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; name1 &lt;&lt; <span class="built_in">endl</span> &lt;&lt; name2 &lt;&lt; <span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure></p>
 <p>如果输入<code>barack obama</code>，再按回车。程序直接输出<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">barack</span><br><span class="line">obama</span><br></pre></td></tr></table></figure></p>
 <p>在此次输入中，把<code>barack</code>赋值给了<code>name1</code>，把<code>obama</code>赋值给了<code>name2</code>；（此时最后输入的回车符任保存在缓存中）。</p>
 <h2 id="cin-getline"><a href="#cin-getline" class="headerlink" title="cin.getline"></a>cin.getline</h2><p>好在c++给了一个解决这个问题的方法。在<code>cin</code>的成员函数中，有一个以回车为分隔符的函数<code>getline()</code>。</p>
@@ -1002,30 +1002,13 @@ Date:   Wed Jan 31 19:25:17 2018 +0800
 <p><code>getline()</code>读取某行字符时，会接收最后的回车符，然后把回车符丢弃换成空字符串<code>&#39;\0&#39;</code>，所以如果<code>getline</code>的第二个参数为20，他最多能接收19个字符。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> name1[<span class="number">20</span>];</span><br><span class="line"><span class="keyword">char</span> name2[<span class="number">20</span>];</span><br><span class="line"><span class="built_in">cin</span>.getline(name1,<span class="number">20</span>);</span><br><span class="line"><span class="built_in">cin</span>.getline(name2,<span class="number">20</span>);</span><br></pre></td></tr></table></figure></p>
 <h2 id="cin-get"><a href="#cin-get" class="headerlink" title="cin.get"></a>cin.get</h2><p>与此同时，c++也给出了<code>get()</code>，与<code>getline()</code>不同的是，<code>get</code>不会接收最后的回车符（参数与<code>getline</code>一样）。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> name1[<span class="number">20</span>];</span><br><span class="line"><span class="keyword">char</span> name2[<span class="number">20</span>];</span><br><span class="line"><span class="built_in">cin</span>.get(name1,<span class="number">20</span>);</span><br><span class="line"><span class="built_in">cin</span>.get(name2,<span class="number">20</span>);</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; name1 &lt;&lt; name2;</span><br></pre></td></tr></table></figure>
-<p>输入<code>barack obama</code>，回车。输出的将是：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">barack obama</span><br></pre></td></tr></table></figure>
-<p>因为第一个<code>get</code>函数完成后，<code>\n</code>被留在了缓存中，当执行第二个<code>get</code>时，程序从缓存中读到了一个<code>\n</code>，所以第二个<code>get</code>没有接收到任何参数就结束了。</p>
-<p>为了解决这个问题，<code>get</code>还有一个不带参数的形式，这时只能接收一个字符，所以可以通过下面这种方式，把最后的回车用<code>get</code>丢弃。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> name1[<span class="number">20</span>];</span><br><span class="line"><span class="keyword">char</span> name2[<span class="number">20</span>];</span><br><span class="line"><span class="built_in">cin</span>.get(name1,<span class="number">20</span>).get();</span><br><span class="line"><span class="built_in">cin</span>.get(name2,<span class="number">20</span>).get();</span><br></pre></td></tr></table></figure></p>
-<p>如果你想保存那个字符，你可以 <code>char a = cin.get();</code>。或者使用<code>get</code>的第三种形式<code>char a; cin.get(a);</code>。</p>
-<p>在第一节中说到。<code>cin</code>以回车为输入结束，输入结束后，回车依然留在缓存中。如果你在<code>cin</code>后面紧接着来一个<code>cin.get(string *,int)</code>，你的<code>get</code>可能接收不到任何参数。</p>
-<p>所以像上面一样，在<code>cin</code>完之后，应该用一个不带参数的<code>get</code>把回车接收并丢弃掉。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> name1[<span class="number">20</span>],name2[<span class="number">20</span>],a[<span class="number">20</span>];</span><br><span class="line"><span class="built_in">cin</span> &gt;&gt; a;   <span class="comment">//or (cin &gt;&gt; a).get();从而不要下面那句。</span></span><br><span class="line"><span class="built_in">cin</span>.get() <span class="comment">//or char ch; cin.get(ch);</span></span><br></pre></td></tr></table></figure>
-<p>上面之所以能够<code>cin.get(string *,int).get()</code>或<code>(cin &gt;&gt; a).get()</code>，是因为<code>cin</code>在有参数的情况下，返回的是一个<code>cin</code>对象（<code>cin.get()</code>在没有参数的情况下，返回的是接收的字符）。</p>
-<h2 id="get与getline"><a href="#get与getline" class="headerlink" title="get与getline"></a>get与getline</h2><p>如此看来，貌似<code>getline</code>使用起来比<code>get</code>更加方便，那么<code>get</code>存在的意义是什么？</p>
-<p>在<code>getline</code>中，当输入的字符超过限制时，<code>getline</code>会读取她所需要的字符，并阻断接下来的输入。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> name1[<span class="number">5</span>];</span><br><span class="line"><span class="keyword">char</span> name2[<span class="number">5</span>];</span><br><span class="line"><span class="built_in">cin</span>.getline(name1,<span class="number">5</span>).getline(name2,<span class="number">5</span>);</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"name1: "</span> &lt;&lt; name1 &lt;&lt; <span class="string">"\tname2: "</span> &lt;&lt; name2;</span><br></pre></td></tr></table></figure>
-<p>输入<code>obama\n</code>，输出的是：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">name1: obam</span><br></pre></td></tr></table></figure>
-<p><code>get</code>不会阻断输入，他只会接收自己需要的字符，其余的将留在缓存中：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> name1[<span class="number">5</span>];</span><br><span class="line"><span class="keyword">char</span> name2[<span class="number">5</span>];</span><br><span class="line"><span class="built_in">cin</span>.get(name1,<span class="number">5</span>).get(name2,<span class="number">5</span>);</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"name1: "</span> &lt;&lt; name1 &lt;&lt; <span class="string">"\tname2: "</span> &lt;&lt; name2;</span><br></pre></td></tr></table></figure>
-<p>输入<code>obama\n</code>,输出：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">char1: obam     char2: a</span><br></pre></td></tr></table></figure>
-<p>所以当我们不知道该输入是因为<code>\n</code>而结束，还是因为字符超出而结束时，只要使用<code>get</code>，然后用一个<code>char ch;cin.get(ch)</code>或者<code>char ch = cin.get()</code>接收缓存中的第一个字符，如果是回车符，说明正常结束，如果是一个字符，说明输入超过字符限制。</p>
-<h2 id="string与cin-get"><a href="#string与cin-get" class="headerlink" title="string与cin.get"></a>string与cin.get</h2><p>因为引入string类型之前，<code>cin</code>就有了<code>get</code>与<code>getline</code>方法。所以<code>cin.get</code>与<code>cin.getline</code>并不能处理<code>string</code>类。</p>
-<p>所以处理string类的<code>getline</code>方法为：<code>getline(cin,str)</code>,<code>cin</code>作为参数传入函数<code>string</code>为可扩展类型，所以不需要后面的边界参数，<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span> name;</span><br><span class="line">getline(<span class="built_in">cin</span>,name);j</span><br></pre></td></tr></table></figure></p>
-<p><strong>没有对应string的get方法</strong></p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/get-and-getline-in-cpp/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1168,8 +1151,7 @@ Date:   Wed Jan 31 19:25:17 2018 +0800
 
       
         
-          
-            <p><strong>时间：</strong><br>1915～1917 年间<br><strong>地点：</strong><br>奥斯曼土耳其帝国<br><strong>事件定义</strong><br>针对亚美尼亚人的种族灭绝事件</p>
+          <p><strong>时间：</strong><br>1915～1917 年间<br><strong>地点：</strong><br>奥斯曼土耳其帝国<br><strong>事件定义</strong><br>针对亚美尼亚人的种族灭绝事件</p>
 <hr>
 <h2 id="百科词条"><a href="#百科词条" class="headerlink" title="百科词条"></a>百科词条</h2><p>亚美尼亚大屠杀指的是土耳其对其辖境内亚美尼亚人基督徒进行的种族屠杀。其受害者数量达到150万之众。<br>土耳其政府至今拒绝承认这是一起官方发起的有预谋的屠杀行为，但亚美尼亚、俄罗斯和多数西方国家皆认为这是一起可以和犹太人大屠杀相提并论的由一国政府蓄意进行的种族灭绝行为，一些土耳其学者（如奥尔汉·帕穆克等）也持有相同观点。目前共有阿根廷、比利时、加拿大、法国、希腊、意大利、黎巴嫩、荷兰、俄罗斯、瑞典等二十多个国家官方承认这是一场种族屠杀。欧洲议会也承认“亚美尼亚大屠杀”事件，称这宗屠杀为“违反人性的罪行”。联合国防止歧视和保护少数小组委员会也将事件定性为“种族灭绝”&lt;/h2百科词条&lt;&gt;</p>
 <hr>
@@ -1180,24 +1162,13 @@ Date:   Wed Jan 31 19:25:17 2018 +0800
 <p>新苏丹阿卜杜勒·哈米德二世于1876年登位。自从《柏林条约》签订后的改革期开始，哈米德二世试图搁置那些改革，声称亚美尼亚人在那些省份未占大多数，又称亚美尼亚人报告受苛待的事大多是夸大或不实。1890年，哈米德二世创建了一支准军事队伍“哈米迪耶”（Hamidiye），由库尔德族非正规人员组成，任务是“随他们想怎样的去处理亚美尼亚人”。由于奥斯曼官员蓄意在亚美尼亚人聚居市镇引发叛乱（通常是因为税收过重），例如1894年的“沙逊抵抗”（Sasun Resistance），这些部队越来越多被用作以压制及屠杀手段去对付亚美尼亚人。亚美尼亚人成功击退这些部队，于1895年提请列强关注这些越轨行为，而列强随即谴责土耳其政府。</p>
 <p>列强迫使哈米德二世于1895年10月签署新的一揽子改革，以抑制“哈米迪耶”的权力，可是与《柏林条约》规定的改革一样，从未得到落实。1895年10月1日，2000个亚美尼亚人在君士坦丁堡集会请愿，要求落实改革，遭奥斯曼警察用武力驱散。未几，君士坦丁堡发生了一些亚美尼亚人被屠杀事件，随后席卷其他亚美尼亚人聚居的比特利斯省、迪亚巴克尔省、Harput省、锡瓦斯省、特拉布宗省及凡城省。遇害的亚美尼亚人数目有不同估计，但是欧洲人对这次被称为哈米德大屠杀的暴行的文件记录把数字定于10万至30万人之间。</p>
 <p>1908年7月24日，哈米德二世被军官发动政变推翻，恢复君主立宪制，政变者来自青年土耳其人运动，欲改革帝国的施政及推行现代化以追上欧洲水平。该运动由两大类人组成：世俗主义的自由立宪主义者，及民族主义者。前者比较支持民主，愿意接纳亚美尼亚人加入他们；后者则对亚美尼亚相关议题及亚美尼亚人常找欧洲人求助的事采取较不容忍的立场。在青年土耳其人的众多派系中，有一个叫“统一与进步委员会”（Committee of Unionand Progress，简称CUP）的政治组织。该组织最初是一个由萨洛尼卡的军官组成的秘密结社，在军方内日渐壮大。</p>
-<p>1909年4月13日发生了一场反政变，一些奥斯曼军官与伊斯兰神学生联手，意图把国家恢复苏丹及伊斯兰教法的统治。反动派部队与新政府部队发生战斗，最后新政府平息了叛乱，把反对派领导人送交军法审讯。该事件虽然最初是针对新成立的青年土耳其人政府，却殃及亚美尼亚人，他们被视为支持恢复宪法而遭受杀戮。当奥斯曼军队被召来时，许多记载指明他们没有试图制止暴行，反而加入抢掠阿达纳省的亚美尼亚人飞地。约15000至30000个亚美尼亚人在“阿达纳屠杀”中遇害。</p>
-<p>1914年11月，奥斯曼帝国加入第一次世界大战的同盟国一方。战争部长恩维尔·帕夏（Enver Pasha）的部队在萨瑞卡密斯战役被俄军打得大败，他返回君士坦丁堡后，公开指责萨瑞卡密斯那里的亚美尼亚人主动协助俄国人，导致他打败仗。</p>
-<p>1915年2月25日，战争部长恩维尔下令所有军方单位把部队内的亚美尼亚人移走，改编他们入无武装的劳动营。恩维尔解释此举为“恐怕他们会串通俄国人”。<br>把部队的亚美尼亚兵士改送到被动的、无武装的后勤部门是随后的种族灭绝的重要一步。根据《The Memoirs of Naim Bey》所述，消灭那些营的亚美尼亚人是以“统一与进步委员会”名义进行的有预谋计划的一部分，那些亚美尼亚兵中有许多人被当地的土耳其人团伙杀害。</p>
-<p>1915年4月19日，凡城省长杰夫戴特·贝伊（Jevdet Bey）以征兵为理由，要求凡城立即向他提供4000人。亚美尼亚人认为他有阴谋，没有依从。杰夫戴特早前已在附近村庄展开屠杀，表面上用搜查武器为借口。亚美尼亚人提议交出500人再加豁免金代替其余的人，以换取时间，可是杰夫戴特指控亚美尼亚人“叛乱”，表示他有决心不惜任何代价去“粉碎”它。他宣称：“如果叛乱分子敢开一枪，我就杀掉每个基督教徒男人、女人及（指向自己膝盖）有这么高的每个儿童。”</p>
-<p>1915年4月20日，当一个亚美尼亚女人遭调戏，两个前来帮她的亚美尼亚男人被土军杀死后，凡城的武装冲突开始。亚美尼亚防守者有1500个枪手，配备300支步枪、1000支手枪及其它陈旧武器，保护了亚美尼亚居民3万人及难民1万5千人。后来尼古拉·尤登尼奇的俄军前来解救他们，冲突才结束。</p>
-<p>1915年4月24日晚，土耳其政府一夜间拘捕了二百多位君士坦丁堡的亚美尼亚知识分子及社区领袖，许多人在后来被杀害。</p>
-<p>1915年5月，内政部长塔拉特·帕夏（穆罕默德·塔拉特）要求内阁及大维奇尔Said Halim Pasha立法准许迁移及重新安置亚美尼亚人到其它地方，理由是“国内有些地方出现了亚美尼亚人的暴乱及屠杀”。塔拉特特别提到凡城事件，将措施扩展至“暴乱及屠杀”有可能影响高加索战区安全的地区。后来迁徙居民的范围扩大至其它省份的亚美尼亚人。1915年5月27日，奥斯曼帝国议会通过《特西尔法》（Tehcir Law，或称《驱逐临时法》），容许政府及军方驱逐任何被认为威胁国家安全的人，但是设有条款保障被驱逐者的财产权。到9月又有新法例《关于被驱逐者遗留的财产、债务及资产法》（又被称为《征用及充公临时法》）被提出，根据该法例，亚美尼亚人所有“遗留”的货物及财产归政府所有。</p>
-<p>1915年9月13日，奥斯曼帝国议会通过新法例，亚美尼亚人的所有财产可被政府充公。</p>
-<p>亚美尼亚人的队伍被迫前往叙利亚的Deirez—Zor镇及周围荒漠。土耳其政府在驱逐过程中不仅没有提供任何帮助，负责押送亚美尼亚人的奥斯曼军队反而纵容其他人抢劫、杀害及强奸那些亚美尼亚人，许多时甚至自己也有份参与其中。既被夺去随身财物，又被赶入荒漠的亚美尼亚人，死者数以十万计。</p>
-<p>1919年，苏丹穆罕默德六世下令国内的军事法庭就帝国卷入第一次世界大战的责任对“统一与进步委员会”的成员展开审讯。军事法庭指责“统一与进步委员会”的成员进行一场不符合米利特概念的战争。亚美尼亚人的事件被掀出来成为指控。在这些审讯中产生的文件大多在后来被移交到国际性审讯那里。1919年1月，一份呈上穆罕默德六世的报告指控了超过130个疑犯，大多数是高官。军事法庭认定“统一与进步委员会”蓄意通过“特别组织”在肉体上消灭亚美尼亚人。<br>“三大帕夏”，包括塔拉特及恩维尔，在一次大战结束时逃到国外。1919年于君士坦丁堡举行的审讯把缺席的这三人判处死刑。军事法庭解散了“统一与进步委员会”，充公了它及那些被判有罪的人的资产。“三大帕夏”中有两人后来被亚美尼亚复仇者刺杀。</p>
-<p>时至今日，土耳其共和国仍不承认该事件。他们认为亚美尼亚人在“迁移”或“驱逐”过程中的死亡不应被视为“种族灭绝”，理由分别有：那些杀人事件不是由政府蓄意策划的；亚美尼亚人作为一个文化上的群体，可能会同情俄国而构成威胁，杀死他们是合理的；亚美尼亚人只是挨饿；或指有“亚美尼亚匪帮”作恶之类等。有些人用语义或“不适用于那个时代”作为理由去否定这次屠杀是“种族灭绝”（英文的genocide（种族灭绝）一字直到1943年才诞生）。</p>
-<hr>
-<p>参考：</p>
-<blockquote>
-<p>百度百科</p>
-</blockquote>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/yameiniys/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1486,17 +1457,16 @@ Date:   Wed Jan 31 19:25:17 2018 +0800
 
       
         
-          
-            <p><strong>美人赋</strong><br><em>司马相如</em></p>
+          <p><strong>美人赋</strong><br><em>司马相如</em></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;司马相如，美丽闲都，游于梁王，梁王悦之。邹阳谮之于王曰：“相如美则美矣，然服色容冶，妖丽不忠，将欲媚辞取悦，游王后宫，王不察之乎？”<br>&nbsp;&nbsp;&nbsp;&nbsp;王问相如曰：“子好色乎？”相如曰：“臣不好色也。”王曰：“子不好色，何若孔墨乎？”相如曰：“古之避色，孔墨之徒，闻齐馈女而遐逝，望朝歌而回车，譬犹防火水中，避溺山隅，此乃未见其可欲，何以明不好色乎？若臣者，少长西土，鳏处独居，室宇辽廓，莫与为娱。臣之东邻，有一女子，云发丰艳，蛾眉皓齿，颜盛色茂，景曜光起。恒翘翘而西顾，欲留臣而共止。登垣而望臣，三年于兹矣，臣弃而不许。</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;“窃慕大王之高义，命驾东来，途出郑卫，道由桑中。朝发溱洧，暮宿上宫。上宫闲馆，寂寞云虚，门阁昼掩，暧若神居。臣排其户而造其室，芳香芬烈，黼帐高张。有女独处，婉然在床。奇葩逸丽，淑质艳光。睹臣迁延，微笑而言曰：‘上客何国之公子！所从来无乃远乎？’遂设旨酒，进鸣琴。臣遂抚琴，为幽兰白雪之曲。女乃歌曰：‘独处室兮廓无依，思佳人兮情伤悲！有美人兮来何迟，日既暮兮华色衰，敢托身兮长自思。’玉钗挂臣冠，罗袖拂臣衣。时日西夕，玄阴晦冥，流风惨冽，素雪飘零，闲房寂谧，不闻人声。于是寝具既陈，服玩珍奇，金鉔薰香，黼帐低垂，裀褥重陈，角枕横施。女乃驰其上服，表其亵衣。皓体呈露，弱骨丰肌。时来亲臣，柔滑如脂。臣乃脉定于内，心正于怀，信誓旦旦，秉志不回。翻然高举，与彼长辞。”</p>
-<p><strong>神女赋</strong><br>_宋玉_</p>
-<p> &nbsp;&nbsp;&nbsp;&nbsp;楚襄王与宋玉游于云梦之浦，使玉赋高唐之事。其夜玉寝，果梦与神女遇，其状甚丽，玉异之。明日，以白王。王曰：“其梦若何？”玉对曰：“晡夕之后，精神恍忽，若有所喜，纷纷扰扰，未知何意？目色仿佛，乍若有记：见一妇人，状甚奇异。寐而梦之，寤不自识；罔兮不乐，怅然失志。于是抚心定气，复见所梦。”王曰：“状何如也？”玉曰：<ins datetime="2017-11-11T16:54:09+00:00">“茂矣美矣，诸好备矣。盛矣丽矣，难测究矣。上古既无，世所未见，瑰姿玮态，不可胜赞。其始来也，耀乎若白日初出照屋梁；其少进也，皎若明月舒其光。须臾之间，美貌横生：晔兮如华，温乎如莹。五色并驰，不可殚形。详而视之，夺人目精。其盛饰也，则罗纨绮绩盛文章，极服妙采照万方。振绣衣，被袿裳，秾不短，纤不长，步裔裔兮曜殿堂，忽兮改容，婉若游龙乘云翔。嫷披服，侻薄装，沐兰泽，含若芳。性合适，宜侍旁，顺序卑，调心肠。”</ins>王曰：“若此盛矣，试为寡人赋之。”玉曰：“唯唯。”</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;<ins datetime="2017-11-11T16:45:59+00:00">夫何神女之姣丽兮，含阴阳之渥饰。披华藻之可好兮，若翡翠之奋翼。其象无双，其美无极；毛嫱鄣袂，不足程式；西施掩面，比之无色。近之既妖，远之有望，骨法多奇，应君之相，视之盈目，孰者克尚。私心独悦，乐之无量；</ins>交希恩疏，不可尽畅。他人莫睹，王览其状。其状峨峨，何可极言。貌丰盈以庄姝兮，苞温润之玉颜。眸子炯其精朗兮，瞭多美而可视。眉联娟以蛾扬兮，朱唇的其若丹。素质干之醲实兮，志解泰而体闲。既姽婳于幽静兮，又婆娑乎人间。宜高殿以广意兮，翼故纵而绰宽。动雾以徐步兮，拂声之珊珊。望余帷而延视兮，若流波之将澜。奋长袖以正衽兮，立踯躅而不安。澹清静其愔嫕兮，性沉详而不烦。时容与以微动兮，志未可乎得原。意似近而既远兮，若将来而复旋。褰余帷而请御兮，愿尽心之惓惓。怀贞亮之洁清兮，卒与我兮相难。陈嘉辞而云对兮，吐芬芳其若兰。精交接以来往兮，心凯康以乐欢。神独亨而未结兮，魂茕茕以无端。含然诺其不分兮，扬音而哀叹！薄怒以自持兮，曾不可乎犯干。<br>&nbsp;&nbsp;&nbsp;&nbsp;于是摇佩饰，鸣玉鸾；奁衣服，敛容颜；顾女师，命太傅。欢情未接，将辞而去；迁延引身，不可亲附。似逝未行，中若相首；目略微眄，精采相授。志态横出，不可胜记。意离未绝，神心怖覆；礼不遑讫，辞不及究；愿假须臾，神女称遽。徊肠伤气，颠倒失据，黯然而暝，忽不知处。情独私怀，谁者可语？惆怅垂涕，求之至曙。</p>
-<p><strong>登徒子好色赋</strong><br>_宋玉_</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;大夫登徒子侍于楚王，短宋玉曰：”玉为人体貌闲丽，口多微辞，又性好色。愿王勿与出入后宫。<br>&nbsp;&nbsp;&nbsp;&nbsp;王以登徒子之言问宋玉。玉曰：”体貌闲丽，所受于天也；口多微辞，所学于师也；至于好色，臣无有也。”王曰：”子不好色，亦有说乎？有说则止，无说则退。”玉曰：”天下之佳人莫若楚国，楚国之丽者莫若臣里，臣里之美者莫若臣东家之子。东家之子，<ins datetime="2017-11-11T16:45:59+00:00">增之一分则太长，减之一分则太短；著粉则太白，施朱则太赤；眉如翠羽，肌如白雪；腰如束素，齿如含贝；嫣然一笑，惑阳城，迷下蔡。</ins>然此女登墙窥臣三年，至今未许也。登徒子则不然：其妻蓬头挛耳，齞唇历齿，旁行踽偻，又疥且痔。登徒子悦之，使有五子。王孰察之，谁为好色者矣。<br>&nbsp;&nbsp;&nbsp;&nbsp;是时，秦章华大夫在侧，因进而称曰：”今夫宋玉盛称邻之女，以为美色，愚乱之邪；臣自以为守德，谓不如彼矣。且夫南楚穷巷之妾，焉足为大王言乎？若臣之陋，目所曾睹者，未敢云也。”王曰：”试为寡人说之。”大夫曰：”唯唯。臣少曾远游，周览九土，足历五都。出咸阳、熙邯郸，从容郑、卫、溱、洧之间。是时向春之末，迎夏之阳，鸧鹒喈喈，群女出桑。此郊之姝，华色含光，体美容冶，不待饰装。臣观其丽者，因称诗曰：’遵大路兮揽子祛’。赠以芳华辞甚妙。于是处子怳若有望而不来，忽若有来而不见。意密体疏，俯仰异观；含喜微笑，窃视流眄。复称诗曰：’寐春风兮发鲜荣，洁斋俟兮惠音声，赠我如此兮不如无生。’因迁延而辞避。盖徒以微辞相感动。精神相依凭；目欲其颜，心顾其义，扬《诗》守礼，终不过差，故足称也。<br>&nbsp;&nbsp;&nbsp;&nbsp;于是楚王称善，宋玉遂不退。</p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/mrf/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1815,8 +1785,7 @@ sudo reboot
 
       
         
-          
-            <p>对于天朝各大群体的网络环境，我不想做过多评论。我只在此记录我遇到问题的解决及方法。<br>一般要客户端验证的校园网都与Linux无缘。就算有第三方大神开发出linux端的拨号工具，也抵挡不住多久就会因为运营商的升级而生效。比如我以前用的netkeeper的linux版<a href="https://github.com/purpleroc/OpenKeeper" target="_blank" rel="noopener">openkeeper</a>也在电信最近一次升级中失效。最近，无意中发现一种能够解决这个问题的方法，只要你手机能连WiFi，linux就一定能连。网上搜了一下，没有发现类似资料。大概算是本人原创吧。</p>
+          <p>对于天朝各大群体的网络环境，我不想做过多评论。我只在此记录我遇到问题的解决及方法。<br>一般要客户端验证的校园网都与Linux无缘。就算有第三方大神开发出linux端的拨号工具，也抵挡不住多久就会因为运营商的升级而生效。比如我以前用的netkeeper的linux版<a href="https://github.com/purpleroc/OpenKeeper" target="_blank" rel="noopener">openkeeper</a>也在电信最近一次升级中失效。最近，无意中发现一种能够解决这个问题的方法，只要你手机能连WiFi，linux就一定能连。网上搜了一下，没有发现类似资料。大概算是本人原创吧。</p>
 <h1 id="材料"><a href="#材料" class="headerlink" title="材料:"></a>材料:</h1><ul>
 <li>安卓手机一部</li>
 <li>数据线一根</li>
@@ -1840,10 +1809,13 @@ sudo reboot
 <li>买一个网线分线器,两个路由器,把墙上的网线分成两根,一根按照普通方式连接(lan口),一根接wan口.你的手机按照普通方式连接lan口的路由器,拨号网.然后再设置路由器,如果断网,用手机正常拨号一次就行了.</li>
 <li>通过连接隔壁寝室的跟你同一个运营商的wifi重新拨号</li>
 </ol>
-<hr>
-<p>以前电信还有 一个叫Simple Netkeeper的方式破解,但是我们学校怎么都没用,可能是我理工自校情在此.我们学校并没有所谓的心跳包,所以还不算太坑的,所以对于有心跳包的同学,这种固定ip的方法是不适用的,除非你能够不厌其烦的十几分钟连一次.</p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/linux-xyw/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
