@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en-US">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.0.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.0.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.0.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.0.4" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.0.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  
+  <meta name="keywords" content="Java," />
+
+
+<meta name="description" content="环境数据库: Oracle XE 数据库连接软件: Navicat Java: JDK1.8.0_171 IDE: Eclipse Photon June 2018 Servers: Tomcat 8.0.53 数据建模Book {id, name, price, type} Customer [name, passwd, zip, address, telephone, email] Orede">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="暑假实训 Estore 系统记录">
+<meta property="og:url" content="http://yoursite.com/2018/Estore/index.html">
+<meta property="og:site_name" content="FFshine">
+<meta property="og:description" content="环境数据库: Oracle XE 数据库连接软件: Navicat Java: JDK1.8.0_171 IDE: Eclipse Photon June 2018 Servers: Tomcat 8.0.53 数据建模Book {id, name, price, type} Customer [name, passwd, zip, address, telephone, email] Orede">
+<meta property="og:locale" content="en-US">
+<meta property="og:updated_time" content="2018-10-02T13:50:37.902Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="暑假实训 Estore 系统记录">
+<meta name="twitter:description" content="环境数据库: Oracle XE 数据库连接软件: Navicat Java: JDK1.8.0_171 IDE: Eclipse Photon June 2018 Servers: Tomcat 8.0.53 数据建模Book {id, name, price, type} Customer [name, passwd, zip, address, telephone, email] Orede">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/Estore/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+  <title>暑假实训 Estore 系统记录 | FFshine</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="en-US">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">FFshine</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">读书 学习 生活</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-photos">
+          <a href="/photo/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-th"></i> <br />photos</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+  
+
+
+
+ </div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/Estore/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ffshine">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FFshine">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">暑假实训 Estore 系统记录</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-02T20:56:07+08:00">2018-10-02</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/代码/" itemprop="url" rel="index"><span itemprop="name">代码</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/代码/实训/" itemprop="url" rel="index"><span itemprop="name">实训</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>数据库: Oracle XE</p>
+<p>数据库连接软件: Navicat</p>
+<p>Java: JDK1.8.0_171</p>
+<p>IDE: Eclipse Photon June 2018</p>
+<p>Servers: Tomcat 8.0.53</p>
+<h2 id="数据建模"><a href="#数据建模" class="headerlink" title="数据建模"></a>数据建模</h2><p>Book {id, name, price, type}</p>
+<p>Customer [name, passwd, zip, address, telephone, email]</p>
+<p>OrederFrom [id, cost, orderDate, customer, shipadress]</p>
+<p>OrderLine [id, num, orderForm, book]</p>
+<p>ShipAddress [id, shipuName, adres, phone, customer]</p>
+<h2 id="数据库连接"><a href="#数据库连接" class="headerlink" title="数据库连接"></a>数据库连接</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> xyz.ffshine.common;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.sql.Connection;</span><br><span class="line"><span class="keyword">import</span> java.sql.DriverManager;</span><br><span class="line"><span class="keyword">import</span> java.sql.ResultSet;</span><br><span class="line"><span class="keyword">import</span> java.sql.SQLException;</span><br><span class="line"><span class="keyword">import</span> java.sql.Statement;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DBUtil</span> </span>&#123;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 连接数据库</span></span><br><span class="line"><span class="comment">	 * AND</span></span><br><span class="line"><span class="comment">	 *对 一些数据库基本的执行封装</span></span><br><span class="line"><span class="comment">	 * </span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> String url = <span class="string">"jdbc:oracle:thin:@127.0.0.1:1521:XE"</span>;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> String username = <span class="string">"8607"</span>;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> String passwd = <span class="string">"8607"</span>;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> Connection connection = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 创建connection</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Connection <span class="title">connect</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		String driver = <span class="string">"oracle.jdbc.OracleDriver"</span>;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			Class.forName(driver);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			connection = DriverManager.getConnection(url, username, passwd);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">			System.out.println(<span class="string">"连接失败"</span>);</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> connection;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// statement</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Statement <span class="title">statement</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		Connection connection = connect();</span><br><span class="line">		<span class="comment">// 创建statement对象</span></span><br><span class="line">		Statement statement = <span class="keyword">null</span>;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			statement = connection.createStatement();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> statement;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 查询数据库</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ResultSet <span class="title">selectDB</span><span class="params">(Statement statement, String command)</span> </span>&#123;</span><br><span class="line">		ResultSet resultSet = <span class="keyword">null</span>;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			resultSet = statement.executeQuery(command);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">			System.out.println(<span class="string">"数据库查询失败"</span>);</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> resultSet;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 数据库执行语句</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">exeCommand</span><span class="params">(Statement statement, String command)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			statement.execute(command);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">			System.out.println(<span class="string">"语句执行失败"</span>);</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="注册"><a href="#注册" class="headerlink" title="注册"></a>注册</h2><h3 id="service"><a href="#service" class="headerlink" title="service"></a>service</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> xyz.ffshine.service.impl;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> xyz.ffshine.bean.Customer;</span><br><span class="line"><span class="keyword">import</span> xyz.ffshine.dao.CheckDB;</span><br><span class="line"><span class="keyword">import</span> xyz.ffshine.dao.CustomerDao;</span><br><span class="line"><span class="keyword">import</span> xyz.ffshine.service.CustomerService;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomerServiceImpl</span> <span class="keyword">implements</span> <span class="title">CustomerService</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 判断数据</span></span><br><span class="line"><span class="comment">	 * 储存数据</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> CustomerDao dao = <span class="keyword">new</span> CustomerDao();</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">trySave</span><span class="params">(Customer customer)</span> </span>&#123;</span><br><span class="line">		<span class="comment">/**</span></span><br><span class="line"><span class="comment">		 * 试图储存</span></span><br><span class="line"><span class="comment">		 * 储存之前检查 NAME</span></span><br><span class="line"><span class="comment">		 * NAME没有问题 调用保存方法</span></span><br><span class="line"><span class="comment">		 */</span></span><br><span class="line">		</span><br><span class="line">		<span class="keyword">if</span>(!<span class="keyword">new</span> CheckDB().check(<span class="string">"*"</span>, <span class="string">"CUSTOMER"</span>, <span class="string">"NAME"</span>, customer.getName())) &#123;</span><br><span class="line">			dao.saveCustomer(customer);</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">tryLogin</span><span class="params">(String name, String passwd)</span> </span>&#123;</span><br><span class="line">		<span class="comment">/**</span></span><br><span class="line"><span class="comment">		 * 检查是否能登陆</span></span><br><span class="line"><span class="comment">		 */</span></span><br><span class="line">		<span class="keyword">if</span>(<span class="keyword">new</span> CheckDB().loginCheck(name, passwd)) &#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Customer <span class="title">getCustomer</span><span class="params">(String name, String passwd)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> dao.getCustomer(name, passwd);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Customer <span class="title">getCustomerById</span><span class="params">(Long id)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> dao.getCustomerById(id);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="servlet"><a href="#servlet" class="headerlink" title="servlet"></a>servlet</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">	request.setCharacterEncoding(<span class="string">"utf-8"</span>);</span><br><span class="line">	response.setCharacterEncoding(<span class="string">"utf-8"</span>);</span><br><span class="line">	response.setContentType(<span class="string">"utf-8"</span>);</span><br><span class="line">	</span><br><span class="line">	String name = request.getParameter(<span class="string">"name"</span>);</span><br><span class="line">	String password = request.getParameter(<span class="string">"password"</span>);</span><br><span class="line">	String zip = request.getParameter(<span class="string">"zip"</span>);</span><br><span class="line">	String address = request.getParameter(<span class="string">"address"</span>);</span><br><span class="line">	String telephone = request.getParameter(<span class="string">"telephone"</span>);</span><br><span class="line">	String email = request.getParameter(<span class="string">"email"</span>);</span><br><span class="line">	</span><br><span class="line">	CustomerServiceImpl customerService = <span class="keyword">new</span> CustomerServiceImpl();</span><br><span class="line">	Customer customer = <span class="keyword">new</span> Customer(name, password, zip, address, telephone, email);</span><br><span class="line">	<span class="keyword">if</span>(customerService.trySave(customer)) &#123;</span><br><span class="line">		response.sendRedirect(<span class="string">"./index.jsp"</span>);</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		response.sendRedirect(<span class="string">"./register.jsp?token=false"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="登陆"><a href="#登陆" class="headerlink" title="登陆"></a>登陆</h2><h3 id="servlet-1"><a href="#servlet-1" class="headerlink" title="servlet"></a>servlet</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">	request.setCharacterEncoding(<span class="string">"utf-8"</span>);</span><br><span class="line">	response.setCharacterEncoding(<span class="string">"utf-8"</span>);</span><br><span class="line">	response.setContentType(<span class="string">"utf-8"</span>);</span><br><span class="line">	</span><br><span class="line">	String name = request.getParameter(<span class="string">"name"</span>);</span><br><span class="line">	String passwd = request.getParameter(<span class="string">"password"</span>);</span><br><span class="line">	Customer customer = <span class="keyword">null</span>;</span><br><span class="line">	<span class="comment">//创建一个空购物车 存入 customerId</span></span><br><span class="line">	OrderFormService oService = <span class="keyword">new</span> OrderFormServiceImpl();</span><br><span class="line">	CustomerServiceImpl service = <span class="keyword">new</span> CustomerServiceImpl();</span><br><span class="line">	</span><br><span class="line">	Long time = System.currentTimeMillis();</span><br><span class="line">	Date date = <span class="keyword">new</span> Date(time);</span><br><span class="line">	<span class="comment">//登陆</span></span><br><span class="line">	<span class="keyword">if</span>(service.tryLogin(name, passwd)) &#123;</span><br><span class="line">		<span class="comment">//把用户信息存入 session</span></span><br><span class="line">		</span><br><span class="line">		customer = service.getCustomer(name, passwd);</span><br><span class="line">		oService.createOrderForm(customer.getId(), date);</span><br><span class="line">		OrderForm orderForm = oService.getOrderFormByCusId(customer.getId());</span><br><span class="line">		HttpSession session = request.getSession();</span><br><span class="line">		session.setAttribute(<span class="string">"customer"</span>, customer);</span><br><span class="line">		session.setAttribute(<span class="string">"orderForm"</span>, orderForm);</span><br><span class="line">		response.sendRedirect(<span class="string">"./index.jsp"</span>);</span><br><span class="line">	&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">		response.sendRedirect(<span class="string">"./login.jsp?token=false"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="把数据库中的Book-传入首页"><a href="#把数据库中的Book-传入首页" class="headerlink" title="把数据库中的Book 传入首页"></a>把数据库中的Book 传入首页</h3><h4 id="listener"><a href="#listener" class="headerlink" title="listener"></a>listener</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sessionCreated</span><span class="params">(HttpSessionEvent hse)</span> </span>&#123;</span><br><span class="line">	HttpSession session = hse.getSession();</span><br><span class="line">	List&lt;Book&gt; books = <span class="keyword">new</span> BookServiceImpl().findAllBook();</span><br><span class="line">	session.setAttribute(<span class="string">"books"</span>, books);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="bookService"><a href="#bookService" class="headerlink" title="bookService"></a>bookService</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> xyz.ffshine.service.impl;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> xyz.ffshine.bean.Book;</span><br><span class="line"><span class="keyword">import</span> xyz.ffshine.dao.BookDao;</span><br><span class="line"><span class="keyword">import</span> xyz.ffshine.service.BookService;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BookServiceImpl</span> <span class="keyword">implements</span> <span class="title">BookService</span></span>&#123;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> List&lt;Book&gt; <span class="title">findAllBook</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> BookDao().findAllBook();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Book <span class="title">getBookById</span><span class="params">(Long id)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> BookDao().getBookById(id);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="在页面展示穿入的Book"><a href="#在页面展示穿入的Book" class="headerlink" title="在页面展示穿入的Book"></a>在页面展示穿入的Book</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:forEach items=<span class="string">"$&#123;sessionScope.books&#125;"</span> var=<span class="string">"book"</span>&gt;</span><br><span class="line">	&lt;li&gt;</span><br><span class="line">		&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"c3_b2_txt"</span>&gt;</span><br><span class="line">			&lt;a href=<span class="string">"viewBook.jsp?name=$&#123;book.name&#125;&amp;price=$&#123;book.price&#125;&amp;cus_id=$&#123;customer.id&#125;&amp;book_id=$&#123;book.id&#125;"</span>&gt; &lt;img alt=<span class="string">""</span></span><br><span class="line">				src="images/book_index/book$&#123;book.id&#125;.jpg"&gt;&lt;/a&gt;</span><br><span class="line">			&lt;h1&gt;$&#123;book.name&#125;&lt;/h1&gt;</span><br><span class="line">			&lt;h2&gt;分类：$&#123;book.type&#125;&lt;/h2&gt;</span><br><span class="line">			&lt;h2&gt;价格：￥$&#123;book.price&#125;&lt;/h2&gt;</span><br><span class="line">			&lt;h2&gt;畅销书籍&lt;/h2&gt;</span><br><span class="line">			&lt;h2&gt;覆盖java基础及全新内容&lt;/h2&gt;</span><br><span class="line">			&lt;p&gt;</span><br><span class="line">				&lt;a href="#"&gt;更多精彩，点击进入&lt;/a&gt;</span><br><span class="line">			&lt;/p&gt;</span><br><span class="line">		&lt;/div&gt;</span><br><span class="line">	&lt;/li&gt;</span><br><span class="line">&lt;/c:forEach&gt;</span><br></pre></td></tr></table></figure>
+<p>其中</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=<span class="string">"viewBook.jsp?name=$&#123;book.name&#125;&amp;price=$&#123;book.price&#125;&amp;cus_id=$&#123;customer.id&#125;&amp;book_id=$&#123;book.id&#125;"</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>把本书的信息传入ViewBook页面</p>
+<h2 id="ViewBook"><a href="#ViewBook" class="headerlink" title="ViewBook"></a>ViewBook</h2><h3 id="数据获取"><a href="#数据获取" class="headerlink" title="数据获取"></a>数据获取</h3><figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">String name = request.getParameter(<span class="string">"name"</span>);</span><br><span class="line">String price = request.getParameter(<span class="string">"price"</span>);</span><br><span class="line">String cus_id = request.getParameter(<span class="string">"cus_id"</span>);</span><br><span class="line">String book_id = request.getParameter(<span class="string">"book_id"</span>);</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="数据展示"><a href="#数据展示" class="headerlink" title="数据展示"></a>数据展示</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"> 	&lt;div id=<span class="string">"demo"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"cn5topy_1"</span>&gt;</span><br><span class="line">     	&lt;div id=<span class="string">"small-box"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"cn5topy_imgview"</span>&gt;</span><br><span class="line">         	&lt;div id="mark"&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div id="float-box"&gt;&lt;/div&gt;</span><br><span class="line">         	&lt;img src=<span class="string">"images/book_view/book&lt;%=book_id %&gt;.jpg"</span>/&gt;</span><br><span class="line">             &lt;ul <span class="class"><span class="keyword">class</span></span>=<span class="string">"cn5topy_imglist"</span>&gt;</span><br><span class="line">             	&lt;li&gt;&lt;a href="#"&gt;&lt;img src="images/viewBook.jpg"&gt;&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">                 &lt;li class="current"&gt;&lt;a href="#"&gt;&lt;img src="images/book4_1.jpg"&gt;&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">                 &lt;li&gt;&lt;a href="#"&gt;&lt;img src="images/book4_2.jpg"&gt;&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">                 &lt;li&gt;&lt;a href="#"&gt;&lt;img src="images/book4_3.jpg"&gt;&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">                 &lt;li&gt;&lt;a href="#"&gt;&lt;img src="images/book4_4.jpg"&gt;&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">             &lt;/ul&gt;</span><br><span class="line">         &lt;/div&gt;</span><br><span class="line">         &lt;div id=<span class="string">"big-box"</span>&gt;</span><br><span class="line">    &lt;img src=<span class="string">"images/book_view/book&lt;%=book_id%&gt;2.jpg"</span>/&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">     &lt;/div&gt;</span><br><span class="line">     &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"cn5topy_2"</span>&gt;</span><br><span class="line">         &lt;h1 id="bookName" class="pro_title font15"&gt;&lt;%=name %&gt;&lt;/h1&gt;</span><br><span class="line">         &lt;h1 id="cus_id" style="display: none;"&gt;&lt;%=cus_id %&gt;&lt;/h1&gt;</span><br><span class="line">         &lt;h1 id="book_id" style="display: none;"&gt;&lt;%=book_id %&gt;&lt;/h1&gt;</span><br><span class="line">         &lt;h1 id="orederForm" style="display: none;"&gt;$&#123;orderForm.id &#125;&lt;/h1&gt;</span><br><span class="line">         &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"pro_price"</span>&gt;</span><br><span class="line">                 &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"pro_price_x"</span>&gt;</span><br><span class="line">                     &lt;p&gt; 单价：￥&lt;b&gt;&lt;%=price %&gt;&lt;/b&gt; &lt;a href="#"&gt;(降价通知)&lt;/a&gt;&lt;/p&gt;</span><br><span class="line">                 &lt;/div&gt;</span><br><span class="line">                 </span><br><span class="line">         &lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>其中属性为”display: none” 的标签是为了更好地用js构建向下一页的跳转链接</p>
+<h3 id="跳转链接构建"><a href="#跳转链接构建" class="headerlink" title="跳转链接构建"></a>跳转链接构建</h3><figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">function <span class="title">addShopCart</span><span class="params">()</span></span>&#123;</span><br><span class="line">    var bookname = document.getElementById(<span class="string">"bookName"</span>).innerText</span><br><span class="line">    var num = document.getElementById(<span class="string">"num"</span>).value;</span><br><span class="line">    var cus_id = document.getElementById(<span class="string">"cus_id"</span>).innerText;</span><br><span class="line">    var book_id = document.getElementById(<span class="string">"book_id"</span>).innerText;</span><br><span class="line">    var orederForm_id = document.getElementById(<span class="string">"orederForm"</span>).innerText;</span><br><span class="line">    <span class="keyword">if</span>(cus_id ==<span class="string">""</span>)&#123;</span><br><span class="line">        alert(<span class="string">"请先登录"</span>);</span><br><span class="line">        window.location.href=<span class="string">"./login.jsp"</span>;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">	alert(<span class="string">"加入购物车成功!"</span>);</span><br><span class="line">	window.location.href=<span class="string">"./AddShopCar?name="</span> + bookname + <span class="string">"&amp;num="</span> + num +<span class="string">"&amp;cus_id="</span> + cus_id + <span class="string">"&amp;book_id="</span> + book_id + <span class="string">"&amp;orederForm_id="</span> + orederForm_id;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="购物车"><a href="#购物车" class="headerlink" title="购物车"></a>购物车</h2><h3 id="加入购物车"><a href="#加入购物车" class="headerlink" title="加入购物车"></a>加入购物车</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">	request.setCharacterEncoding(<span class="string">"utf-8"</span>);</span><br><span class="line">	response.setCharacterEncoding(<span class="string">"utf-8"</span>);</span><br><span class="line">	response.setContentType(<span class="string">"utf-8"</span>);</span><br><span class="line">	</span><br><span class="line">	Long num = Long.parseLong(request.getParameter(<span class="string">"num"</span>));</span><br><span class="line">	Long bookId = Long.parseLong(request.getParameter(<span class="string">"book_id"</span>));</span><br><span class="line">	Long orederFormId = Long.parseLong(request.getParameter(<span class="string">"orederForm_id"</span>));</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//根据book_id 获取 book对象</span></span><br><span class="line">	Book book = <span class="keyword">new</span> BookServiceImpl().getBookById(bookId);</span><br><span class="line">	OrderForm orderForm = <span class="keyword">new</span> OrderFormServiceImpl().getOrderFormById(orederFormId);;</span><br><span class="line">	OrderLine orderLine = <span class="keyword">new</span> OrderLine();</span><br><span class="line">	orderLine.setNum(num);</span><br><span class="line">	orderLine.setBook(book);</span><br><span class="line">	orderLine.setOrderForm(orderForm);</span><br><span class="line">	OrderLineService oLService = <span class="keyword">new</span> OrderLineServiceImpl();</span><br><span class="line">	oLService.trySave(orderLine); <span class="comment">//把书的信息存入数据库</span></span><br><span class="line">	List&lt;OrderLine&gt; orLines = oLService.getAllOfOrderLineByOFId(orederFormId); <span class="comment">//从数据库中取出所有属于订单的订单项 包装成 列表</span></span><br><span class="line">	</span><br><span class="line">	HttpSession session = request.getSession();</span><br><span class="line">	session.setAttribute(<span class="string">"orLines"</span>, orLines);</span><br><span class="line">	response.sendRedirect(<span class="string">"./shopCar.jsp"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="购物车展示"><a href="#购物车展示" class="headerlink" title="购物车展示"></a>购物车展示</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:forEach items=<span class="string">"$&#123;sessionScope.orLines&#125;"</span> var=<span class="string">"orLine"</span>&gt;</span><br><span class="line">					&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"bb"</span>&gt;</span><br><span class="line">						&lt;input <span class="class"><span class="keyword">class</span></span>=<span class="string">"checkbox"</span> onclick=<span class="string">"checkEvent(this)"</span> type=<span class="string">"checkbox"</span>&gt; </span><br><span class="line">						&lt;img src=<span class="string">"images/book_shopCart/book$&#123;orLine.book.id&#125;.jpg"</span>&gt; &lt;span&gt;</span><br><span class="line">							$&#123;orLine.book.name&#125; &lt;br&gt;</span><br><span class="line">						&lt;/span&gt; &lt;span class="price" style="display: none"&gt;$&#123;orLine.book.price&#125;&lt;/span&gt;</span><br><span class="line">						&lt;span style="display: none" class="bookId"&gt;$&#123;orLine.book.id&#125;&lt;/span&gt;</span><br><span class="line">						&lt;span class="bookNum" style="display: none"&gt;$&#123;orLine.num&#125;&lt;/span&gt;</span><br><span class="line">						&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"mm"</span>&gt;</span><br><span class="line">							&lt;span&gt;¥ $&#123;orLine.book.price&#125;&lt;/span&gt;</span><br><span class="line">						&lt;/div&gt;</span><br><span class="line">						&lt;div&gt;</span><br><span class="line">							&lt;dl&gt;</span><br><span class="line">								&lt;dd class="dd1" onclick="numReduce(this)"&gt;-&lt;/dd&gt; &lt;!-- 商品减少 TODO num减少 返回页面 --&gt;</span><br><span class="line">							&lt;/dl&gt;</span><br><span class="line">							&lt;input type=<span class="string">"text"</span> value=<span class="string">"$&#123;orLine.num&#125;"</span></span><br><span class="line">								onblur=<span class="string">"numChange(this)"</span> /&gt;</span><br><span class="line">							&lt;dl&gt;</span><br><span class="line">								&lt;dd class="dd2" onclick="numAdd(this)"&gt;+&lt;/dd&gt;</span><br><span class="line">							&lt;/dl&gt;</span><br><span class="line">						&lt;/div&gt;</span><br><span class="line">						&lt;div class="ri"&gt;¥ $&#123;orLine.book.price&#125;&lt;/div&gt;</span><br><span class="line">						&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"righ"</span>&gt;</span><br><span class="line">							&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"rig"</span> style=<span class="string">"cursor: pointer;"</span></span><br><span class="line">								onclick="delShopCart('1')"&gt;删除&lt;/div&gt;</span><br><span class="line">						&lt;/div&gt;</span><br><span class="line">					&lt;/div&gt;</span><br><span class="line">				&lt;/c:forEach&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="用jQuery-实现购物车增与减-全选与取消全选（删除还未实现）"><a href="#用jQuery-实现购物车增与减-全选与取消全选（删除还未实现）" class="headerlink" title="用jQuery 实现购物车增与减 全选与取消全选（删除还未实现）"></a>用jQuery 实现购物车增与减 全选与取消全选（删除还未实现）</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//+ 的功能</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">numAdd</span>(<span class="params">which</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> price = $(which).parents(<span class="string">"div"</span>).siblings(<span class="string">'.price'</span>).text()*<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">var</span> bookNum = <span class="built_in">parseInt</span>($(which).parents(<span class="string">"div"</span>).siblings(<span class="string">'.bookNum'</span>).text());</span><br><span class="line">	<span class="keyword">var</span> chcek = $(which).parents(<span class="string">"div"</span>).siblings(<span class="string">'.checkbox'</span>);</span><br><span class="line">	<span class="keyword">if</span>(bookNum&gt;<span class="number">10</span>) &#123;</span><br><span class="line">		alert(<span class="string">"数量达到上限"</span>);</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		bookNum++;</span><br><span class="line">		<span class="keyword">if</span>(chcek.prop(<span class="string">"checked"</span>)) &#123;</span><br><span class="line">			toPrice += price</span><br><span class="line">			$(<span class="string">"#toprice"</span>).text(toPrice.toFixed(<span class="number">2</span>))</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	$(which).parent().siblings(<span class="string">'input'</span>).val(bookNum);</span><br><span class="line">	$(which).parents(<span class="string">"div"</span>).siblings(<span class="string">'.bookNum'</span>).text(bookNum);</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//- 的功能实现</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">numReduce</span>(<span class="params">which</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> price = $(which).parents(<span class="string">"div"</span>).siblings(<span class="string">'.price'</span>).text()*<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">var</span> bookNum = <span class="built_in">parseInt</span>($(which).parents(<span class="string">"div"</span>).siblings(<span class="string">'.bookNum'</span>).text());</span><br><span class="line">	<span class="keyword">var</span> chcek = $(which).parents(<span class="string">"div"</span>).siblings(<span class="string">'.checkbox'</span>);</span><br><span class="line">	<span class="keyword">if</span>(bookNum&lt;<span class="number">2</span>) &#123;</span><br><span class="line">		alert(<span class="string">"数量至少为1"</span>);</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		bookNum--;</span><br><span class="line">		<span class="keyword">if</span>(chcek.prop(<span class="string">"checked"</span>)) &#123;</span><br><span class="line">			toPrice -= price</span><br><span class="line">			$(<span class="string">"#toprice"</span>).text(toPrice.toFixed(<span class="number">2</span>))</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	$(which).parent().siblings(<span class="string">'input'</span>).val(bookNum);</span><br><span class="line">	$(which).parents(<span class="string">"div"</span>).siblings(<span class="string">'.bookNum'</span>).text(bookNum);</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//修改数量功能实现</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">numChange</span>(<span class="params">which</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> nBookNum = $(which).val()*<span class="number">1</span></span><br><span class="line">	<span class="keyword">var</span> price = $(which).parents(<span class="string">"div"</span>).siblings(<span class="string">'.price'</span>).text()*<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">var</span> bookNum = <span class="built_in">parseInt</span>($(which).parents(<span class="string">"div"</span>).siblings(<span class="string">'.bookNum'</span>).text());</span><br><span class="line">	<span class="keyword">var</span> chcek = $(which).parents(<span class="string">"div"</span>).siblings(<span class="string">'.checkbox'</span>);</span><br><span class="line">	<span class="keyword">if</span>(nBookNum&gt;<span class="number">11</span>) &#123;</span><br><span class="line">		alert(<span class="string">"数量达到上限"</span>);</span><br><span class="line">		$(which).val(bookNum)</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span>(nBookNum&lt;<span class="number">1</span>)&#123;</span><br><span class="line">		alert(<span class="string">"数量至少为1"</span>)</span><br><span class="line">		$(which).val(bookNum)</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="keyword">if</span>(chcek.prop(<span class="string">"checked"</span>)) &#123;</span><br><span class="line">			toPrice -= price*(bookNum-nBookNum)</span><br><span class="line">			$(<span class="string">"#toprice"</span>).text(toPrice.toFixed(<span class="number">2</span>))</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	$(which).parents(<span class="string">"div"</span>).siblings(<span class="string">'.bookNum'</span>).text(nBookNum);</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line">	<span class="comment">//假如被选择了 修改显示价格</span></span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">checkEvent</span>(<span class="params">which</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> price = $(which).siblings(<span class="string">'.price'</span>).text() * <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">var</span> bookNum = <span class="built_in">parseInt</span>($(which).siblings(<span class="string">'.bookNum'</span>).text());</span><br><span class="line">	<span class="keyword">var</span> allPrice = price * bookNum</span><br><span class="line">	<span class="keyword">if</span> ($(which).prop(<span class="string">"checked"</span>)) &#123;</span><br><span class="line">		num++</span><br><span class="line">		toPrice = allPrice + toPrice</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		num--</span><br><span class="line">		toPrice = toPrice - allPrice</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	$(<span class="string">"#num"</span>).text(num)</span><br><span class="line">	$(<span class="string">"#toprice"</span>).text(toPrice.toFixed(<span class="number">2</span>))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//全选 与取消全选</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sele</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> ($(<span class="keyword">this</span>).prop(<span class="string">"checked"</span>) != <span class="literal">true</span>) &#123;</span><br><span class="line">		$(<span class="string">"input[type='checkbox']"</span>).each(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">			<span class="keyword">if</span> ($(<span class="keyword">this</span>).prop(<span class="string">"checked"</span>) != <span class="literal">true</span>) &#123;</span><br><span class="line">                   $(<span class="keyword">this</span>).prop(<span class="string">'checked'</span>, <span class="literal">true</span>);</span><br><span class="line">                   <span class="keyword">if</span>($(<span class="keyword">this</span>).siblings(<span class="string">'.bookNum'</span>).text())&#123;</span><br><span class="line">                   	checkEvent(<span class="keyword">this</span>);</span><br><span class="line">                   &#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line">        $(<span class="keyword">this</span>).prop(<span class="string">"checked"</span>, <span class="literal">true</span>);</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		$(<span class="string">"input[type='checkbox']"</span>).each(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">			<span class="keyword">if</span> ($(<span class="keyword">this</span>).prop(<span class="string">"checked"</span>) == <span class="literal">true</span>) &#123;</span><br><span class="line">                   $(<span class="keyword">this</span>).prop(<span class="string">'checked'</span>, <span class="literal">false</span>);</span><br><span class="line">                   <span class="keyword">if</span>($(<span class="keyword">this</span>).siblings(<span class="string">'.bookNum'</span>).text())&#123;</span><br><span class="line">                   	checkEvent(<span class="keyword">this</span>);</span><br><span class="line">                   &#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line">        $(<span class="keyword">this</span>).prop(<span class="string">"checked"</span>, <span class="literal">false</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="构建跳转链接"><a href="#构建跳转链接" class="headerlink" title="构建跳转链接"></a>构建跳转链接</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">jump</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> bookId = <span class="string">""</span>;</span><br><span class="line">	<span class="keyword">var</span> toBookNum = <span class="string">""</span>;</span><br><span class="line">	<span class="keyword">var</span> cusId = $(<span class="string">"#cus_id"</span>).text()</span><br><span class="line">	<span class="keyword">var</span> orderForm = $(<span class="string">"#orF_id"</span>).text()</span><br><span class="line">	$(<span class="string">"input[type='checkbox']"</span>).each(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> ($(<span class="keyword">this</span>).prop(<span class="string">"checked"</span>) == <span class="literal">true</span>) &#123;</span><br><span class="line">			<span class="keyword">if</span>($(<span class="keyword">this</span>).siblings(<span class="string">'.bookNum'</span>).text())&#123;</span><br><span class="line">				bookId = bookId  + <span class="string">"a"</span> + $(<span class="keyword">this</span>).siblings(<span class="string">'.bookId'</span>).text();</span><br><span class="line">				toBookNum = toBookNum + <span class="string">'a'</span> + $(<span class="keyword">this</span>).siblings(<span class="string">'.bookNum'</span>).text();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span>(bookId==<span class="string">""</span> || toBookNum == <span class="string">""</span>)&#123;</span><br><span class="line">		alert(<span class="string">"您还没有选择商品"</span>)</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="built_in">window</span>.location.href=<span class="string">"./ComfireServlet?cus_id="</span> + cusId + <span class="string">"&amp;bookId="</span> + bookId + <span class="string">"&amp;bookNum="</span> + toBookNum + <span class="string">"&amp;orderFormId="</span> + orderForm; <span class="comment">//cusid bookid booknum	</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>bookId, bookNum 拼装成一个String 中间用a隔开 在servlet 中再解开</p>
+<h2 id="显示订单-待结算界面"><a href="#显示订单-待结算界面" class="headerlink" title="显示订单(待结算界面)"></a>显示订单(待结算界面)</h2><h3 id="servlet-2"><a href="#servlet-2" class="headerlink" title="servlet"></a>servlet</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">	request.setCharacterEncoding(<span class="string">"utf-8"</span>);</span><br><span class="line">	response.setCharacterEncoding(<span class="string">"utf-8"</span>);</span><br><span class="line">	response.setContentType(<span class="string">"utf-8"</span>);</span><br><span class="line">	</span><br><span class="line">	Long cusId =Long.parseLong(request.getParameter(<span class="string">"cus_id"</span>));</span><br><span class="line">	String strBookIds = request.getParameter(<span class="string">"bookId"</span>);</span><br><span class="line">	String strBookNums = request.getParameter(<span class="string">"bookNum"</span>);</span><br><span class="line">	String orderFormId = request.getParameter(<span class="string">"orderFormId"</span>);</span><br><span class="line">	String[] bookIds = strBookIds.split(<span class="string">"a"</span>); <span class="comment">//分割string</span></span><br><span class="line">	String[] bookNum = strBookNums.split(<span class="string">"a"</span>); <span class="comment">//分割String</span></span><br><span class="line">	List&lt;OrderLine&gt; lines = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">	Long num = <span class="number">0L</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;bookIds.length; i++) &#123; <span class="comment">//第一个数据为NULL 所以下标从1开始</span></span><br><span class="line">			OrderLine orLine = <span class="keyword">new</span> OrderLine();</span><br><span class="line">			orLine.setBook(<span class="keyword">new</span> BookServiceImpl().getBookById(Long.parseLong(bookIds[i])));</span><br><span class="line">			orLine.setNum(Long.parseLong(bookNum[i]));</span><br><span class="line">			orLine.setOrderForm(<span class="keyword">new</span> OrderFormServiceImpl().getOrderFormById(Long.parseLong(orderFormId)));</span><br><span class="line">			lines.add(orLine);</span><br><span class="line">			num +=Long.parseLong(bookNum[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	OrderLineService oLService = <span class="keyword">new</span> OrderLineServiceImpl();</span><br><span class="line">	oLService.trySaveLines(lines, Long.parseLong(orderFormId));<span class="comment">//将选的书存入数据库</span></span><br><span class="line">	Double price = oLService.SumOfPrice(lines);</span><br><span class="line">	<span class="comment">//new OrderFormServiceImpl().updateCost(Long.parseLong(orderFormId), price); //将总价存入数据库</span></span><br><span class="line">	</span><br><span class="line">	HttpSession session = request.getSession();</span><br><span class="line">	List&lt;ShipAddress&gt; addrs = <span class="keyword">new</span> ShipAddressServiceImpl().findAllAddrByCusId(cusId);</span><br><span class="line">	</span><br><span class="line">	session.setAttribute(<span class="string">"addrs"</span>, addrs);</span><br><span class="line">	session.setAttribute(<span class="string">"orderLines"</span>, lines);</span><br><span class="line">	session.setAttribute(<span class="string">"price"</span>, price); <span class="comment">//此时这个总价还没有存入数据库 因为订单还没有结算 </span></span><br><span class="line">	session.setAttribute(<span class="string">"allNum"</span>, num);</span><br><span class="line">	response.sendRedirect(<span class="string">"./confirm.jsp"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>将购物车传入的数据写入数据库 并取出所有相关数据（数据库已存在地址，订单） 传出页面</p>
+<h3 id="结算页面展示订单信息"><a href="#结算页面展示订单信息" class="headerlink" title="结算页面展示订单信息"></a>结算页面展示订单信息</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:forEach items=<span class="string">"$&#123;sessionScope.orderLines&#125;"</span> var=<span class="string">"order"</span>&gt;</span><br><span class="line">	&lt;ul <span class="class"><span class="keyword">class</span></span>=<span class="string">"oneUL"</span>&gt;</span><br><span class="line">					&lt;li&gt;</span><br><span class="line">						&lt;img src=<span class="string">"images/book_shopCart/book$&#123;order.book.id &#125;.jpg"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"pic"</span>&gt;</span><br><span class="line">						&lt;p&gt;$&#123;order.book.type &#125;&amp;nbsp;&amp;nbsp;$&#123;order.book.name &#125;&amp;nbsp;&amp;nbsp;&lt;/p&gt;</span><br><span class="line">						&lt;p&gt;&lt;font&gt;¥ $&#123;order.book.price &#125;&lt;/font&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;×$&#123;order.num&#125;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;有货&lt;/p&gt;</span><br><span class="line">						&lt;p&gt;&lt;img src="images/sureLogo_14.png" alt=""&gt;&lt;span&gt;七天无理由退换货&lt;/span&gt;&lt;/p&gt;</span><br><span class="line">	</span><br><span class="line">					&lt;/li&gt;</span><br><span class="line">					&lt;li&gt;&lt;pre&gt;【赠品】  高级定制干花书签  随机  ×1&lt;/pre&gt;&lt;/li&gt;</span><br><span class="line">	&lt;/ul&gt;</span><br><span class="line">&lt;/c:forEach&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="展示地址"><a href="#展示地址" class="headerlink" title="展示地址"></a>展示地址</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:forEach items=<span class="string">"$&#123;sessionScope.addrs&#125;"</span> var=<span class="string">"addr"</span>&gt;</span><br><span class="line">&lt;p style=<span class="string">"font-size:15px;color:red"</span>&gt;</span><br><span class="line">	&lt;input type=<span class="string">"radio"</span> name=<span class="string">"address"</span> onclick=<span class="string">"addShipaddress('$&#123;addr.shipuName&#125;','$&#123;addr.adres &#125;','$&#123;addr.phone&#125;',$&#123;addr.id&#125;)"</span>&gt;</span><br><span class="line">	$&#123;addr.shipuName&#125;</span><br><span class="line">	$&#123;addr.adres &#125;</span><br><span class="line">	$&#123;addr.phone&#125;</span><br><span class="line">	&lt;br&gt;&lt;br&gt;</span><br><span class="line">&lt;/p&gt;</span><br><span class="line">&lt;/c:forEach&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="选择地址"><a href="#选择地址" class="headerlink" title="选择地址"></a>选择地址</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addShipaddress</span>(<span class="params">name,address,phone,id</span>)</span>&#123;</span><br><span class="line">	<span class="built_in">document</span>.getElementById(<span class="string">'addName'</span>).value = name;</span><br><span class="line">	<span class="built_in">document</span>.getElementById(<span class="string">'addAdd'</span>).value = address;</span><br><span class="line">	<span class="built_in">document</span>.getElementById(<span class="string">'addPhone'</span>).value = phone;</span><br><span class="line">	sid = id;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="添加地址"><a href="#添加地址" class="headerlink" title="添加地址"></a>添加地址</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//确认新增收货地址</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addAddr</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">document</span>.getElementById(<span class="string">'divDialog'</span>).style.display=<span class="string">'none'</span></span><br><span class="line">	<span class="keyword">var</span> addr_name= <span class="built_in">document</span>.getElementById(<span class="string">'addr_name'</span>).value;</span><br><span class="line">	<span class="keyword">var</span> addr_phone= <span class="built_in">document</span>.getElementById(<span class="string">'addr_phone'</span>).value;</span><br><span class="line">	<span class="keyword">var</span> addr_detail= <span class="built_in">document</span>.getElementById(<span class="string">'addr_detail'</span>).value;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">document</span>.getElementById(<span class="string">'addName'</span>).value = addr_name;</span><br><span class="line">	<span class="built_in">document</span>.getElementById(<span class="string">'addAdd'</span>).value = addr_detail;</span><br><span class="line">	<span class="built_in">document</span>.getElementById(<span class="string">'addPhone'</span>).value = addr_phone;</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">window</span>.location.href=<span class="string">"AddShipaddressServlet?name="</span>+addr_name+<span class="string">"&amp;address="</span>+addr_detail+<span class="string">"&amp;telephone="</span>+addr_phone+<span class="string">"&amp;customerId="</span>+$&#123;customer.id&#125;;</span><br><span class="line">&#125;<span class="comment">//end  确认新增收货地址</span></span><br></pre></td></tr></table></figure>
+<h3 id="AddShipaddressServlet"><a href="#AddShipaddressServlet" class="headerlink" title="AddShipaddressServlet"></a>AddShipaddressServlet</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">	request.setCharacterEncoding(<span class="string">"utf-8"</span>);</span><br><span class="line">	response.setCharacterEncoding(<span class="string">"utf-8"</span>);</span><br><span class="line">	response.setContentType(<span class="string">"utf-8"</span>);</span><br><span class="line">	</span><br><span class="line">	String name = request.getParameter(<span class="string">"name"</span>);</span><br><span class="line">	String address = request.getParameter(<span class="string">"address"</span>);</span><br><span class="line">	String telephone = request.getParameter(<span class="string">"telephone"</span>);</span><br><span class="line">	String id = request.getParameter(<span class="string">"customerId"</span>);</span><br><span class="line">	Long customerId = (<span class="keyword">long</span>) Integer.parseInt(id);</span><br><span class="line">	</span><br><span class="line">	ShipAddressServiceImpl service = <span class="keyword">new</span> ShipAddressServiceImpl();</span><br><span class="line">	Customer customer = <span class="keyword">new</span> CustomerServiceImpl().getCustomerById(customerId);</span><br><span class="line">	</span><br><span class="line">	ShipAddress shipaddress = <span class="keyword">new</span> ShipAddress(name, address, telephone, customer);</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span>(service.trySave(shipaddress)) &#123;</span><br><span class="line">		System.out.println(<span class="string">"保存成功"</span>);</span><br><span class="line">	&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">		System.out.println(<span class="string">"保存失败"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//更新地址</span></span><br><span class="line">	HttpSession session = request.getSession();</span><br><span class="line">	List&lt;ShipAddress&gt; addrs = <span class="keyword">new</span> ShipAddressServiceImpl().findAllAddrByCusId(customerId);</span><br><span class="line">	session.setAttribute(<span class="string">"addrs"</span>, addrs);</span><br><span class="line">	response.sendRedirect(<span class="string">"./confirm.jsp"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="跳转"><a href="#跳转" class="headerlink" title="跳转"></a>跳转</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">confirmOrder</span>(<span class="params">cus_id, cost, or_id</span>) </span>&#123;</span><br><span class="line">	<span class="built_in">window</span>.location.href=<span class="string">"ConfirmSucServlet?cusId="</span> + cus_id + <span class="string">"&amp;addrId="</span> + sid + <span class="string">"&amp;cost="</span> + cost + <span class="string">"&amp;or_id="</span> + or_id;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>##订单详情</p>
+<h3 id="ConfirmSucServlet"><a href="#ConfirmSucServlet" class="headerlink" title="ConfirmSucServlet"></a>ConfirmSucServlet</h3><p>根据 cus_id 和 sid 获得相关订单和地址</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">	request.setCharacterEncoding(<span class="string">"utf-8"</span>);</span><br><span class="line">	response.setCharacterEncoding(<span class="string">"utf-8"</span>);</span><br><span class="line">	response.setContentType(<span class="string">"utf-8"</span>); </span><br><span class="line">	</span><br><span class="line">	Long cusId = Long.parseLong(request.getParameter(<span class="string">"cusId"</span>));</span><br><span class="line">	Long addrId = Long.parseLong(request.getParameter(<span class="string">"addrId"</span>));</span><br><span class="line">	Double cost = Double.parseDouble(request.getParameter(<span class="string">"cost"</span>));</span><br><span class="line">	Long orderFormId = Long.parseLong(request.getParameter(<span class="string">"or_id"</span>));</span><br><span class="line">	Customer customer = <span class="keyword">new</span> CustomerServiceImpl().getCustomerById(cusId);</span><br><span class="line">	ShipAddress addr = <span class="keyword">new</span> ShipAddressServiceImpl().getAddrById(addrId);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">new</span> OrderFormServiceImpl().updateCost(orderFormId, cost);<span class="comment">//cost 存入数据库</span></span><br><span class="line">	</span><br><span class="line">	HttpSession session = request.getSession();</span><br><span class="line">	session.setAttribute(<span class="string">"customer"</span>, customer);</span><br><span class="line">	session.setAttribute(<span class="string">"addr"</span>, addr);</span><br><span class="line">	session.setAttribute(<span class="string">"cost"</span>, cost); <span class="comment">//cost发送到页面 表示订单完成 </span></span><br><span class="line">	response.sendRedirect(<span class="string">"./confirmSuc.jsp"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="在页面展示"><a href="#在页面展示" class="headerlink" title="在页面展示"></a>在页面展示</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;span style=<span class="string">"font-size:15px;color: red"</span>&gt;</span><br><span class="line">	订单提交成功！订单详情：&lt;br&gt;</span><br><span class="line">		用户：$&#123;customer.name&#125;&lt;br&gt;</span><br><span class="line">		费用：$&#123;cost&#125;&lt;br&gt;</span><br><span class="line">		收货人：$&#123;addr.shipuName &#125;</span><br><span class="line">		收货地址：$&#123;addr.adres &#125;&lt;br&gt;</span><br><span class="line">		</span><br><span class="line">	&lt;a href="index.jsp"&gt;继续购物&lt;/a&gt;</span><br><span class="line">&lt;/span&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="我的订单"><a href="#我的订单" class="headerlink" title="我的订单"></a>我的订单</h2><h3 id="根据已有信息展示"><a href="#根据已有信息展示" class="headerlink" title="根据已有信息展示"></a>根据已有信息展示</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;tr&gt;</span><br><span class="line">	&lt;th colspan=<span class="string">"2"</span>&gt;&lt;input type=<span class="string">"checkbox"</span> name=<span class="string">"orderid"</span> value=<span class="string">""</span>&gt;</span><br><span class="line">		&lt;b&gt;$&#123;orderForm.orderDate &#125;&lt;/b&gt;</span><br><span class="line">		&lt;span&gt;订单编号:$&#123;orderForm.id &#125;&lt;/span&gt;</span><br><span class="line">	&lt;/th&gt;</span><br><span class="line">	&lt;th colspan=<span class="string">"1"</span>&gt;</span><br><span class="line">		briup自营</span><br><span class="line">	&lt;/th&gt;</span><br><span class="line">	&lt;th&gt;</span><br><span class="line">		&lt;a href="DelOrderServlet?orderid=121"&gt;&lt;img alt="" src="images/del.png" style="float: right"&gt;&lt;/a&gt;</span><br><span class="line">	&lt;/th&gt;</span><br><span class="line">&lt;/tr&gt;</span><br><span class="line">&lt;span style="display: none" id="cost"&gt;$&#123;cost &#125;&lt;/span&gt;</span><br><span class="line">&lt;c:forEach items=<span class="string">"$&#123;sessionScope.orLines&#125;"</span> var=<span class="string">"orLine"</span>&gt;</span><br><span class="line">&lt;tr <span class="class"><span class="keyword">class</span></span>=<span class="string">"trDis"</span> style=<span class="string">"display: none"</span>&gt;</span><br><span class="line">	&lt;td&gt;</span><br><span class="line">		&lt;img alt=<span class="string">""</span> src=<span class="string">"images/book_shopCart/book$&#123;orLine.book.id &#125;.jpg"</span> style=<span class="string">"float:left;"</span>&gt;</span><br><span class="line">		&lt;p style="padding-top: 30px;"&gt;$&#123;orLine.book.name &#125;&lt;/p&gt;</span><br><span class="line">	&lt;/td&gt;</span><br><span class="line">	&lt;td&gt;$&#123;orLine.book.price &#125;&lt;/td&gt;</span><br><span class="line">	&lt;td&gt;$&#123;orLine.num &#125;&lt;/td&gt;</span><br><span class="line">	&lt;td&gt;</span><br><span class="line">		</span><br><span class="line">			总价值：$&#123;orLine.book.price * orLine.num  &#125;&lt;br/&gt;</span><br><span class="line">			(含运费：￥<span class="number">0.0</span>元)</span><br><span class="line">		</span><br><span class="line">	&lt;/td&gt;</span><br><span class="line">&lt;/tr&gt;</span><br><span class="line">&lt;/c:forEach&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="判断数据库中订单是否为已结算订单"><a href="#判断数据库中订单是否为已结算订单" class="headerlink" title="判断数据库中订单是否为已结算订单"></a>判断数据库中订单是否为已结算订单</h3><p>判断是否有总价 有的话显示 否则不显示</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> cost = $(<span class="string">"#cost"</span>).text()</span><br><span class="line">	<span class="keyword">if</span>(cost) &#123;</span><br><span class="line">		$(<span class="string">".trDis"</span>).each(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">			$(<span class="keyword">this</span>).css(<span class="string">"display"</span>, <span class="string">"block"</span>);</span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    <div>
+  
+    
+<div style="text-align:center;color: #ccc;font-size:14px;">
+------ end ------</div>
+
+  
+</div>
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/bra-jindong/" rel="next" title="京东bra评论数据合集">
+                <i class="fa fa-chevron-left"></i> 京东bra评论数据合集
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/sql/" rel="prev" title="MySQL 基本语法">
+                MySQL 基本语法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ffshine</p>
+              <p class="site-description motion-element" itemprop="description">个人笔记</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">categories</span>
+                  
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#环境"><span class="nav-number">1.</span> <span class="nav-text">环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据建模"><span class="nav-number">2.</span> <span class="nav-text">数据建模</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库连接"><span class="nav-number">3.</span> <span class="nav-text">数据库连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注册"><span class="nav-number">4.</span> <span class="nav-text">注册</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#service"><span class="nav-number">4.1.</span> <span class="nav-text">service</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#servlet"><span class="nav-number">4.2.</span> <span class="nav-text">servlet</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#登陆"><span class="nav-number">5.</span> <span class="nav-text">登陆</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#servlet-1"><span class="nav-number">5.1.</span> <span class="nav-text">servlet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#把数据库中的Book-传入首页"><span class="nav-number">5.2.</span> <span class="nav-text">把数据库中的Book 传入首页</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#listener"><span class="nav-number">5.2.1.</span> <span class="nav-text">listener</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bookService"><span class="nav-number">5.2.2.</span> <span class="nav-text">bookService</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在页面展示穿入的Book"><span class="nav-number">5.3.</span> <span class="nav-text">在页面展示穿入的Book</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ViewBook"><span class="nav-number">6.</span> <span class="nav-text">ViewBook</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据获取"><span class="nav-number">6.1.</span> <span class="nav-text">数据获取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据展示"><span class="nav-number">6.2.</span> <span class="nav-text">数据展示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#跳转链接构建"><span class="nav-number">6.3.</span> <span class="nav-text">跳转链接构建</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#购物车"><span class="nav-number">7.</span> <span class="nav-text">购物车</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#加入购物车"><span class="nav-number">7.1.</span> <span class="nav-text">加入购物车</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#购物车展示"><span class="nav-number">7.2.</span> <span class="nav-text">购物车展示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用jQuery-实现购物车增与减-全选与取消全选（删除还未实现）"><span class="nav-number">7.3.</span> <span class="nav-text">用jQuery 实现购物车增与减 全选与取消全选（删除还未实现）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构建跳转链接"><span class="nav-number">7.4.</span> <span class="nav-text">构建跳转链接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#显示订单-待结算界面"><span class="nav-number">8.</span> <span class="nav-text">显示订单(待结算界面)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#servlet-2"><span class="nav-number">8.1.</span> <span class="nav-text">servlet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结算页面展示订单信息"><span class="nav-number">8.2.</span> <span class="nav-text">结算页面展示订单信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#展示地址"><span class="nav-number">8.3.</span> <span class="nav-text">展示地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择地址"><span class="nav-number">8.4.</span> <span class="nav-text">选择地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加地址"><span class="nav-number">8.5.</span> <span class="nav-text">添加地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AddShipaddressServlet"><span class="nav-number">8.6.</span> <span class="nav-text">AddShipaddressServlet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#跳转"><span class="nav-number">8.7.</span> <span class="nav-text">跳转</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ConfirmSucServlet"><span class="nav-number">8.8.</span> <span class="nav-text">ConfirmSucServlet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在页面展示"><span class="nav-number">8.9.</span> <span class="nav-text">在页面展示</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我的订单"><span class="nav-number">9.</span> <span class="nav-text">我的订单</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#根据已有信息展示"><span class="nav-number">9.1.</span> <span class="nav-text">根据已有信息展示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#判断数据库中订单是否为已结算订单"><span class="nav-number">9.2.</span> <span class="nav-text">判断数据库中订单是否为已结算订单</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ffshine</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Mist</a></div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.4"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
