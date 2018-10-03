@@ -102,18 +102,18 @@
   <meta name="keywords" content="Linux,MySQL," />
 
 
-<meta name="description" content="1234567891011sudo apt install mysql-serversudo apt install mysql-clientsudo apt install libmysqlclient-devsudo vim /etc/mysql/debian.cnf #查看备用密码 AZ8JPBiPs4otZlFW 备用用户名 debian-sys-maint添加用户grant all on">
+<meta name="description" content="1234sudo apt install mysql-serversudo apt install mysql-clientsudo apt install libmysqlclient-devsudo vim /etc/mysql/debian.cnf #查看备用密码 AZ8JPBiPs4otZlFW 备用用户名 debian-sys-maint">
 <meta name="keywords" content="Linux,MySQL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ubuntu 18.04 安装 MySQL">
 <meta property="og:url" content="http://yoursite.com/2018/Ubuntu18.04-install-MySQL/index.html">
 <meta property="og:site_name" content="FFshine">
-<meta property="og:description" content="1234567891011sudo apt install mysql-serversudo apt install mysql-clientsudo apt install libmysqlclient-devsudo vim /etc/mysql/debian.cnf #查看备用密码 AZ8JPBiPs4otZlFW 备用用户名 debian-sys-maint添加用户grant all on">
+<meta property="og:description" content="1234sudo apt install mysql-serversudo apt install mysql-clientsudo apt install libmysqlclient-devsudo vim /etc/mysql/debian.cnf #查看备用密码 AZ8JPBiPs4otZlFW 备用用户名 debian-sys-maint">
 <meta property="og:locale" content="en-US">
-<meta property="og:updated_time" content="2018-10-02T13:50:43.063Z">
+<meta property="og:updated_time" content="2018-10-03T01:08:27.721Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu 18.04 安装 MySQL">
-<meta name="twitter:description" content="1234567891011sudo apt install mysql-serversudo apt install mysql-clientsudo apt install libmysqlclient-devsudo vim /etc/mysql/debian.cnf #查看备用密码 AZ8JPBiPs4otZlFW 备用用户名 debian-sys-maint添加用户grant all on">
+<meta name="twitter:description" content="1234sudo apt install mysql-serversudo apt install mysql-clientsudo apt install libmysqlclient-devsudo vim /etc/mysql/debian.cnf #查看备用密码 AZ8JPBiPs4otZlFW 备用用户名 debian-sys-maint">
 
 
 
@@ -365,7 +365,11 @@
       
 
       
-        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install mysql-server</span><br><span class="line">sudo apt install mysql-client</span><br><span class="line">sudo apt install libmysqlclient-dev</span><br><span class="line">sudo vim /etc/mysql/debian.cnf <span class="comment">#查看备用密码 AZ8JPBiPs4otZlFW 备用用户名 debian-sys-maint</span></span><br><span class="line"></span><br><span class="line">添加用户</span><br><span class="line">grant all on *.* to admin@<span class="string">"%"</span> identified by <span class="string">"123"</span> ;</span><br><span class="line">用户名 admin 密码 123</span><br><span class="line"></span><br><span class="line">远程链接</span><br><span class="line">sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf <span class="comment">#注释 127.0.0.1</span></span><br></pre></td></tr></table></figure>
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install mysql-server</span><br><span class="line">sudo apt install mysql-client</span><br><span class="line">sudo apt install libmysqlclient-dev</span><br><span class="line">sudo vim /etc/mysql/debian.cnf <span class="comment">#查看备用密码 AZ8JPBiPs4otZlFW 备用用户名 debian-sys-maint</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>添加用户<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grant all on *.* to admin@<span class="string">"%"</span> identified by <span class="string">"123"</span>;</span><br></pre></td></tr></table></figure></p>
+<p>用户名 admin 密码 123</p>
+<p>远程链接<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf <span class="comment">#注释 127.0.0.1</span></span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -487,7 +491,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-count">22</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -561,7 +565,7 @@
                     
                       
                     
-                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>

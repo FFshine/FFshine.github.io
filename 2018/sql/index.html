@@ -102,18 +102,18 @@
   <meta name="keywords" content="MySQL," />
 
 
-<meta name="description" content="创建数据库 12create database 数据库名 [其他选项];create database my_database character set gbk;  创建表   12345678create table 表名(列声明);create table STUDENTS (    ID int usigned not null auto_increment primary key,">
+<meta name="description" content="创建数据库 12create database 数据库名 [其他选项];create database my_database character set gbk;">
 <meta name="keywords" content="MySQL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL 基本语法">
 <meta property="og:url" content="http://yoursite.com/2018/sql/index.html">
 <meta property="og:site_name" content="FFshine">
-<meta property="og:description" content="创建数据库 12create database 数据库名 [其他选项];create database my_database character set gbk;  创建表   12345678create table 表名(列声明);create table STUDENTS (    ID int usigned not null auto_increment primary key,">
+<meta property="og:description" content="创建数据库 12create database 数据库名 [其他选项];create database my_database character set gbk;">
 <meta property="og:locale" content="en-US">
-<meta property="og:updated_time" content="2018-10-02T13:50:40.115Z">
+<meta property="og:updated_time" content="2018-10-03T01:07:29.686Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL 基本语法">
-<meta name="twitter:description" content="创建数据库 12create database 数据库名 [其他选项];create database my_database character set gbk;  创建表   12345678create table 表名(列声明);create table STUDENTS (    ID int usigned not null auto_increment primary key,">
+<meta name="twitter:description" content="创建数据库 12create database 数据库名 [其他选项];create database my_database character set gbk;">
 
 
 
@@ -376,11 +376,12 @@
 <li><p>创建数据库</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> 数据库名 [其他选项];</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> my_database <span class="built_in">character</span> <span class="keyword">set</span> gbk;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>创建表</p>
-</li>
 </ol>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> 表名(列声明);</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> STUDENTS (</span><br><span class="line">    <span class="keyword">ID</span> <span class="built_in">int</span> usigned <span class="keyword">not</span> <span class="literal">null</span> auto_increment primary <span class="keyword">key</span>,</span><br><span class="line">    <span class="keyword">NAME</span> <span class="built_in">char</span>(<span class="number">8</span>) <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">    SEX <span class="built_in">char</span>(<span class="number">4</span>) <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">    AGE tinyint usigned <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">    tel <span class="built_in">char</span>(<span class="number">13</span>) <span class="literal">null</span> <span class="keyword">default</span> <span class="string">"_"</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<ol start="3">
+<a id="more"></a>
+<ol start="2">
+<li><p>创建表</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> 表名(列声明);</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> STUDENTS (</span><br><span class="line"> 	  <span class="keyword">ID</span> <span class="built_in">int</span> usigned <span class="keyword">not</span> <span class="literal">null</span> auto_increment primary <span class="keyword">key</span>,</span><br><span class="line">  	  <span class="keyword">NAME</span> <span class="built_in">char</span>(<span class="number">8</span>) <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">     SEX <span class="built_in">char</span>(<span class="number">4</span>) <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">   	AGE tinyint usigned <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">   	TEL <span class="built_in">char</span>(<span class="number">13</span>) <span class="literal">null</span> <span class="keyword">default</span> <span class="string">"_"</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>插入</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> [<span class="keyword">into</span>] 表名[(列名<span class="number">1</span>, 列名<span class="number">2</span>，列名<span class="number">3</span>, ...)] <span class="keyword">values</span>(值<span class="number">1</span>, 值<span class="number">2</span>, 值<span class="number">3</span>, ...);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> students(<span class="keyword">name</span>, sex, age, tel) <span class="keyword">values</span>(<span class="string">"王钢蛋"</span>, <span class="string">"男"</span>, <span class="string">"18"</span>, <span class="string">"13576883818"</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> students <span class="keyword">values</span>(<span class="literal">NULL</span>, <span class="string">"王钢蛋"</span>, <span class="string">"男"</span>, <span class="string">"18"</span>, <span class="string">"13576883818"</span>);</span><br></pre></td></tr></table></figure>
 </li>
@@ -473,6 +474,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2018/hello-world/" rel="prev" title="Hello World">
+                Hello World <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -536,7 +541,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-count">22</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -610,7 +615,7 @@
                     
                       
                     
-                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>

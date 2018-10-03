@@ -110,7 +110,7 @@
 <meta property="og:site_name" content="FFshine">
 <meta property="og:description" content="c++ 中的cinc++中的cin以空白符（空格 回车 制表）作为分隔符，以回车作为输入结束符。在平时使用中除了输入数字，否则很难避免输入的内容包含空格等特殊字符的情况。1234char name1[20];char name2[20];cin &amp;gt;&amp;gt; name1 &amp;gt;&amp;gt; name2;cout &amp;lt;&amp;lt; name1 &amp;lt;&amp;lt; endl &amp;lt;&amp;lt; name">
 <meta property="og:locale" content="en-US">
-<meta property="og:updated_time" content="2018-05-21T14:18:30.194Z">
+<meta property="og:updated_time" content="2018-10-03T01:01:29.159Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="c++中的get与getline">
 <meta name="twitter:description" content="c++ 中的cinc++中的cin以空白符（空格 回车 制表）作为分隔符，以回车作为输入结束符。在平时使用中除了输入数字，否则很难避免输入的内容包含空格等特殊字符的情况。1234char name1[20];char name2[20];cin &amp;gt;&amp;gt; name1 &amp;gt;&amp;gt; name2;cout &amp;lt;&amp;lt; name1 &amp;lt;&amp;lt; endl &amp;lt;&amp;lt; name">
@@ -366,6 +366,7 @@
 
       
         <h2 id="c-中的cin"><a href="#c-中的cin" class="headerlink" title="c++ 中的cin"></a>c++ 中的cin</h2><p>c++中的<code>cin</code>以空白符（空格 回车 制表）作为分隔符，以回车作为输入结束符。在平时使用中除了输入数字，否则很难避免输入的内容包含空格等特殊字符的情况。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> name1[<span class="number">20</span>];</span><br><span class="line"><span class="keyword">char</span> name2[<span class="number">20</span>];</span><br><span class="line"><span class="built_in">cin</span> &gt;&gt; name1 &gt;&gt; name2;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; name1 &lt;&lt; <span class="built_in">endl</span> &lt;&lt; name2 &lt;&lt; <span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
 <p>如果输入<code>barack obama</code>，再按回车。程序直接输出<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">barack</span><br><span class="line">obama</span><br></pre></td></tr></table></figure></p>
 <p>在此次输入中，把<code>barack</code>赋值给了<code>name1</code>，把<code>obama</code>赋值给了<code>name2</code>；（此时最后输入的回车符任保存在缓存中）。</p>
 <h2 id="cin-getline"><a href="#cin-getline" class="headerlink" title="cin.getline"></a>cin.getline</h2><p>好在c++给了一个解决这个问题的方法。在<code>cin</code>的成员函数中，有一个以回车为分隔符的函数<code>getline()</code>。</p>
@@ -439,8 +440,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/yameiniys/" rel="next" title="亚美尼亚大屠杀">
-                <i class="fa fa-chevron-left"></i> 亚美尼亚大屠杀
+              <a href="/2018/scheme-lambda/" rel="next" title="shceme的匿名函数(lambda)">
+                <i class="fa fa-chevron-left"></i> shceme的匿名函数(lambda)
               </a>
             
           </div>
@@ -525,7 +526,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-count">22</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -599,7 +600,7 @@
                     
                       
                     
-                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>

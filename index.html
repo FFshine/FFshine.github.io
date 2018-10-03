@@ -280,6 +280,139 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/hello-world/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ffshine">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FFshine">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/hello-world/" itemprop="url">Hello World</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-03T09:04:11+08:00">2018-10-03</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/hello-world/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    <div>
+  
+</div>
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/sql/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -374,16 +507,11 @@
 
       
         
-          
-          
-创建数据库
-12create database 数据库名 [其他选项];create database my_database character set gbk;
-
-创建表
-
-
-12345678create table 表名(列声明);create table STUDENTS (    ID int usigned not null auto_increment primary key,    NAME char(8) not null,    SEX char(4) not null,    AGE tinyint usigned not null,    tel char(13) n
-          ...
+          <ol>
+<li><p>创建数据库</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> 数据库名 [其他选项];</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> my_database <span class="built_in">character</span> <span class="keyword">set</span> gbk;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/sql/#more" rel="contents">
@@ -540,18 +668,12 @@
 
       
         
-          
-          环境数据库: Oracle XE
-数据库连接软件: Navicat
-Java: JDK1.8.0_171
-IDE: Eclipse Photon June 2018
-Servers: Tomcat 8.0.53
-数据建模Book {id, name, price, type}
-Customer [name, passwd, zip, address, telephone, email]
-OrederFrom [id, cost, orderDate, customer, shipadress]
-OrderLine [id, num, orderForm, book]
-ShipAddress [
-          ...
+          <h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>数据库: Oracle XE</p>
+<p>数据库连接软件: Navicat</p>
+<p>Java: JDK1.8.0_171</p>
+<p>IDE: Eclipse Photon June 2018</p>
+<p>Servers: Tomcat 8.0.53</p>
+<h2 id="数据建模"><a href="#数据建模" class="headerlink" title="数据建模"></a>数据建模</h2>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/Estore/#more" rel="contents">
@@ -701,13 +823,11 @@ ShipAddress [
 
       
         
-          
-          京东bra评论数据合集都市丽人累计爬取 bra 900 件
-累计数据 130688 条
-欧迪芬累计爬取 bra 300 件
-累计数据 44577 条
-代码数据库交互123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687#dbUtil.pyimport pymysqlclass db:    def __init__(sel
-          ...
+          <h1 id="京东bra评论数据合集"><a href="#京东bra评论数据合集" class="headerlink" title="京东bra评论数据合集"></a>京东bra评论数据合集</h1><h4 id="都市丽人"><a href="#都市丽人" class="headerlink" title="都市丽人"></a><a href="https://list.jd.com/list.html?cat=1315,1345,1364&amp;ev=exbrand_90320&amp;page=1&amp;sort=sort_rank_asc&amp;trans=1&amp;JL=6_0_0#J_main" target="_blank" rel="noopener">都市丽人</a></h4><p>累计爬取 bra 900 件</p>
+<p>累计数据 130688 条</p>
+<h4 id="欧迪芬"><a href="#欧迪芬" class="headerlink" title="欧迪芬"></a><a href="https://list.jd.com/list.html?cat=1315,1345,1364&amp;ev=exbrand_168812&amp;page=1&amp;sort=sort_rank_asc&amp;trans=1&amp;JL=6_0_0#J_main" target="_blank" rel="noopener">欧迪芬</a></h4><p>累计爬取 bra 300 件</p>
+<p>累计数据 44577 条</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><h3 id="数据库交互"><a href="#数据库交互" class="headerlink" title="数据库交互"></a>数据库交互</h3>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/bra-jindong/#more" rel="contents">
@@ -857,9 +977,7 @@ ShipAddress [
 
       
         
-          
-          1234567891011sudo apt install mysql-serversudo apt install mysql-clientsudo apt install libmysqlclient-devsudo vim /etc/mysql/debian.cnf #查看备用密码 AZ8JPBiPs4otZlFW 备用用户名 debian-sys-maint添加用户grant all on *.* to admin@"%" identified by "123" ;用户名 admin 密码 123远程链接sudo vim /etc/mysql/mysql.conf.d/mysqld.c
-          ...
+          <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install mysql-server</span><br><span class="line">sudo apt install mysql-client</span><br><span class="line">sudo apt install libmysqlclient-dev</span><br><span class="line">sudo vim /etc/mysql/debian.cnf <span class="comment">#查看备用密码 AZ8JPBiPs4otZlFW 备用用户名 debian-sys-maint</span></span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/Ubuntu18.04-install-MySQL/#more" rel="contents">
@@ -1009,155 +1127,11 @@ ShipAddress [
 
       
         
-          
-          00x00在强类型语言中 (C, C++, Java), 常量都有自己对应的数据类型 例如 C/C++ 、Java中 整数 12 的数据类型是 int, 浮点数 1.0 在 Java 中的数据类型是 double，在 C/C++ 中是 float。
-00x01在 C/C++ 中，以下代码编辑器器(clion)会显示警告，但编译过程不会显示任何警告信息。12int a = 1;short b = a;
-
-同样代码在 Java 中则直接显示错误信息，而且无法通过编译。
-
-00x02同样地，在 C/C++ 中，下面这一段明显会溢出的代码，也能够顺利通过编译。123int a = 1000;char 
-          ...
+          <h2 id="00x00"><a href="#00x00" class="headerlink" title="00x00"></a>00x00</h2><p>在强类型语言中 (C, C++, Java), 常量都有自己对应的数据类型 例如 C/C++ 、Java中 整数 <code>12</code> 的数据类型是 <code>int</code>, 浮点数 <code>1.0</code> 在 Java 中的数据类型是 <code>double</code>，在 C/C++ 中是 <code>float</code>。</p>
+<h2 id="00x01"><a href="#00x01" class="headerlink" title="00x01"></a>00x01</h2><p>在 C/C++ 中，以下代码编辑器器(clion)会显示警告，但编译过程不会显示任何警告信息。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">short</span> b = a;</span><br></pre></td></tr></table></figure></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/a+b_and_a+=b/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    <div>
-  
-</div>
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ffshine">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FFshine">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-07T20:16:26+08:00">2018-05-07</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick StartCreate a new post1$ hexo new "My New Post"
-More info: Writing
-Run server1$ hexo server
-More in
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/hello-world/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1286,14 +1260,10 @@ More in
 
       
         
-          
-          
-from The Verge
-
-New financial figures for Nest shed light on Google’s race to be the eyes and ears of the smart home
-
-Google parent company Alphabet reported first quarter earnings for 2018 today, beating Wall Street estimates on sales and profit thanks in large part to its mammoth search advertisi
-          ...
+          <blockquote>
+<p>from <a href="https://www.theverge.com/2018/4/23/17272748/alphabet-google-q1-2018-earnings-nest-smart-home-amazon-competition" target="_blank" rel="noopener">The Verge</a></p>
+</blockquote>
+<p><em>New financial figures for Nest shed light on Google’s race to be the eyes and ears of the smart home</em><br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/Google-is-bleeding-cash-trying-to-take-on-Amazon-in-the-smart-home/#more" rel="contents">
@@ -1443,19 +1413,161 @@ Google parent company Alphabet reported first quarter earnings for 2018 today, b
 
       
         
-          
-          简介
-信号槽是 Qt 框架引以为豪的机制之一。熟练使用和理解信号槽，能够设计出解耦的非常漂亮的程序，有利于增强我们的技术设计能力。
-
-
-所谓信号槽，实际就是观察者模式。当某个事件发生之后，比如，按钮检测到自己被点击了一下，它就会发出一个信号（signal）。这种发出是没有目的的，类似广播。如果有对象对这个信号感兴趣，它就会使用连接（connect）函数，意思是，用自己的一个函数（成为槽（slot））来处理这个信号。也就是说，当信号发出时，被连接的槽函数会自动被回调。这就类似观察者模式：当发生了感兴趣的事件，某一个操作就会被自动触发。
-
-
-信号与槽示例例如一段简单的代码：123456789101
-          ...
+          <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><blockquote>
+<p>信号槽是 Qt 框架引以为豪的机制之一。熟练使用和理解信号槽，能够设计出解耦的非常漂亮的程序，有利于增强我们的技术设计能力。<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/signalsAndSlots/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    <div>
+  
+</div>
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/qucik-sort/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ffshine">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FFshine">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/qucik-sort/" itemprop="url">快速排序法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-17T23:38:41+08:00">2018-02-17</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/代码/" itemprop="url" rel="index"><span itemprop="name">代码</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*************************************************************************</span></span><br><span class="line"><span class="comment">    &amp;gt; File Name: test.cpp</span></span><br><span class="line"><span class="comment">    &amp;gt; Author: </span></span><br><span class="line"><span class="comment">    &amp;gt; Mail: </span></span><br><span class="line"><span class="comment">    &amp;gt; Created Time: 2018年02月17日 星期六 23时23分43秒</span></span><br><span class="line"><span class="comment"> ************************************************************************/</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;iostream&amp;gt;</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">quickSort</span><span class="params">(<span class="keyword">int</span> *a, <span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(l &amp;lt; r) &#123;</span><br><span class="line">    <span class="keyword">int</span> i, j, x;</span><br><span class="line">    i = l;</span><br><span class="line">    j = r;</span><br><span class="line">    x = a[i];</span><br><span class="line">    <span class="keyword">while</span> (i &amp;lt; j) &#123;</span><br><span class="line">      <span class="keyword">while</span> (a[j] &amp;gt; x) &#123;</span><br><span class="line">        j--;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span> (i &amp;lt; j) &#123;</span><br><span class="line">        a[i] = a[j];</span><br><span class="line">        i++;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">while</span> (i &amp;lt; j &amp;amp;&amp;amp; a[i] &amp;lt;x) &#123;</span><br><span class="line">        i++;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span> (i &amp;lt; j) &#123;</span><br><span class="line">        a[j] = a[i];</span><br><span class="line">        j--;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    a[i] = x;</span><br><span class="line">    quickSort(a, l, i<span class="number">-1</span>);</span><br><span class="line">    quickSort(a, i+<span class="number">1</span>, r);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> a[] = &#123;<span class="number">60</span>, <span class="number">40</span>, <span class="number">43</span>, <span class="number">46</span>, <span class="number">10</span>,<span class="number">99</span>&#125;;</span><br><span class="line">  quickSort(a, <span class="number">0</span>, <span class="number">5</span>);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &amp;lt; <span class="number">6</span>; i++) &#123;</span><br><span class="line">    <span class="built_in">cout</span> &amp;lt;&amp;lt; a[i] &amp;lt;&amp;lt; <span class="string">" "</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">cout</span> &amp;lt;&amp;lt; <span class="built_in">endl</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/qucik-sort/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1602,171 +1714,11 @@ Google parent company Alphabet reported first quarter earnings for 2018 today, b
 
       
         
-          
-          安装（Linux）1$ sudo pacman -S git
-安装完之后设置用户和邮箱12$ git config --global user.name "Your Name"$ git config --global user.email "email@example.com"
-以上的 --global指定了, 本系统所有的仓库都会使用这个配置。
-新建一个版本库123$ mkdir mygit$ cd mygit$ git init
-添加文件假如你在本目录下添加了一个叫readme.txt的文件
-12$ git add readme.txt$ git commit -m "add readm
-          ...
+          <h2 id="安装（Linux）"><a href="#安装（Linux）" class="headerlink" title="安装（Linux）"></a>安装（Linux）</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -S git</span><br></pre></td></tr></table></figure>
+<p>安装完之后设置用户和邮箱<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">"Your Name"</span></span><br><span class="line">$ git config --global user.email <span class="string">"email@example.com"</span></span><br></pre></td></tr></table></figure></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/git/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    <div>
-  
-</div>
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/get-and-getline-in-cpp/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ffshine">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FFshine">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/get-and-getline-in-cpp/" itemprop="url">c++中的get与getline</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-30T12:17:17+08:00">2018-01-30</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/代码/" itemprop="url" rel="index"><span itemprop="name">代码</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          c++ 中的cinc++中的cin以空白符（空格 回车 制表）作为分隔符，以回车作为输入结束符。在平时使用中除了输入数字，否则很难避免输入的内容包含空格等特殊字符的情况。1234char name1[20];char name2[20];cin &gt;&gt; name1 &gt;&gt; name2;cout &lt;&lt; name1 &lt;&lt; endl &lt;&lt; name2 &lt;&lt; endl;
-如果输入barack obama，再按回车。程序直接输出12barackobama
-在此次输入中，把barack赋值给了name1，把obama赋值给了name2；（
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/get-and-getline-in-cpp/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1815,7 +1767,7 @@ Google parent company Alphabet reported first quarter earnings for 2018 today, b
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1858,7 +1810,7 @@ Google parent company Alphabet reported first quarter earnings for 2018 today, b
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-count">22</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -1932,7 +1884,7 @@ Google parent company Alphabet reported first quarter earnings for 2018 today, b
                     
                       
                     
-                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
