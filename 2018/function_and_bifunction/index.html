@@ -99,28 +99,28 @@
 
 
   
-  <meta name="keywords" content="git," />
+  <meta name="keywords" content="代码,Java 8," />
 
 
-<meta name="description" content="安装（Linux）1$ sudo pacman -S git 安装完之后设置用户和邮箱12$ git config --global user.name &quot;Your Name&quot;$ git config --global user.email &quot;email@example.com&quot;">
-<meta name="keywords" content="git">
+<meta name="description" content="Function 接受一个参数 返回一个参数 BiFunction 接收两个参数 返回一个结果  Function抽象方法apply1R apply (T t) 例12345int compute(int a, Function&amp;lt;Integer, Integer&amp;gt; function) &amp;#123;    return function.apply(a)	&amp;#125;System.ou">
+<meta name="keywords" content="代码,Java 8">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git的使用方法记录。">
-<meta property="og:url" content="http://muggle.life/2018/git/index.html">
+<meta property="og:title" content="java 8 新特性之 Funtion &amp; BiFunction">
+<meta property="og:url" content="http://muggle.life/2018/function_and_bifunction/index.html">
 <meta property="og:site_name" content="muggle&#39;s life">
-<meta property="og:description" content="安装（Linux）1$ sudo pacman -S git 安装完之后设置用户和邮箱12$ git config --global user.name &quot;Your Name&quot;$ git config --global user.email &quot;email@example.com&quot;">
+<meta property="og:description" content="Function 接受一个参数 返回一个参数 BiFunction 接收两个参数 返回一个结果  Function抽象方法apply1R apply (T t) 例12345int compute(int a, Function&amp;lt;Integer, Integer&amp;gt; function) &amp;#123;    return function.apply(a)	&amp;#125;System.ou">
 <meta property="og:locale" content="en-US">
-<meta property="og:updated_time" content="2018-10-03T01:01:57.254Z">
+<meta property="og:updated_time" content="2018-10-09T12:34:08.978Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git的使用方法记录。">
-<meta name="twitter:description" content="安装（Linux）1$ sudo pacman -S git 安装完之后设置用户和邮箱12$ git config --global user.name &quot;Your Name&quot;$ git config --global user.email &quot;email@example.com&quot;">
+<meta name="twitter:title" content="java 8 新特性之 Funtion &amp; BiFunction">
+<meta name="twitter:description" content="Function 接受一个参数 返回一个参数 BiFunction 接收两个参数 返回一个结果  Function抽象方法apply1R apply (T t) 例12345int compute(int a, Function&amp;lt;Integer, Integer&amp;gt; function) &amp;#123;    return function.apply(a)	&amp;#125;System.ou">
 
 
 
 
 
 
-  <link rel="canonical" href="http://muggle.life/2018/git/"/>
+  <link rel="canonical" href="http://muggle.life/2018/function_and_bifunction/"/>
 
 
 
@@ -129,7 +129,7 @@
     sidebar: "",
   };
 </script>
-  <title>git的使用方法记录。 | muggle's life</title>
+  <title>java 8 新特性之 Funtion & BiFunction | muggle's life</title>
   
 
 
@@ -275,7 +275,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://muggle.life/2018/git/">
+    <link itemprop="mainEntityOfPage" href="http://muggle.life/2018/function_and_bifunction/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ffshine">
@@ -292,7 +292,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">git的使用方法记录。</h1>
+          <h1 class="post-title" itemprop="name headline">java 8 新特性之 Funtion & BiFunction</h1>
         
 
         <div class="post-meta">
@@ -304,7 +304,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-31T20:10:07+08:00">2018-01-31</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-09T19:07:00+08:00">2018-10-09</time>
             
 
             
@@ -325,7 +325,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/代码/" itemprop="url" rel="index"><span itemprop="name">代码</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a></span>
 
                 
                 
@@ -359,74 +359,20 @@
       
 
       
-        <h2 id="安装（Linux）"><a href="#安装（Linux）" class="headerlink" title="安装（Linux）"></a>安装（Linux）</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -S git</span><br></pre></td></tr></table></figure>
-<p>安装完之后设置用户和邮箱<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">"Your Name"</span></span><br><span class="line">$ git config --global user.email <span class="string">"email@example.com"</span></span><br></pre></td></tr></table></figure></p>
-<a id="more"></a>
-<p>以上的 <code>--global</code>指定了, 本系统所有的仓库都会使用这个配置。</p>
-<h2 id="新建一个版本库"><a href="#新建一个版本库" class="headerlink" title="新建一个版本库"></a>新建一个版本库</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir mygit</span><br><span class="line">$ <span class="built_in">cd</span> mygit</span><br><span class="line">$ git init</span><br></pre></td></tr></table></figure>
-<h2 id="添加文件"><a href="#添加文件" class="headerlink" title="添加文件"></a>添加文件</h2><p><em>假如你在本目录下添加了一个叫<code>readme.txt</code>的文件</em></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git add readme.txt</span><br><span class="line">$ git commit -m <span class="string">"add readme.txt"</span></span><br></pre></td></tr></table></figure>
-<p><code>commit -m</code>后面的参数为此次修改的提交说明.</p>
-<h2 id="提交修改后的文件"><a href="#提交修改后的文件" class="headerlink" title="提交修改后的文件"></a>提交修改后的文件</h2><h3 id="查看状态"><a href="#查看状态" class="headerlink" title="查看状态"></a>查看状态</h3><p>如果你修改了<code>redme.txt</code>运行<code>git status</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line">Changes not staged <span class="keyword">for</span> commit:</span><br><span class="line">(use <span class="string">"git add &amp;lt;file&amp;gt;..."</span> to update what will be committed)</span><br><span class="line">(use <span class="string">"git checkout -- &amp;lt;file&amp;gt;..."</span> to discard changes <span class="keyword">in</span> working directory)</span><br><span class="line"></span><br><span class="line">modified:   readme.txt</span><br><span class="line"></span><br><span class="line">no changes added to commit (use <span class="string">"git add"</span> and/or <span class="string">"git commit -a"</span>)</span><br></pre></td></tr></table></figure>
-<p>它告诉你, <code>redme.txt</code>已经被修改过了, 但是还没有准备提交的修改.</p>
-<h3 id="比较修改前和修改后的不同"><a href="#比较修改前和修改后的不同" class="headerlink" title="比较修改前和修改后的不同"></a>比较修改前和修改后的不同</h3><p>如果你已经忘记了你修改的内容, 运行<code>git diff</code>比较不同.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ git diff readme.txt</span><br><span class="line">diff --git a/readme.txt b/readme.txt</span><br><span class="line">index c4990a0..4cd0f41 100644</span><br><span class="line">--- a/readme.txt</span><br><span class="line">+++ b/readme.txt</span><br><span class="line">@@ -1,2 +1,2 @@</span><br><span class="line"> Git is a distributed version control system.</span><br><span class="line"> -Git is free software distributed ubder the GPL.</span><br><span class="line"> +Git is free software distributed ubder the f.</span><br></pre></td></tr></table></figure>
-<p>可以看到, 我把<code>Git is free software distributed ubder the GPL.</code>换成了<code>Git is free software distributed ubder the f.</code>.</p>
-<h3 id="提交修改"><a href="#提交修改" class="headerlink" title="提交修改"></a>提交修改</h3><pre class="line-numbers prism-highlight" data-start="1">$ git add reame.txt
-$ git commit -m "change GPL to f"
-</pre>
-
-<h2 id="版本退回"><a href="#版本退回" class="headerlink" title="版本退回"></a>版本退回</h2><h3 id="查询修改记录"><a href="#查询修改记录" class="headerlink" title="查询修改记录"></a>查询修改记录</h3><p>通过<code>git log</code></p>
-<pre class="line-numbers prism-highlight" data-start="1">$ git log
-commit eea876296f438267c5a2983b2f31792067558b40 (HEAD -&gt; master)
-Author: ffshine &lt;ffshine9@gmail.com&gt;
-Date:   Wed Jan 31 20:17:13 2018 +0800
-
-    change GPL to f
-
-commit 4c7884d8021d9b333651c11eb9746d2ada23cf4a
-Author: ffshine &lt;ffshine9@gmail.com&gt;
-Date:   Wed Jan 31 19:29:55 2018 +0800
-
-    add GPL
-
-commit d79a6a5e90fa4ef7d2a1fb2c788b98307f411311
-Author: ffshine &lt;ffshine9@gmail.com&gt;
-Date:   Wed Jan 31 19:28:25 2018 +0800
-
-    add distributed
-
-commit 340d6f6d36da7f551db7ca6e78e529088732f21d
-Author: ffshine &lt;ffshine9@gmail.com&gt;
-Date:   Wed Jan 31 19:25:17 2018 +0800
-
-    wrote a readme file
-
-</pre>
-
-<p>如果记录过多不好查阅的话, 添加<code>--pretty=oneline</code>参数, 所有的log都会在一行显示出来.</p>
-<h3 id="回滚"><a href="#回滚" class="headerlink" title="回滚"></a>回滚</h3><p>在git中,有个<code>HEAD</code>指针, 它指向当前的记录,<code>HEAD^</code>指向前一个记录,<code>HEAD^^</code>再往前一个, 以此类推. 当然,前一百个不会让你写一百个^,你可以这样写<code>HEAD~100</code>.</p>
-<pre class="line-numbers prism-highlight" data-start="1">$ git raset --hard HEAD^
-</pre>
-
-<h3 id="后悔了"><a href="#后悔了" class="headerlink" title="后悔了"></a>后悔了</h3><p>回滚了后悔了怎么办, git每条修改记录创建时, 都会有一个对应的ID. 比如说, 上一条我运行<code>git commit -m &quot;change GPL to f&quot;</code>后, 返回的是:</p>
-<pre class="line-numbers prism-highlight" data-start="1">[master eea8762] change GPL to f
-</pre>
-
-<p>如果要回到这一条记录, 只需要运行:</p>
-<pre class="line-numbers prism-highlight" data-start="1">$ git reset --hard eea8762
-</pre>
-
-<p>但是,如果回滚之后, 关闭了窗口, 找不到这条记录了怎么办. 没关系, git已经悄悄记录了你执行的每一条命令,只需要通过<code>git reflog</code>就能查询出来.</p>
-<pre class="line-numbers prism-highlight" data-start="1">$ git reflog
-    eea8762 (HEAD -&gt; master) HEAD@{0}: commit: change GPL to f
-    4c7884d HEAD@{1}: reset: moving to 4c7884d
-    d79a6a5 HEAD@{2}: reset: moving to HEAD^
-    4c7884d HEAD@{3}: commit: add GPL
-    d79a6a5 HEAD@{4}: commit: add distributed
-    340d6f6 HEAD@{5}: commit (initial): wrote a readme file
-</pre>
+        <ul>
+<li>Function 接受一个参数 返回一个参数</li>
+<li>BiFunction 接收两个参数 返回一个结果</li>
+</ul>
+<h2 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h2><h3 id="抽象方法"><a href="#抽象方法" class="headerlink" title="抽象方法"></a>抽象方法</h3><p>apply<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">R <span class="title">apply</span> <span class="params">(T t)</span></span></span><br></pre></td></tr></table></figure></p>
+<p>例<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">compute</span><span class="params">(<span class="keyword">int</span> a, Function&lt;Integer, Integer&gt; function)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> function.apply(a)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">System.out.println(compute(<span class="number">3</span>, a -&gt; a + <span class="number">8</span>)) <span class="comment">//11</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="default-方法"><a href="#default-方法" class="headerlink" title="default 方法"></a>default 方法</h3><p>compose<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;v&gt; <span class="function">Function&lt;V, R&gt; <span class="title">compose</span><span class="params">(Function&lt;? <span class="keyword">super</span> V, ? extends T &gt; before)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (V v) -&gt; apply(before.apply(v));</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>例<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">compute</span><span class="params">(<span class="keyword">int</span> a, Function&lt;Integer, Integer&gt; function1, Function&lt;Integer, Integer&gt; function2)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> function1.compose(function2).apply(a);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">System.out.println(<span class="number">3</span>, a -&gt; a +  <span class="number">8</span>, b -&gt; b * b) <span class="comment">// 3 * 3 + 8 = 17</span></span><br><span class="line">    <span class="comment">//先执行 function2 的 apply 再执行 function1 的 apply</span></span><br></pre></td></tr></table></figure></p>
+<p>andThen<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;V&gt; <span class="function">Function&lt;T, V&gt; <span class="title">andThen</span> <span class="params">(Function&lt;? <span class="keyword">super</span> V, ? extends T&gt; after)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> (T t) -&gt; after.apply((apply(t));</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
+<p>例<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">compute</span><span class="params">(<span class="keyword">int</span> a, Function&lt;Integer, Integer&gt; function1, Function&lt;Integer, Integer&gt; function2 )</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> function1.andThen(function2).apply(a);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">System.out.println(<span class="number">3</span>, a -&gt; a + <span class="number">8</span>, b -&gt; b * b) <span class="comment">//(3 + 8) * (3 + 8) = 121</span></span><br><span class="line">	<span class="comment">//先执行 function1 的 apply 再执行 function2 的 apply</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="BiFunction"><a href="#BiFunction" class="headerlink" title="BiFunction"></a>BiFunction</h2><h3 id="抽象方法-1"><a href="#抽象方法-1" class="headerlink" title="抽象方法"></a>抽象方法</h3><p>apply<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">R <span class="title">apply</span><span class="params">(T t, U u)</span></span>;</span><br></pre></td></tr></table></figure></p>
+<p>例<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">compute</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, BiFunction&lt;Integer, Integer, Integer&gt; biFunction)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> BiFunction.apply( a, b)</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">System.out.println(<span class="number">1</span>, <span class="number">2</span>, (a, b) -&gt; a + b) <span class="comment">//3</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="default-方法-1"><a href="#default-方法-1" class="headerlink" title="default 方法"></a>default 方法</h3><p>andThen<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;V&gt; BiFunction&lt;T, U, V) andThen(Function&lt;? <span class="keyword">super</span> R, ? extends v&gt; after) &#123;</span><br><span class="line">	<span class="keyword">return</span> (T t, U u) -&gt; after.apply(apply(t, u));</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
+<p>例<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">compute</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, BiFunction&lt;Integer, Integer, Integer&gt; biFunction, Function&lt;Integer, Integer&gt; function)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> function.apply(biFunction.apply(a, b));</span><br><span class="line">	&#125;</span><br><span class="line">System.out.println(compute(<span class="number">2</span>, <span class="number">3</span>, (a, b) -&gt; a + b, c -&gt; c * c)) <span class="comment">// (2 + 3) * (2 + 3) = 25</span></span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -456,7 +402,9 @@ Date:   Wed Jan 31 19:25:17 2018 +0800
       
         <div class="post-tags">
           
-            <a href="/tags/git/" rel="tag"># git</a>
+            <a href="/tags/代码/" rel="tag"># 代码</a>
+          
+            <a href="/tags/Java-8/" rel="tag"># Java 8</a>
           
         </div>
       
@@ -469,8 +417,8 @@ Date:   Wed Jan 31 19:25:17 2018 +0800
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/get-and-getline-in-cpp/" rel="next" title="c++中的get与getline">
-                <i class="fa fa-chevron-left"></i> c++中的get与getline
+              <a href="/2018/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
               </a>
             
           </div>
@@ -479,8 +427,8 @@ Date:   Wed Jan 31 19:25:17 2018 +0800
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/qucik-sort/" rel="prev" title="快速排序法">
-                快速排序法 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/predicate_and_supplier/" rel="prev" title="Java8 新特性之 Predicate / Supplier & Consumer">
+                Java8 新特性之 Predicate / Supplier & Consumer <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -669,7 +617,7 @@ Date:   Wed Jan 31 19:25:17 2018 +0800
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装（Linux）"><span class="nav-number">1.</span> <span class="nav-text">安装（Linux）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新建一个版本库"><span class="nav-number">2.</span> <span class="nav-text">新建一个版本库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加文件"><span class="nav-number">3.</span> <span class="nav-text">添加文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#提交修改后的文件"><span class="nav-number">4.</span> <span class="nav-text">提交修改后的文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看状态"><span class="nav-number">4.1.</span> <span class="nav-text">查看状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#比较修改前和修改后的不同"><span class="nav-number">4.2.</span> <span class="nav-text">比较修改前和修改后的不同</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#提交修改"><span class="nav-number">4.3.</span> <span class="nav-text">提交修改</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#版本退回"><span class="nav-number">5.</span> <span class="nav-text">版本退回</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查询修改记录"><span class="nav-number">5.1.</span> <span class="nav-text">查询修改记录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#回滚"><span class="nav-number">5.2.</span> <span class="nav-text">回滚</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后悔了"><span class="nav-number">5.3.</span> <span class="nav-text">后悔了</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Function"><span class="nav-number">1.</span> <span class="nav-text">Function</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#抽象方法"><span class="nav-number">1.1.</span> <span class="nav-text">抽象方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#default-方法"><span class="nav-number">1.2.</span> <span class="nav-text">default 方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BiFunction"><span class="nav-number">2.</span> <span class="nav-text">BiFunction</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#抽象方法-1"><span class="nav-number">2.1.</span> <span class="nav-text">抽象方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#default-方法-1"><span class="nav-number">2.2.</span> <span class="nav-text">default 方法</span></a></li></ol></li></ol></div>
             
 
           </div>
