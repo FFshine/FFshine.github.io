@@ -99,39 +99,28 @@
 
 
   
-  <meta name="keywords" content="代码," />
+  <meta name="keywords" content="代码,Java 8," />
 
 
-<meta name="description" content="00x00在强类型语言中 (C, C++, Java), 常量都有自己对应的数据类型 例如 C/C++ 、Java中 整数 12 的数据类型是 int, 浮点数 1.0 在 Java 中的数据类型是 double，在 C/C++ 中是 float。 00x01在 C/C++ 中，以下代码编辑器器(clion)会显示警告，但编译过程不会显示任何警告信息。12int a = 1;short b = a">
-<meta name="keywords" content="代码">
+<meta name="description" content="Stream 接口  StreamStream 由三部分构成  源 零个或多个中间操作 (返回 Stream ) 终止操作  Stream 操作分类  惰性求值 及早求值  Stream 对象创建 通过静态方法创建  1234Stream stream1 = Stream.of(&quot;hello&quot;, &quot;kitty&quot;, &quot;hello kitty&quot;);String[] myArray = new Str">
+<meta name="keywords" content="代码,Java 8">
 <meta property="og:type" content="article">
-<meta property="og:title" content="a = a + b 与 a += b">
-<meta property="og:url" content="http://muggle.life/2018/a+b_and_a+=b/index.html">
+<meta property="og:title" content="Java 8 新特性之 Stream">
+<meta property="og:url" content="http://muggle.life/2018/stream/index.html">
 <meta property="og:site_name" content="muggle&#39;s life">
-<meta property="og:description" content="00x00在强类型语言中 (C, C++, Java), 常量都有自己对应的数据类型 例如 C/C++ 、Java中 整数 12 的数据类型是 int, 浮点数 1.0 在 Java 中的数据类型是 double，在 C/C++ 中是 float。 00x01在 C/C++ 中，以下代码编辑器器(clion)会显示警告，但编译过程不会显示任何警告信息。12int a = 1;short b = a">
+<meta property="og:description" content="Stream 接口  StreamStream 由三部分构成  源 零个或多个中间操作 (返回 Stream ) 终止操作  Stream 操作分类  惰性求值 及早求值  Stream 对象创建 通过静态方法创建  1234Stream stream1 = Stream.of(&quot;hello&quot;, &quot;kitty&quot;, &quot;hello kitty&quot;);String[] myArray = new Str">
 <meta property="og:locale" content="en-US">
-<meta property="og:image" content="http://p7on1idpr.bkt.clouddn.com/static/images/DeepinScreenshot_select-area_20180521225000.png">
-<meta property="og:image" content="http://p7on1idpr.bkt.clouddn.com/static/images/DeepinScreenshot_select-area_20180521225307.png">
-<meta property="og:image" content="http://p7on1idpr.bkt.clouddn.com/static/images/DeepinScreenshot_select-area_20180522091451.png">
-<meta property="og:image" content="http://p7on1idpr.bkt.clouddn.com/static/images/DeepinScreenshot_select-area_20180522091758.png">
-<meta property="og:image" content="http://p7on1idpr.bkt.clouddn.com/static/images/DeepinScreenshot_select-area_20180522093658.png">
-<meta property="og:image" content="http://p7on1idpr.bkt.clouddn.com/static/images/DeepinScreenshot_select-area_20180522094026.png">
-<meta property="og:image" content="http://p7on1idpr.bkt.clouddn.com/static/images/DeepinScreenshot_select-area_20180522121526.png">
-<meta property="og:image" content="http://p7on1idpr.bkt.clouddn.com/static/images/DeepinScreenshot_select-area_20180522121735.png">
-<meta property="og:image" content="http://p7on1idpr.bkt.clouddn.com/static/images/DeepinScreenshot_select-area_20180522122302.png">
-<meta property="og:image" content="http://p7on1idpr.bkt.clouddn.com/static/images/DeepinScreenshot_select-area_20180522122325.png">
-<meta property="og:updated_time" content="2018-10-03T00:59:32.926Z">
+<meta property="og:updated_time" content="2018-10-10T12:25:08.311Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="a = a + b 与 a += b">
-<meta name="twitter:description" content="00x00在强类型语言中 (C, C++, Java), 常量都有自己对应的数据类型 例如 C/C++ 、Java中 整数 12 的数据类型是 int, 浮点数 1.0 在 Java 中的数据类型是 double，在 C/C++ 中是 float。 00x01在 C/C++ 中，以下代码编辑器器(clion)会显示警告，但编译过程不会显示任何警告信息。12int a = 1;short b = a">
-<meta name="twitter:image" content="http://p7on1idpr.bkt.clouddn.com/static/images/DeepinScreenshot_select-area_20180521225000.png">
+<meta name="twitter:title" content="Java 8 新特性之 Stream">
+<meta name="twitter:description" content="Stream 接口  StreamStream 由三部分构成  源 零个或多个中间操作 (返回 Stream ) 终止操作  Stream 操作分类  惰性求值 及早求值  Stream 对象创建 通过静态方法创建  1234Stream stream1 = Stream.of(&quot;hello&quot;, &quot;kitty&quot;, &quot;hello kitty&quot;);String[] myArray = new Str">
 
 
 
 
 
 
-  <link rel="canonical" href="http://muggle.life/2018/a+b_and_a+=b/"/>
+  <link rel="canonical" href="http://muggle.life/2018/stream/"/>
 
 
 
@@ -140,7 +129,7 @@
     sidebar: "",
   };
 </script>
-  <title>a = a + b 与 a += b | muggle's life</title>
+  <title>Java 8 新特性之 Stream | muggle's life</title>
   
 
 
@@ -286,7 +275,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://muggle.life/2018/a+b_and_a+=b/">
+    <link itemprop="mainEntityOfPage" href="http://muggle.life/2018/stream/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ffshine">
@@ -303,7 +292,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">a = a + b 与 a += b</h1>
+          <h1 class="post-title" itemprop="name headline">Java 8 新特性之 Stream</h1>
         
 
         <div class="post-meta">
@@ -315,7 +304,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-21T22:15:28+08:00">2018-05-21</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-10T19:34:00+08:00">2018-10-10</time>
             
 
             
@@ -336,7 +325,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/代码/" itemprop="url" rel="index"><span itemprop="name">代码</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a></span>
 
                 
                 
@@ -370,33 +359,47 @@
       
 
       
-        <h2 id="00x00"><a href="#00x00" class="headerlink" title="00x00"></a>00x00</h2><p>在强类型语言中 (C, C++, Java), 常量都有自己对应的数据类型 例如 C/C++ 、Java中 整数 <code>12</code> 的数据类型是 <code>int</code>, 浮点数 <code>1.0</code> 在 Java 中的数据类型是 <code>double</code>，在 C/C++ 中是 <code>float</code>。</p>
-<h2 id="00x01"><a href="#00x01" class="headerlink" title="00x01"></a>00x01</h2><p>在 C/C++ 中，以下代码编辑器器(clion)会显示警告，但编译过程不会显示任何警告信息。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">short</span> b = a;</span><br></pre></td></tr></table></figure></p>
-<a id="more"></a>
-<p><img src="http://p7on1idpr.bkt.clouddn.com/static/images/DeepinScreenshot_select-area_20180521225000.png" alt="DeepinScreenshot_select-area_20180521225000.png"></p>
-<p>同样代码在 Java 中则直接显示错误信息，而且无法通过编译。</p>
-<p><img src="http://p7on1idpr.bkt.clouddn.com/static/images/DeepinScreenshot_select-area_20180521225307.png" alt="DeepinScreenshot_select-area_20180521225307.png"></p>
-<h2 id="00x02"><a href="#00x02" class="headerlink" title="00x02"></a>00x02</h2><p>同样地，在 C/C++ 中，下面这一段明显会溢出的代码，也能够顺利通过编译。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">1000</span>;</span><br><span class="line"><span class="keyword">char</span> b = <span class="number">0</span>;</span><br><span class="line">b = b + a;</span><br></pre></td></tr></table></figure></p>
-<p><img src="http://p7on1idpr.bkt.clouddn.com/static/images/DeepinScreenshot_select-area_20180522091451.png" alt="DeepinScreenshot_select-area_20180522091451.png"></p>
-<p>在 Java 中，不能通过编译。</p>
-<p><img src="http://p7on1idpr.bkt.clouddn.com/static/images/DeepinScreenshot_select-area_20180522091758.png" alt="DeepinScreenshot_select-area_20180522091451.png"></p>
-<h2 id="00x03"><a href="#00x03" class="headerlink" title="00x03"></a>00x03</h2><p>前面提到过，整数默认类型是 int 。那么我们可以预料到，以下代码在 Java 中会报错</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> a = <span class="number">0</span>;</span><br><span class="line">a = a + <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
-<p><img src="http://p7on1idpr.bkt.clouddn.com/static/images/DeepinScreenshot_select-area_20180522093658.png" alt="DeepinScreenshot_select-area_20180522091451.png"></p>
-<p>同样，我们也可以预料到，在 C/C++ 中，只是编辑器显示一个警告而已。</p>
-<p><img src="http://p7on1idpr.bkt.clouddn.com/static/images/DeepinScreenshot_select-area_20180522094026.png" alt="DeepinScreenshot_select-area_20180522091451.png"></p>
-<h2 id="00x04"><a href="#00x04" class="headerlink" title="00x04"></a>00x04</h2><p>我们换一种写法。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">byte</span> a = <span class="number">0</span>;</span><br><span class="line">a += <span class="number">1000</span></span><br></pre></td></tr></table></figure></p>
-<p><img src="http://p7on1idpr.bkt.clouddn.com/static/images/DeepinScreenshot_select-area_20180522121526.png" alt="DeepinScreenshot_select-area_20180522091451.png"></p>
-<p>结果</p>
-<p><img src="http://p7on1idpr.bkt.clouddn.com/static/images/DeepinScreenshot_select-area_20180522121735.png" alt="DeepinScreenshot_select-area_20180522091451.png"></p>
-<p>结果明显是错的，但是编辑器和编译器都没有任何提示！</p>
-<p>看看 C++</p>
-<p><img src="http://p7on1idpr.bkt.clouddn.com/static/images/DeepinScreenshot_select-area_20180522122302.png" alt="DeepinScreenshot_select-area_20180522091451.png"></p>
-<p><img src="http://p7on1idpr.bkt.clouddn.com/static/images/DeepinScreenshot_select-area_20180522122325.png" alt="DeepinScreenshot_select-area_20180522091451.png"></p>
-<p>结果和 Java 是一样的。。</p>
-<h2 id="00x05"><a href="#00x05" class="headerlink" title="00x05"></a>00x05</h2><p>可以推断出的结论是 在 C/C++ 和 Java 的编译器中<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a += b;</span><br></pre></td></tr></table></figure></p>
-<p>并不是等价于<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a = a + b;</span><br></pre></td></tr></table></figure></p>
-<p>而是等价于<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a = ([type_of_a]) (a + b)</span><br></pre></td></tr></table></figure></p>
+        <ul>
+<li>Stream 接口</li>
+</ul>
+<h2 id="Stream"><a href="#Stream" class="headerlink" title="Stream"></a>Stream</h2><p>Stream 由三部分构成</p>
+<ol>
+<li>源</li>
+<li>零个或多个中间操作 (返回 Stream )</li>
+<li>终止操作</li>
+</ol>
+<p>Stream 操作分类</p>
+<ol>
+<li>惰性求值</li>
+<li>及早求值</li>
+</ol>
+<h3 id="Stream-对象创建"><a href="#Stream-对象创建" class="headerlink" title="Stream 对象创建"></a>Stream 对象创建</h3><ol>
+<li>通过静态方法创建</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Stream stream1 = Stream.of(<span class="string">"hello"</span>, <span class="string">"kitty"</span>, <span class="string">"hello kitty"</span>);</span><br><span class="line"></span><br><span class="line">String[] myArray = <span class="keyword">new</span> String[] &#123;<span class="string">"hello"</span>, <span class="string">"kitty"</span>, <span class="string">"hello kitty"</span>);</span><br><span class="line">Stream stream2 = Stream.of(myArray);</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>通过 Arrays 的方法创建</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String[] myArray = <span class="keyword">new</span> String[] &#123;<span class="string">"hello"</span>, <span class="string">"kitty"</span>, <span class="string">"hello kitty"</span>);</span><br><span class="line">Stream stream = Arrays.stream(myArray);</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>通过 List 的 stream 方法创建</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; list = Arrays.asList(<span class="string">"hello"</span>, <span class="string">"kitty"</span>, <span class="string">"hello kitty"</span>);</span><br><span class="line">Stream stream = list.stream();</span><br></pre></td></tr></table></figure>
+<h3 id="Stream-类型转换"><a href="#Stream-类型转换" class="headerlink" title="Stream 类型转换"></a>Stream 类型转换</h3><ol>
+<li>通过 Stream 的 toArray 方法, 将 String Stream 转换成 String 数组</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Stream&lt;String&gt; stream = Stream.of ( <span class="string">"hello"</span>, <span class="string">"kitty"</span>, <span class="string">"hello kitty"</span> );</span><br><span class="line">String[] strings = stream.toArray (l -&gt; <span class="keyword">new</span> String[l] );</span><br><span class="line"><span class="comment">//String[] strings = stream.toArray(new String[]);</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>通过 Stream 的 collect 方法, 将 Stream 转换为 List</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Stream&lt;String&gt; stream = Stream.of ( <span class="string">"hello"</span>, <span class="string">"kitty"</span>, <span class="string">"hello kitty"</span> );</span><br><span class="line">List&lt;String&gt; strings = stream.collect( Collectors.toList());</span><br></pre></td></tr></table></figure>
+<p>collect 还有另一种重载方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;R&gt; <span class="function">R <span class="title">collect</span><span class="params">(Supplier&lt;R&gt; supplier,</span></span></span><br><span class="line"><span class="function"><span class="params">			  BiConsumer&lt;R, ? <span class="keyword">super</span> T&gt; accumulator,</span></span></span><br><span class="line"><span class="function"><span class="params">			  BiConsumer&lt;R, R&gt; combiner)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>应该可以理解为:</p>
+<blockquote>
+<p>supplier 创建一个新 List<br>accumulator 把 Stream 每个内容加入进 List<br>把 List 的值转移到当前 List (我们需要的 List)</p>
+</blockquote>
+<p>例<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Stream&lt;String&gt; stream = Stream.of ( <span class="string">"hello"</span>, <span class="string">"kitty"</span>, <span class="string">"hello kitty"</span> );</span><br><span class="line">LinkedList&lt;String&gt; strings = stream.collect ( () -&gt; <span class="keyword">new</span> LinkedList&lt;String&gt; (), (a, b) -&gt; a.add ( b ), (a, b) -&gt; a.addAll ( b ) );</span><br><span class="line"><span class="comment">//List&lt;String&gt; strings = stream.collect ( LinkedList::new, LinkedList::add, LinkedList::addAll );</span></span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -428,6 +431,8 @@
           
             <a href="/tags/代码/" rel="tag"># 代码</a>
           
+            <a href="/tags/Java-8/" rel="tag"># Java 8</a>
+          
         </div>
       
 
@@ -439,8 +444,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/Google-is-bleeding-cash-trying-to-take-on-Amazon-in-the-smart-home/" rel="next" title="Google is bleeding cash trying to take on Amazon in the smart home">
-                <i class="fa fa-chevron-left"></i> Google is bleeding cash trying to take on Amazon in the smart home
+              <a href="/2018/predicate_and_supplier/" rel="next" title="Java8 新特性之 Predicate / Supplier & Consumer">
+                <i class="fa fa-chevron-left"></i> Java8 新特性之 Predicate / Supplier & Consumer
               </a>
             
           </div>
@@ -449,8 +454,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/Ubuntu18.04-install-MySQL/" rel="prev" title="Ubuntu 18.04 安装 MySQL">
-                Ubuntu 18.04 安装 MySQL <i class="fa fa-chevron-right"></i>
+              <a href="/2018/linux-swapfile/" rel="prev" title="Linux Swapfile 创建">
+                Linux Swapfile 创建 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -641,7 +646,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#00x00"><span class="nav-number">1.</span> <span class="nav-text">00x00</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#00x01"><span class="nav-number">2.</span> <span class="nav-text">00x01</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#00x02"><span class="nav-number">3.</span> <span class="nav-text">00x02</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#00x03"><span class="nav-number">4.</span> <span class="nav-text">00x03</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#00x04"><span class="nav-number">5.</span> <span class="nav-text">00x04</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#00x05"><span class="nav-number">6.</span> <span class="nav-text">00x05</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Stream"><span class="nav-number">1.</span> <span class="nav-text">Stream</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Stream-对象创建"><span class="nav-number">1.1.</span> <span class="nav-text">Stream 对象创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Stream-类型转换"><span class="nav-number">1.2.</span> <span class="nav-text">Stream 类型转换</span></a></li></ol></li></ol></div>
             
 
           </div>

@@ -99,27 +99,28 @@
 
 
   
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Linux," />
 
 
-<meta name="description" content="个人笔记">
-<meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="http://muggle.life/tags/index.html">
+<meta name="description" content="创建一个 4g 的文件1sudo if=/dev/zero of=/swapfile bs=1G count=4 格式化为 Swap 文件1sudo mkswap /swapfile 将创建的文件加入系统1sudo swapon /swapfile 如果要开机自动启用 则需修改 /etc/fstab 文件 添加如下内容1/swapfile none swap defaults 0 0 由加入 Sw">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux Swapfile 创建">
+<meta property="og:url" content="http://muggle.life/2018/linux-swapfile/index.html">
 <meta property="og:site_name" content="muggle&#39;s life">
-<meta property="og:description" content="个人笔记">
+<meta property="og:description" content="创建一个 4g 的文件1sudo if=/dev/zero of=/swapfile bs=1G count=4 格式化为 Swap 文件1sudo mkswap /swapfile 将创建的文件加入系统1sudo swapon /swapfile 如果要开机自动启用 则需修改 /etc/fstab 文件 添加如下内容1/swapfile none swap defaults 0 0 由加入 Sw">
 <meta property="og:locale" content="en-US">
-<meta property="og:updated_time" content="2018-05-07T12:49:54.359Z">
+<meta property="og:updated_time" content="2018-10-15T12:13:24.563Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
-<meta name="twitter:description" content="个人笔记">
+<meta name="twitter:title" content="Linux Swapfile 创建">
+<meta name="twitter:description" content="创建一个 4g 的文件1sudo if=/dev/zero of=/swapfile bs=1G count=4 格式化为 Swap 文件1sudo mkswap /swapfile 将创建的文件加入系统1sudo swapon /swapfile 如果要开机自动启用 则需修改 /etc/fstab 文件 添加如下内容1/swapfile none swap defaults 0 0 由加入 Sw">
 
 
 
 
 
 
-  <link rel="canonical" href="http://muggle.life/tags/"/>
+  <link rel="canonical" href="http://muggle.life/2018/linux-swapfile/"/>
 
 
 
@@ -128,7 +129,7 @@
     sidebar: "",
   };
 </script>
-  <title>tags | muggle's life</title>
+  <title>Linux Swapfile 创建 | muggle's life</title>
   
 
 
@@ -260,112 +261,179 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://muggle.life/2018/linux-swapfile/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ffshine">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="muggle's life">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">tags</h1>
-
-<div class="post-meta">
-  
-  
-
-
-
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
-                
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                15 tags in total
-            </div>
-            <div class="tag-cloud-tags">
-              <a href="/tags/English-news/" style="font-size: 12px; color: #ccc">English news</a> <a href="/tags/Java/" style="font-size: 12px; color: #ccc">Java</a> <a href="/tags/Java-8/" style="font-size: 19.2px; color: #818181">Java 8</a> <a href="/tags/Linux/" style="font-size: 26.4px; color: #363636">Linux</a> <a href="/tags/MySQL/" style="font-size: 15.6px; color: #a7a7a7">MySQL</a> <a href="/tags/Python/" style="font-size: 19.2px; color: #818181">Python</a> <a href="/tags/c/" style="font-size: 19.2px; color: #818181">c++</a> <a href="/tags/git/" style="font-size: 12px; color: #ccc">git</a> <a href="/tags/itchat/" style="font-size: 15.6px; color: #a7a7a7">itchat</a> <a href="/tags/代码/" style="font-size: 30px; color: #111">代码</a> <a href="/tags/古文/" style="font-size: 22.8px; color: #5c5c5c">古文</a> <a href="/tags/微信/" style="font-size: 15.6px; color: #a7a7a7">微信</a> <a href="/tags/机器人/" style="font-size: 12px; color: #ccc">机器人</a> <a href="/tags/编程/" style="font-size: 12px; color: #ccc">编程</a> <a href="/tags/记录/" style="font-size: 26.4px; color: #363636">记录</a>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">Linux Swapfile 创建</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-15T20:00:00+08:00">2018-10-15</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/系统/" itemprop="url" rel="index"><span itemprop="name">系统</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h2 id="创建一个-4g-的文件"><a href="#创建一个-4g-的文件" class="headerlink" title="创建一个 4g 的文件"></a>创建一个 4g 的文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="keyword">if</span>=/dev/zero of=/swapfile bs=1G count=4</span><br></pre></td></tr></table></figure>
+<h2 id="格式化为-Swap-文件"><a href="#格式化为-Swap-文件" class="headerlink" title="格式化为 Swap 文件"></a>格式化为 Swap 文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mkswap /swapfile</span><br></pre></td></tr></table></figure>
+<h2 id="将创建的文件加入系统"><a href="#将创建的文件加入系统" class="headerlink" title="将创建的文件加入系统"></a>将创建的文件加入系统</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo swapon /swapfile</span><br></pre></td></tr></table></figure>
+<h2 id="如果要开机自动启用-则需修改-etc-fstab-文件-添加如下内容"><a href="#如果要开机自动启用-则需修改-etc-fstab-文件-添加如下内容" class="headerlink" title="如果要开机自动启用 则需修改 /etc/fstab 文件 添加如下内容"></a>如果要开机自动启用 则需修改 <code>/etc/fstab</code> 文件 添加如下内容</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/swapfile none swap defaults 0 0</span><br></pre></td></tr></table></figure>
+<h2 id="由加入-Swap-文件的命令可以得-Swap-卸载命令为"><a href="#由加入-Swap-文件的命令可以得-Swap-卸载命令为" class="headerlink" title="由加入 Swap 文件的命令可以得, Swap 卸载命令为:"></a>由加入 Swap 文件的命令可以得, Swap 卸载命令为:</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo swapoff /swapfile</span><br></pre></td></tr></table></figure>
+<h2 id="加载的-swap-文件查询命令为"><a href="#加载的-swap-文件查询命令为" class="headerlink" title="加载的 swap 文件查询命令为:"></a>加载的 swap 文件查询命令为:</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">swapon -s</span><br></pre></td></tr></table></figure>
       
     </div>
-    
-
-
 
     
     
+    <div>
+  
     
+<div style="text-align:center;color: #ccc;font-size:14px;">
+------ end ------</div>
+
+  
+</div>
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/stream/" rel="next" title="Java 8 新特性之 Stream">
+                <i class="fa fa-chevron-left"></i> Java 8 新特性之 Stream
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -395,8 +463,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -517,6 +594,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建一个-4g-的文件"><span class="nav-number">1.</span> <span class="nav-text">创建一个 4g 的文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#格式化为-Swap-文件"><span class="nav-number">2.</span> <span class="nav-text">格式化为 Swap 文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将创建的文件加入系统"><span class="nav-number">3.</span> <span class="nav-text">将创建的文件加入系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如果要开机自动启用-则需修改-etc-fstab-文件-添加如下内容"><span class="nav-number">4.</span> <span class="nav-text">如果要开机自动启用 则需修改 /etc/fstab 文件 添加如下内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#由加入-Swap-文件的命令可以得-Swap-卸载命令为"><span class="nav-number">5.</span> <span class="nav-text">由加入 Swap 文件的命令可以得, Swap 卸载命令为:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#加载的-swap-文件查询命令为"><span class="nav-number">6.</span> <span class="nav-text">加载的 swap 文件查询命令为:</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
