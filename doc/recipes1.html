@@ -99,20 +99,21 @@
 
 
   
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content=",," />
 
 
-<meta name="description" content="个人笔记">
+<meta name="description" content="这个秘籍很简单, 无论任何水平的 Python 程序员应该都能够毫无障碍地读懂. 如果你有代码增强或者功能添加方面的建议, 请随时联系我们.  注意请不要将您自己写的代码命名成 picamera.py, 将名字命名成已经存在 Python 模块, 在该模块被使用时会造成一些错误 (Python 找模块时, 会先搜寻当前目录下的文件, 再搜寻其他目录).   3.1 捕获一张图片到文件拍一张照片很简">
+<meta name="keywords" content="树梅派,Python">
 <meta property="og:type" content="website">
-<meta property="og:title" content="muggle&#39;s life">
+<meta property="og:title" content="3. 初级秘籍">
 <meta property="og:url" content="http://muggle.life/doc/recipes1.html">
 <meta property="og:site_name" content="muggle&#39;s life">
-<meta property="og:description" content="个人笔记">
+<meta property="og:description" content="这个秘籍很简单, 无论任何水平的 Python 程序员应该都能够毫无障碍地读懂. 如果你有代码增强或者功能添加方面的建议, 请随时联系我们.  注意请不要将您自己写的代码命名成 picamera.py, 将名字命名成已经存在 Python 模块, 在该模块被使用时会造成一些错误 (Python 找模块时, 会先搜寻当前目录下的文件, 再搜寻其他目录).   3.1 捕获一张图片到文件拍一张照片很简">
 <meta property="og:locale" content="en-US">
-<meta property="og:updated_time" content="2018-10-18T14:25:46.980Z">
+<meta property="og:updated_time" content="2018-10-19T08:21:20.743Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="muggle&#39;s life">
-<meta name="twitter:description" content="个人笔记">
+<meta name="twitter:title" content="3. 初级秘籍">
+<meta name="twitter:description" content="这个秘籍很简单, 无论任何水平的 Python 程序员应该都能够毫无障碍地读懂. 如果你有代码增强或者功能添加方面的建议, 请随时联系我们.  注意请不要将您自己写的代码命名成 picamera.py, 将名字命名成已经存在 Python 模块, 在该模块被使用时会造成一些错误 (Python 找模块时, 会先搜寻当前目录下的文件, 再搜寻其他目录).   3.1 捕获一张图片到文件拍一张照片很简">
 
 
 
@@ -128,7 +129,7 @@
     sidebar: "",
   };
 </script>
-  <title> | muggle's life</title>
+  <title>3. 初级秘籍 | muggle's life</title>
   
 
 
@@ -271,7 +272,7 @@
     <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline"></h1>
+<h1 class="post-title" itemprop="name headline">3. 初级秘籍</h1>
 
 <div class="post-meta">
   
@@ -289,7 +290,31 @@
       <div class="post-body">
         
         
-          
+          <p>这个秘籍很简单, 无论任何水平的 Python 程序员应该都能够毫无障碍地读懂. 如果你有代码增强或者功能添加方面的建议, 请随时联系我们.</p>
+<blockquote>
+<p><font color="red">注意</font><br>请不要将您自己写的代码命名成 <code>picamera.py</code>, 将名字命名成已经存在 Python 模块, 在该模块被使用时会造成一些错误 (Python 找模块时, 会先搜寻当前目录下的文件, 再搜寻其他目录). </p>
+</blockquote>
+<h2 id="3-1-捕获一张图片到文件"><a href="#3-1-捕获一张图片到文件" class="headerlink" title="3.1 捕获一张图片到文件"></a>3.1 捕获一张图片到文件</h2><p>拍一张照片很简单, 你只需要将你要的照片名称传入 <code>capture()</code> 方法就行.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> sleep</span><br><span class="line"><span class="keyword">from</span> picamera <span class="keyword">import</span> PiCamera</span><br><span class="line"></span><br><span class="line">camera = PiCamera()</span><br><span class="line">camera.resolution = (<span class="number">1024</span>, <span class="number">768</span>)</span><br><span class="line">camera.start_preview()</span><br><span class="line"><span class="comment"># 相机准备时间</span></span><br><span class="line">sleep(<span class="number">2</span>)</span><br><span class="line">camera.capture(<span class="string">'foo.jpg'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>请注意, 当你用 picamera 打开一个文件时 (像上面一样), 文件将会被刷新和关闭. 所以当 <code>capture()</code> 方法返回时, 数据可以被其他进程访问<sup>1</sup>. </p>
+<blockquote>
+<ol>
+<li>原文为 Note that files opened by picamera (as in the case above) will be flushed and closed so that when the <code>capture()</code> method returns, the data should be accessible to other processes. 不是很懂…</li>
+</ol>
+</blockquote>
+<h2 id="3-2-捕获一张图片到数据流"><a href="#3-2-捕获一张图片到数据流" class="headerlink" title="3.2 捕获一张图片到数据流"></a>3.2 捕获一张图片到数据流</h2><p>为类文件对象<sup>1</sup> (例如 <code>socket()</code>, <code>io.BytesIO</code> 流, 一个现有的打开文件对象<sup>2</sup>, 等等) 捕获一张图片, 只需要给 <code>capture()</code> 传一个文件名参数即可<sup>3</sup>.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">from io import BytesIO</span><br><span class="line">from time import sleep</span><br><span class="line">from picamera import PiCamera</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一个内存流</span></span><br><span class="line">my_stream = BytesIO()</span><br><span class="line">camera = PiCamera()</span><br><span class="line">camera.start_preview()</span><br><span class="line"><span class="comment"># 相机准备时间</span></span><br><span class="line">sleep(2)</span><br><span class="line">camera.capture(my_stream, <span class="string">'jpeg'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>上面情况中, 明确指定了文件格式, <code>BytesIO</code> 对象没有文件名, 所以相机无法自动识别应该使用哪种格式.</p>
+<p>需要记住的一点是 (不像指定文件名), 当图像捕获完之后, 流并不会被自动关闭; Picamera 设定为:假如他没有打开流的话, 并不会去关闭它. 然而, 如果对象有 <code>flush</code> 方法, 当 <code>capture</code> 方法返回时会它被自动调用, 这可以确保一旦捕获返回, 其他进程可以访问这些数据, 尽管对象仍然需要被关闭:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> sleep</span><br><span class="line"><span class="keyword">from</span> picamera <span class="keyword">import</span> PiCamera</span><br><span class="line"></span><br><span class="line"><span class="comment"># 明确地打开一个文件叫做 my_image.jpg</span></span><br><span class="line">my_file = open(<span class="string">'my_image.jpg'</span>, <span class="string">'wb'</span>)</span><br><span class="line">camera = PiCamera()</span><br><span class="line">camera.start_preview()</span><br><span class="line">sleep(<span class="number">2</span>)</span><br><span class="line">camera.capture(my_file)</span><br><span class="line"><span class="comment"># 在这里 my_file.flush()被调用, 但是打开的文件并没有被关闭</span></span><br><span class="line">my_file.close()</span><br></pre></td></tr></table></figure></p>
+<p>注意, 在上面的情况下, 我们没有必要指定文件格式, 因为格式已经写在了 <code>my_file</code> 里面 (相机会在文件名中寻找文件格式). 就像用 Python 内建的文件流类 (像 <code>BytesIO</code> )一样, 你也可以创建自己的 <a href="./recipes2.html#自定义输出">自定义输出</a></p>
+<blockquote>
+<ol>
+<li>file-like object</li>
+<li>an existing open file object</li>
+</ol>
+</blockquote>
+<h2 id="3-3-捕获一张图片到-PIL-Image"><a href="#3-3-捕获一张图片到-PIL-Image" class="headerlink" title="3.3 捕获一张图片到 PIL Image"></a>3.3 捕获一张图片到 PIL Image</h2><p>这是<a href="#3-2-捕获一张图片到数据流">捕获一张图片到数据流</a>的变体. 首先我们捕获一张图片到 <code>BytesIO</code> (Python 的内存文件流类). 然后我们从文件流起始位置开始把流读入到一个 <a href="http://effbot.org/imagingbook/pil-index.htm" target="_blank" rel="noopener">PIL</a> 图片文件对象:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> io <span class="keyword">import</span> BytesIO</span><br><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> sleep</span><br><span class="line"><span class="keyword">from</span> picamera <span class="keyword">import</span> PiCamera</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create the in-memory stream</span></span><br><span class="line">stream = BytesIO()</span><br><span class="line">camera = PiCamera()</span><br><span class="line">camera.start_preview()</span><br><span class="line">sleep(<span class="number">2</span>)</span><br><span class="line">camera.capture(stream, format=<span class="string">'jpeg'</span>)</span><br><span class="line"><span class="comment"># 回到流的起始位置,所以我们才能读取整个流</span></span><br><span class="line">stream.seek(<span class="number">0</span>)</span><br><span class="line">image = Image.open(stream)</span><br></pre></td></tr></table></figure></p>
+<h2 id="3-4-调整捕获的图片的尺寸"><a href="#3-4-调整捕获的图片的尺寸" class="headerlink" title="3.4 调整捕获的图片的尺寸"></a>3.4 调整捕获的图片的尺寸</h2><p>有时, 特别是在对图像执行某种分析或处理的脚本中, 你可能需要一个比当前相机分辨率更小的图片. 尽管这些可以通过一些库像 PIL 或者 OpenCV, 但是用 <code>cature()</code> 的 <em>resize</em> 参数在处理图片时对 GPU 的消耗要小的多:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> sleep</span><br><span class="line"><span class="keyword">from</span> picamera <span class="keyword">import</span> PiCamera</span><br><span class="line"></span><br><span class="line">camera = PiCamera()</span><br><span class="line">camera.resolution = (<span class="number">1024</span>, <span class="number">768</span>)</span><br><span class="line">camera.start_preview()</span><br><span class="line"><span class="comment"># Camera warm-up time</span></span><br><span class="line">sleep(<span class="number">2</span>)</span><br><span class="line">camera.capture(<span class="string">'foo.jpg'</span>, resize=(<span class="number">320</span>, <span class="number">240</span>))</span><br></pre></td></tr></table></figure></p>
+<p>使用 <code>start_recording()</code> 方法录制视频时，也可以指定 <em>resize</em> 参数. </p>
+
         
       </div>
       
@@ -332,8 +357,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -458,6 +492,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-捕获一张图片到文件"><span class="nav-number">1.</span> <span class="nav-text">3.1 捕获一张图片到文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-捕获一张图片到数据流"><span class="nav-number">2.</span> <span class="nav-text">3.2 捕获一张图片到数据流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-捕获一张图片到-PIL-Image"><span class="nav-number">3.</span> <span class="nav-text">3.3 捕获一张图片到 PIL Image</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-调整捕获的图片的尺寸"><span class="nav-number">4.</span> <span class="nav-text">3.4 调整捕获的图片的尺寸</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
