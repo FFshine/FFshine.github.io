@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en-US">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.0.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.0.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.0.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.0.4" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.0.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+<meta name="description" content="Servlet(三层架构思想) 1、Servlet概述servlet是一种独立于平台和协议的服务器端的java应用程序，通过Servlet可以生成动态的Web页面。 同时，使用Servlet还可以在服务器端对客户端的请求进行处理，控制程序的执行。Servlet的主要作用就是交 互式的浏览和更新数据 2、Servlet的生命周期tomcat启动的时候默认不会帮我们创建servlet,当第一次请求过来">
+<meta property="og:type" content="article">
+<meta property="og:title" content="muggle&#39;s life">
+<meta property="og:url" content="http://muggle.life/2018/servlet/index.html">
+<meta property="og:site_name" content="muggle&#39;s life">
+<meta property="og:description" content="Servlet(三层架构思想) 1、Servlet概述servlet是一种独立于平台和协议的服务器端的java应用程序，通过Servlet可以生成动态的Web页面。 同时，使用Servlet还可以在服务器端对客户端的请求进行处理，控制程序的执行。Servlet的主要作用就是交 互式的浏览和更新数据 2、Servlet的生命周期tomcat启动的时候默认不会帮我们创建servlet,当第一次请求过来">
+<meta property="og:locale" content="en-US">
+<meta property="og:image" content="http://muggle.life/2018/servlet/三层架构思想.png">
+<meta property="og:updated_time" content="2018-11-12T09:19:05.622Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="muggle&#39;s life">
+<meta name="twitter:description" content="Servlet(三层架构思想) 1、Servlet概述servlet是一种独立于平台和协议的服务器端的java应用程序，通过Servlet可以生成动态的Web页面。 同时，使用Servlet还可以在服务器端对客户端的请求进行处理，控制程序的执行。Servlet的主要作用就是交 互式的浏览和更新数据 2、Servlet的生命周期tomcat启动的时候默认不会帮我们创建servlet,当第一次请求过来">
+<meta name="twitter:image" content="http://muggle.life/2018/servlet/三层架构思想.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://muggle.life/2018/servlet/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+  <title> | muggle's life</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="en-US">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">muggle's life</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">读书 学习 生活</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-photos">
+          <a href="/photo/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-th"></i> <br />photos</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-doc">
+          <a href="/doc/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />doc</a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+  
+
+
+
+ </div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://muggle.life/2018/servlet/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ffshine">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="muggle's life">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-12T17:19:05+08:00">2018-11-12</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Servlet-三层架构思想"><a href="#Servlet-三层架构思想" class="headerlink" title="Servlet(三层架构思想)"></a>Servlet(三层架构思想)</h2><p><img src="三层架构思想.png" alt=""></p>
+<h3 id="1、Servlet概述"><a href="#1、Servlet概述" class="headerlink" title="1、Servlet概述"></a>1、Servlet概述</h3><p>servlet是一种独立于平台和协议的服务器端的java应用程序，通过Servlet可以生成动态的Web页面。</p>
+<p>同时，使用Servlet还可以在服务器端对客户端的请求进行处理，控制程序的执行。Servlet的主要作用就是交</p>
+<p>互式的浏览和更新数据</p>
+<h3 id="2、Servlet的生命周期"><a href="#2、Servlet的生命周期" class="headerlink" title="2、Servlet的生命周期"></a>2、Servlet的生命周期</h3><p>tomcat启动的时候<strong>默认</strong>不会帮我们创建servlet,当第一次请求过来的时候tomcat帮我们创建servlet对象,</p>
+<p><strong>之后所有该servlet的请求共用同一个servlet对象(在servlet里面最好不要使用全局变量)</strong></p>
+<p>生命周期四个阶段：</p>
+<p>实例化：servlet容器创建Servlet的实例</p>
+<p>初始化：该容器调用init()方法</p>
+<p>提供服务，请求处理：如果请求Servlet，容器调用service层方法处理请求</p>
+<p>销毁：销毁实例之前调用destory()方法（destroy方法指明哪些资源可以被系统回收，而不是由destroy()方</p>
+<p>​        法直接进行回收）</p>
+<h3 id="3、怎么通过URL访问Servlet"><a href="#3、怎么通过URL访问Servlet" class="headerlink" title="3、怎么通过URL访问Servlet"></a>3、怎么通过URL访问Servlet</h3><p>1、编写一个类，该类必须继承HttpServlet</p>
+<p>2、重写doGet()以及doPost()方法 (doGet()方法处理get请求，doPost()方法处理post请求，所以在doPost()</p>
+<p>​        方法中调用doGet()方法即可)</p>
+<p>3、在web.xml里面给servlet配置请求路径（web.xml该配置文件中可以对整个应用进行全局配置，tomcat加</p>
+<p>​        载该项目是首先读取的就是该配置文件）</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">web-app</span> <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="attr">xmlns</span>=<span class="string">"http://xmlns.jcp.org/xml/ns/javaee"</span> <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"</span> <span class="attr">id</span>=<span class="string">"WebApp_ID"</span> <span class="attr">version</span>=<span class="string">"3.1"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">display-name</span>&gt;</span>newsServlet<span class="tag">&lt;/<span class="name">display-name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">welcome-file-list</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">welcome-file</span>&gt;</span>index.html<span class="tag">&lt;/<span class="name">welcome-file</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">welcome-file</span>&gt;</span>index.htm<span class="tag">&lt;/<span class="name">welcome-file</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">welcome-file</span>&gt;</span>index.jsp<span class="tag">&lt;/<span class="name">welcome-file</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">welcome-file</span>&gt;</span>default.html<span class="tag">&lt;/<span class="name">welcome-file</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">welcome-file</span>&gt;</span>default.htm<span class="tag">&lt;/<span class="name">welcome-file</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">welcome-file</span>&gt;</span>default.jsp<span class="tag">&lt;/<span class="name">welcome-file</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">welcome-file-list</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 配置开始 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 命名习惯：Servlet类的类名首字母小写 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>userLoginServlet<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- Servlet类的全路径 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>com.wanglei.servlet.UserLoginServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>userLoginServlet<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 访问路径:http://localhost:8080/项目名/userLoginServlet.do --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/userLoginServlet.do<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 配置结束 --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>还可通过注解方式使用Servlet，这种方式使用不用手动配置，直接右键new–&gt;Servlet</strong></p>
+<h3 id="4、Servlet中怎么获取表单数据"><a href="#4、Servlet中怎么获取表单数据" class="headerlink" title="4、Servlet中怎么获取表单数据"></a>4、Servlet中怎么获取表单数据</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//获取表单中的密码password</span><br><span class="line">String password = request.getParameter(&quot;password&quot;);</span><br></pre></td></tr></table></figure>
+<h3 id="5、如何操作四大作用域"><a href="#5、如何操作四大作用域" class="headerlink" title="5、如何操作四大作用域"></a>5、如何操作四大作用域</h3><p>1、获取session作用域：request.getSession()</p>
+<p>2、获取application作用域：</p>
+<p>​    通过父类提供的方法获取：request.getServletContext()</p>
+<p>​    通过session获取：request.getSession().getServletContext()</p>
+<h3 id="6、如何跳转页面"><a href="#6、如何跳转页面" class="headerlink" title="6、如何跳转页面"></a>6、如何跳转页面</h3><p>学到哪都两种跳转方式：请求转发：request.getRequestDispatcher(“跳转页面名”)</p>
+<p>​                      重定向：response.sendRedirect(“跳转页面名”);</p>
+<h3 id="7、过滤器"><a href="#7、过滤器" class="headerlink" title="7、过滤器"></a>7、过滤器</h3><p>一般用途就两种：字符编码过滤器和用户是否登录过滤器</p>
+<p>1、字符编码过滤器</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.wanglei.filter;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.Filter;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.FilterChain;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.FilterConfig;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletResponse;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CharSetFilter</span> <span class="keyword">implements</span> <span class="title">Filter</span></span>&#123;</span><br><span class="line">	<span class="comment">//首先创建一个类实现Filter接口，重写里面的三个方法</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//销毁的方法，仅执行一次</span></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"字符编码过滤器销毁了。。。"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//拦截执行的具体方法</span></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doFilter</span><span class="params">(ServletRequest arg0, ServletResponse arg1, FilterChain arg2)</span></span></span><br><span class="line"><span class="function">			<span class="keyword">throws</span> IOException, ServletException </span>&#123;</span><br><span class="line">		<span class="comment">//将argo,arg1强转为HttpServletRequest,HttpServletResponse</span></span><br><span class="line">		HttpServletRequest request = (HttpServletRequest)arg0;</span><br><span class="line">		HttpServletResponse response = (HttpServletResponse)arg1;</span><br><span class="line">		<span class="comment">//设置字符编码格式</span></span><br><span class="line">		request.setCharacterEncoding(<span class="string">"utf-8"</span>);</span><br><span class="line">		request.setCharacterEncoding(<span class="string">"utf-8"</span>);</span><br><span class="line">		<span class="comment">//放行请求</span></span><br><span class="line">		arg2.doFilter(request, response);</span><br><span class="line">		<span class="comment">//System.out.println("拦截了"+request.getContextPath()+request.getServletPath());</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//创建的时候执行的方法，仅执行一次</span></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(FilterConfig arg0)</span> <span class="keyword">throws</span> ServletException </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"字符编码过滤器创建了。。。"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>注意：在web.xml文件中配置过滤器（千万别忘记）</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">web-app</span> <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="attr">xmlns</span>=<span class="string">"http://xmlns.jcp.org/xml/ns/javaee"</span> <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"</span> <span class="attr">id</span>=<span class="string">"WebApp_ID"</span> <span class="attr">version</span>=<span class="string">"3.1"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">display-name</span>&gt;</span>newsServlet<span class="tag">&lt;/<span class="name">display-name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">welcome-file-list</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">welcome-file</span>&gt;</span>index.html<span class="tag">&lt;/<span class="name">welcome-file</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">welcome-file</span>&gt;</span>index.htm<span class="tag">&lt;/<span class="name">welcome-file</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">welcome-file</span>&gt;</span>index.jsp<span class="tag">&lt;/<span class="name">welcome-file</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">welcome-file</span>&gt;</span>default.html<span class="tag">&lt;/<span class="name">welcome-file</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">welcome-file</span>&gt;</span>default.htm<span class="tag">&lt;/<span class="name">welcome-file</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">welcome-file</span>&gt;</span>default.jsp<span class="tag">&lt;/<span class="name">welcome-file</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">welcome-file-list</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">&lt;!-- 配置字符编码过滤器开始 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 字符编码过滤器名字 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>charSetFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 字符编码过滤器类的全路径 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>com.wanglei.filter.CharSetFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>charSetFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 过滤器要过滤哪些类型 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>*.do<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>*.jsp<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 配置字符编码过滤器结束 --&gt;</span></span><br><span class="line">    </span><br><span class="line">  <span class="comment">&lt;!-- 配置是否登录过滤器开始 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>userIsNoLoginFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>com.wanglei.filter.UserIsNoLoginFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>userIsNoLoginFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>*.do<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>*.jsp<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 配置是否登录过滤器结束 --&gt;</span></span><br><span class="line">  </span><br><span class="line">  <span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>userLoginServlet<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>com.wanglei.servlet.UserLoginServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>userLoginServlet<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/userLoginServlet.do<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>2、是否登录过滤器</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.wanglei.filter;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.net.URLEncoder;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.Filter;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.FilterChain;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.FilterConfig;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletResponse;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.wanglei.pojo.User;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserIsNoLoginFilter</span> <span class="keyword">implements</span> <span class="title">Filter</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"用户是否登录拦截器销毁了。。。"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doFilter</span><span class="params">(ServletRequest arg0, ServletResponse arg1, FilterChain arg2)</span></span></span><br><span class="line"><span class="function">			<span class="keyword">throws</span> IOException, ServletException </span>&#123;</span><br><span class="line">		<span class="comment">//将arg0，arg2强转为HttpServletRequest,HttpServletResponse</span></span><br><span class="line">		HttpServletRequest request = (HttpServletRequest)arg0;</span><br><span class="line">		HttpServletResponse response = (HttpServletResponse)arg1;</span><br><span class="line">		<span class="comment">//取出session中数据</span></span><br><span class="line">		User loginUser= (User)request.getSession().getAttribute(<span class="string">"loginUser"</span>);		</span><br><span class="line">		<span class="comment">//动态拼接绝对路径</span></span><br><span class="line">		String basePath = request.getScheme()+<span class="string">"://"</span>+request.getServerName()+<span class="string">":"</span>+request.getServerPort()+request.getContextPath()+<span class="string">"/"</span>;		</span><br><span class="line">		String path = request.getServletPath();</span><br><span class="line">		<span class="comment">//System.out.println("拦截了"+path);</span></span><br><span class="line">		<span class="comment">//判断登录用户是否为空和要放行的情况</span></span><br><span class="line">		<span class="keyword">if</span>(loginUser!=<span class="keyword">null</span> || <span class="string">"/login.jsp"</span>.equals(path) || <span class="string">"/userLoginServlet.do"</span>.equals(path) || <span class="string">"/register.jsp"</span>.equals(path) || <span class="string">"/registerNameServlet.do"</span>.equals(path)) &#123;</span><br><span class="line">			arg2.doFilter(request, response);</span><br><span class="line">		&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">			response.sendRedirect(basePath+<span class="string">"login.jsp?error="</span>+URLEncoder.encode(<span class="string">"未登录，请求非法！！！"</span>, <span class="string">"utf-8"</span>));</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(FilterConfig arg0)</span> <span class="keyword">throws</span> ServletException </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"用户是否登录拦截器创建了。。。"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="8、EL表达式和jstl标签-C标签"><a href="#8、EL表达式和jstl标签-C标签" class="headerlink" title="8、EL表达式和jstl标签(C标签)"></a>8、EL表达式和jstl标签(C标签)</h3><p>利用这两个来消除JSP页面的JAVA代码，提高代码的阅读性</p>
+<h4 id="8-1-EL表达式"><a href="#8-1-EL表达式" class="headerlink" title="8.1.EL表达式"></a>8.1.EL表达式</h4><p>EL表达式:负责从各种作用域中取值,以及一些简单的运算</p>
+<p>1.取四大作用域值：${requestScope.req },如果省略作用域名称那么默认先从最小作用域中搜索,找到输出</p>
+<p>2.取list集合：${news }</p>
+<p>3.取list集合第二个元素：${news[1]}</p>
+<p>4.取list集合第二个元素的title属性：${news[1].title} 直接写属性名称即可，不用get方法</p>
+<p>5.取表单数据：${param.pg}  一定要用param.表单元素名</p>
+<p>6.取cookie数据：${URLDecoder.decode(cookie.nameCookie.value,’utf-8’)} </p>
+<p>​                格式为cookie.Cookie名字.value</p>
+<p>7.一些运算：+ - * /</p>
+<p>​              ||  &amp;&amp;  !</p>
+<h4 id="8-2-jstl标签（C标签）"><a href="#8-2-jstl标签（C标签）" class="headerlink" title="8.2.jstl标签（C标签）"></a>8.2.jstl标签（C标签）</h4><p>1.导入jstl的jar包</p>
+<p>2.在页面引入c标签库:</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%<span class="meta">@taglib</span> prefix=<span class="string">"c"</span> uri=<span class="string">"http://java.sun.com/jsp/jstl/core"</span>%&gt;</span><br></pre></td></tr></table></figure>
+<p>常用标签:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:out&gt;标签用来显示数据，类似于&lt;%=%&gt;输出方式，但是可以进行选择性转义输出和设置默认值</span><br><span class="line"></span><br><span class="line">语法：&lt;c:out value=&quot;需要输出显示的表达式&quot; default=&quot;为空时默认值&quot; escapeXml=&quot;true|false&quot;/&gt;</span><br><span class="line">escapeXml：是否转义输出</span><br><span class="line"></span><br><span class="line">注意：&lt;c:out&gt;标签输出显示前，需要将数据放到作用域内</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:set&gt;标签用来对作用域内容的变量或者对象属性进行设置</span><br><span class="line"></span><br><span class="line">&lt;c:set&gt;标签设置变量的语法:</span><br><span class="line">&lt;c:set value=&quot;变量的值&quot; var=&quot;变量的名称&quot; scope=&quot;作用域范围&quot;/&gt;</span><br><span class="line">作用域范围为page/request/session/application中的一个</span><br><span class="line"></span><br><span class="line">&lt;c:set&gt;标签设置对象属性的语法：</span><br><span class="line">&lt;c:set value=&quot;属性的值&quot; target=&quot;对象的名称&quot; property=&quot;对象属性的名称&quot;/&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:remove&gt;标签用来移除作用域范围内的变量</span><br><span class="line"></span><br><span class="line">语法：&lt;c:remove var=&quot;变量名&quot; scope=&quot;作用域范围&quot;/&gt;</span><br><span class="line"></span><br><span class="line">注意：&lt;c:set&gt;和&lt;c:remove&gt;中的var和scope不能接受动态的值</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:forEach&gt;标签用来迭代输出，类似于foreach循环</span><br><span class="line"></span><br><span class="line">语法：&lt;c:forEach var=&quot;集合名称&quot; items=&quot;集合对象&quot; [varStatus=&quot;当前循环状态&quot;]&gt;...&lt;/c:forEach&gt;</span><br><span class="line"></span><br><span class="line">比如遍历新闻列表：</span><br><span class="line">&lt;c:forEach items=&quot;$&#123;newsList &#125;&quot; var=&quot;news&quot;&gt;</span><br><span class="line">    &lt;tr align=&quot;center&quot;&gt;</span><br><span class="line">        &lt;td&gt;&lt;input type=&quot;checkbox&quot; name=&quot;subCheckbox&quot; value=&quot;$&#123;news.id &#125;&quot;&gt;&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;$&#123;news.newsid &#125;&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;$&#123;news.title &#125;&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;$&#123;news.context &#125;&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;$&#123;news.newsman &#125;&lt;/td&gt;							</span><br><span class="line">        &lt;td&gt;&lt;fmt:formatDate value=&quot;$&#123;news.newsdate &#125;&quot; pattern=&quot;yyyy-MM-dd&quot;/&gt;&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;&lt;img src=&quot;$&#123;news.pic &#125;&quot;&gt;&lt;/td&gt;</span><br><span class="line">    &lt;/tr&gt;</span><br><span class="line">&lt;/c:forEach&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:if&gt;标签类似于if单分支选择</span><br><span class="line"></span><br><span class="line">语法：&lt;c:if test=&quot;判断条件&quot; [var=&quot;判断的结果名&quot; scope=&quot;判断结果存放的作用域&quot;]&gt;...&lt;/c:if&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:choose&gt;标签类似于多分支选择结构if-else if -else</span><br><span class="line">例如：</span><br><span class="line">&lt;c:choose&gt;</span><br><span class="line">  	&lt;c:when test=&quot;$&#123;fy.page==fy.pageCount &#125;&quot;&gt;</span><br><span class="line">  		下一页</span><br><span class="line">  	&lt;/c:when&gt;</span><br><span class="line">	&lt;c:otherwise&gt;</span><br><span class="line">		&lt;a href=&quot;#&quot;&gt;下一页&lt;/a&gt;</span><br><span class="line">	&lt;/c:otherwise&gt;</span><br><span class="line">&lt;/c:choose&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">动态拼接URL标签</span><br><span class="line">&lt;c:url value=&quot;toMainServlet.do&quot; var=&quot;toMainURL&quot; scope=&quot;request&quot;&gt;</span><br><span class="line">	&lt;c:param name=&quot;title&quot; value=&quot;$&#123;fy.lq.lqTitle &#125;&quot;&gt;&lt;/c:param&gt;</span><br><span class="line">	&lt;c:param name=&quot;startDate&quot;&gt;</span><br><span class="line">		&lt;fmt:formatDate value=&apos;$&#123;fy.lq.lqStartDate &#125;&apos; pattern=&apos;yyyy-MM-dd&apos;/&gt;</span><br><span class="line">	&lt;/c:param&gt;</span><br><span class="line">	&lt;c:param name=&quot;endDate&quot;&gt;</span><br><span class="line">		&lt;fmt:formatDate value=&apos;$&#123;fy.lq.lqEndDate &#125;&apos; pattern=&apos;yyyy-MM-dd&apos;/&gt;</span><br><span class="line">	&lt;/c:param&gt;</span><br><span class="line">&lt;/c:url&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">格式化日期</span><br><span class="line"></span><br><span class="line">首先加入包：&lt;%@ taglib prefix=&quot;fmt&quot; uri=&quot;http://java.sun.com/jsp/jstl/fmt&quot;%&gt;</span><br><span class="line"></span><br><span class="line">语法：&lt;fmt:formatDate value=&quot;date&quot; pattern=&quot;yyyy-MM-dd&quot;/&gt;</span><br><span class="line"></span><br><span class="line">例如：</span><br><span class="line">&lt;fmt:formatDate value=&apos;$&#123;fy.lq.lqStartDate &#125;&apos; pattern=&apos;yyyy-MM-dd&apos;/&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="9、相对路径和绝对路径"><a href="#9、相对路径和绝对路径" class="headerlink" title="9、相对路径和绝对路径"></a>9、相对路径和绝对路径</h3><p>绝对路径:<a href="http://localhost:8090/项目名/资源路径" target="_blank" rel="noopener">http://localhost:8090/项目名/资源路径</a></p>
+<p>相对路径:如果jsp页面有&lt;%=basePath%&gt;那么页面上的所有路径相对于项目根目录,如果没有</p>
+<p>&lt;%=basePath%&gt;相对于访问该资源的路径(就是浏览器地址栏显示的路径)拼相对路径,在过滤器中的相对路径,</p>
+<p>相对于该过滤器拦截到的请求</p>
+<h2 id="ADD"><a href="#ADD" class="headerlink" title="ADD"></a>ADD</h2><h3 id="servlet-工作工作过程和原理"><a href="#servlet-工作工作过程和原理" class="headerlink" title="servlet 工作工作过程和原理"></a>servlet 工作工作过程和原理</h3><ol>
+<li>将 webapps 下的每个子文件夹发布为一个网站</li>
+<li>读取每个网站的WEB-INF/web.xml配置文件， 获取每个网站对应的servlet类（类和对应的url地址），如果Servlet 类配置中有 <load-on-startup>, 创建servlet对象</load-on-startup></li>
+</ol>
+<h4 id="Servlet-类的对象的创建"><a href="#Servlet-类的对象的创建" class="headerlink" title="Servlet 类的对象的创建"></a>Servlet 类的对象的创建</h4><ul>
+<li>由 tomcat 服务器来创建</li>
+<li>创建时间<ol>
+<li>当配置时有 <load-on-startup>：服务器启动时</load-on-startup></li>
+<li>没有 <load-on-startup> ： 第一个请求对应地址时</load-on-startup></li>
+</ol>
+</li>
+<li>创建对象个数：只有一个， Servlet 为单例对象<br><strong>Servlet 类是线程不安全的， 所以要避免给 Servlet 类定义属性</strong></li>
+</ul>
+<h3 id="Tomcat-启动过程"><a href="#Tomcat-启动过程" class="headerlink" title="Tomcat 启动过程"></a>Tomcat 启动过程</h3><ol>
+<li><p>扫描 webapps 下面的所有网站</p>
+</li>
+<li><p>读取每个网站的 web.xml 获取 Servlet 类和对应的地址， 合并 conf/web.xml 中的 Servlet 类， 得到表格：</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>网站</th>
+<th>地址</th>
+<th>Servlet类</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>通用</td>
+<td>×.jsp</td>
+<td>jspServlet</td>
+</tr>
+<tr>
+<td>自定义Servlet</td>
+<td>web.xml 映射的地址</td>
+<td>自定义Servlet</td>
+</tr>
+<tr>
+<td>通用</td>
+<td>/</td>
+<td>DefaultServlet</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Tomcat-的请求处理过程"><a href="#Tomcat-的请求处理过程" class="headerlink" title="Tomcat 的请求处理过程"></a>Tomcat 的请求处理过程</h3><ol>
+<li><p>创建请求对象 <code>request</code> 和配套的响应对象 <code>response</code>， 将请求数据包中的数据封装到request请求的对象中</p>
+</li>
+<li><p>找到 servlet 类：按本次请求的地址到启动过程中建立的表格中一一对比， 找到 Servlet 对象</p>
+</li>
+<li><p>得到 Servlet 对象： 判断 Servlet 对象是否存在， 如果不存在， 则创建新的 Servlet 对象</p>
+</li>
+<li><p>调用 Servlet 对象的 <code>doGet</code>/<code>doPost</code>方法处理请求</p>
+</li>
+</ol>
+<h3 id="Servlet开发过程中常用的内置对象"><a href="#Servlet开发过程中常用的内置对象" class="headerlink" title="Servlet开发过程中常用的内置对象"></a>Servlet开发过程中常用的内置对象</h3><ol>
+<li><p>tomcat服务器已经创建的对象，我们直接使用就OK</p>
+</li>
+<li><p>request:请求对象，封装了请求数据包中的数据</p>
+</li>
+<li><p>response:响应对象，保存处理过程中产生的结果</p>
+</li>
+<li><p>servletConfig:初始化参数对象，保存配置文件中servlet配置中的初始化参数. 初始化参数配置在servlet中，适用于指定的servlet</p>
+<ol start="5">
+<li>servletContext:上下文对象，域对象，保存配置文件中配置的初始化参数. 初始化参数配置在servlet之外，适用于所有的servlet</li>
+</ol>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    <div>
+  
+    
+<div style="text-align:center;color: #ccc;font-size:14px;">
+------ end ------</div>
+
+  
+</div>
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/linux-swapfile/" rel="next" title="Linux Swapfile 创建">
+                <i class="fa fa-chevron-left"></i> Linux Swapfile 创建
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ffshine</p>
+              <p class="site-description motion-element" itemprop="description">个人笔记</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/post">
+                
+                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-name">categories</span>
+                  
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Servlet-三层架构思想"><span class="nav-number">1.</span> <span class="nav-text">Servlet(三层架构思想)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、Servlet概述"><span class="nav-number">1.1.</span> <span class="nav-text">1、Servlet概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、Servlet的生命周期"><span class="nav-number">1.2.</span> <span class="nav-text">2、Servlet的生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、怎么通过URL访问Servlet"><span class="nav-number">1.3.</span> <span class="nav-text">3、怎么通过URL访问Servlet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、Servlet中怎么获取表单数据"><span class="nav-number">1.4.</span> <span class="nav-text">4、Servlet中怎么获取表单数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、如何操作四大作用域"><span class="nav-number">1.5.</span> <span class="nav-text">5、如何操作四大作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6、如何跳转页面"><span class="nav-number">1.6.</span> <span class="nav-text">6、如何跳转页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7、过滤器"><span class="nav-number">1.7.</span> <span class="nav-text">7、过滤器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8、EL表达式和jstl标签-C标签"><span class="nav-number">1.8.</span> <span class="nav-text">8、EL表达式和jstl标签(C标签)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#8-1-EL表达式"><span class="nav-number">1.8.1.</span> <span class="nav-text">8.1.EL表达式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-2-jstl标签（C标签）"><span class="nav-number">1.8.2.</span> <span class="nav-text">8.2.jstl标签（C标签）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9、相对路径和绝对路径"><span class="nav-number">1.9.</span> <span class="nav-text">9、相对路径和绝对路径</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ADD"><span class="nav-number">2.</span> <span class="nav-text">ADD</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#servlet-工作工作过程和原理"><span class="nav-number">2.1.</span> <span class="nav-text">servlet 工作工作过程和原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Servlet-类的对象的创建"><span class="nav-number">2.1.1.</span> <span class="nav-text">Servlet 类的对象的创建</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tomcat-启动过程"><span class="nav-number">2.2.</span> <span class="nav-text">Tomcat 启动过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tomcat-的请求处理过程"><span class="nav-number">2.3.</span> <span class="nav-text">Tomcat 的请求处理过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Servlet开发过程中常用的内置对象"><span class="nav-number">2.4.</span> <span class="nav-text">Servlet开发过程中常用的内置对象</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ffshine</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Mist</a></div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.4"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
